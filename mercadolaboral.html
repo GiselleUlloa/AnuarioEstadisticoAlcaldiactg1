@@ -1,0 +1,2475 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> Anuario Estadístico- Cartagena de Indias </title>
+  <meta name="description"content="Anuario Estadístico – Cartagena en Cifras 2024. Presentación, notas metodológicas y capítulos de estadísticas sociales, económicas y ambientales." />
+<meta name="description" content="Anuario Estadístico – Cartagena en Cifras 2024. Presentación, notas metodológicas y capítulos de estadísticas sociales, económicas y ambientales." />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Favicon SVG (ligero y escalable) -->
+  <link rel="icon" type="image/svg+xml" href="img/EscudoCTG@.png">
+
+  <!-- Favicon PNG (compatibilidad con navegadores que no soportan SVG) -->
+  <link rel="icon" type="image/png" href="img/logo.png" sizes="32x32">
+
+  <!-- Hojas de estilo -->
+  <link rel="stylesheet" href="css/estilo.css" />
+</head>
+
+<body>
+   <!-- =========================================================
+     TOPBAR + MODAL COMPLETO (HTML + CSS + JS)
+========================================================= -->
+
+  <style>
+    /* =========================================================
+   🔝 TOPBAR
+========================================================= */
+    .topbar {
+      background: var(--verde);
+      color: var(--blanco);
+      font-size: 0.95rem;
+      padding: 0.5rem 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 0 0 var(--radius) var(--radius);
+    }
+
+    .topbar .topbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--gap-base);
+      padding: 0 var(--padding-base);
+    }
+
+    .topbar .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .topbar .brand strong {
+      color: var(--blanco);
+    }
+
+    .topbar .year-pill {
+      color: var(--blanco);
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-pill);
+      font-weight: 600;
+      font-size: 0.85rem;
+      box-shadow: var(--sombra-light);
+    }
+
+    .topbar .btn-link {
+      color: var(--blanco);
+      font-size: 0.85rem;
+      padding: 0.2rem 0.5rem;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.1);
+      transition: background 0.2s;
+    }
+
+    .topbar .btn-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+
+    /* =========================================================
+   🪟 MODAL (Bonito y centrado sin cambiar colores)
+========================================================= */
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(6px);
+      z-index: 9999;
+      animation: fadeIn 0.25s ease-out;
+    }
+
+    .modal-content {
+      background: #ffffff;
+      max-width: 650px;
+      width: 90%;
+      margin: 6% auto;
+      padding: 2.3rem 2.3rem 2rem;
+      border-radius: 14px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+      position: relative;
+      animation: slideUp 0.28s ease-out;
+    }
+
+    /* Botón X flotante */
+    .close-btn {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background: var(--verde);
+      color: var(--blanco);
+      font-size: 1.4rem;
+      font-weight: bold;
+      line-height: 38px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .close-btn:hover {
+      transform: scale(1.08);
+      opacity: 0.85;
+    }
+
+    /* Título */
+    .modal-content h2 {
+      margin-top: 0.4rem;
+      font-size: 1.7rem;
+      color: #222;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    /* Bloques */
+    .modal-content .bloque {
+      margin-bottom: 1.4rem;
+    }
+
+    .modal-content .bloque strong {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .modal-content .bloque p {
+      margin: 0.25rem 0 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #444;
+    }
+
+
+    /* =========================================================
+   🎬 Animaciones
+========================================================= */
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+      }
+
+      to {
+        opacity: 1;
+        backdrop-filter: blur(6px);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+
+
+  <!-- =========================================================
+     HTML
+========================================================= -->
+
+  <!-- Topbar -->
+  <div class="topbar" role="region" aria-label="Barra superior">
+    <div class="container topbar-container">
+      <div class="brand">
+        <strong>Distrito de Cartagena</strong>
+        <span class="year-pill">2025</span>
+      </div>
+
+      <a href="#" class="btn-link" id="openModalBtn">Créditos</a>
+    </div>
+  </div>
+
+
+  <!-- Modal de Créditos -->
+  <div id="creditosModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="creditosTitulo">
+    <div class="modal-content">
+
+      <!-- Botón X -->
+      <button class="close-btn" id="closeModalBtn" aria-label="Cerrar">×</button>
+
+      <h2 id="creditosTitulo">Créditos</h2>
+
+      <div class="bloque">
+        <strong>Editor:</strong>
+        <p>Camilo Rey Sabogal</p>
+        <p>Secretario de Planeación Distrital
+        </p>
+      </div>
+
+      <div class="bloque">
+        <strong>Autores:</strong>
+        <p>
+          Giselle Andrea Ulloa De la Rosa · Kevin Alexander Yonoff Jácome · Jesús Reinaldo Díaz Pérez · Laima Guatecique
+          Lidueña ·
+          Sharon Melissa Buelvas Lambertinez · Mariana Llano Valencia · Giobanna Patricia Buenahora Molina ·
+          Alberto José Agualimpia Reales · Alexander Duque Dávila · José Daniel González Agudelo ·
+          Jhonatan Andrés Ortiz Macea · Iván Andrés Verbel Montes · Mayte Alejandra Álvarez Córdoba ·
+          Jairo Alonso Rodríguez Buelvas · Franklin De Jesús Vega Estrada
+        </p>
+      </div>
+
+      <div class="bloque">
+        <strong>Diseño y diagramación:</strong>
+        <p>Giselle Andrea Ulloa De la Rosa · Laima Guatecique Lidueña</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =========================================================
+     JS (Integrado)
+========================================================= -->
+  <script>
+    // Abrir modal
+    const openModalBtn = document.getElementById("openModalBtn");
+    const modal = document.getElementById("creditosModal");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+
+    openModalBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      modal.style.display = "block";
+    });
+
+    // Cerrar modal con botón X
+    closeModalBtn.addEventListener("click", function () {
+      modal.style.display = "none";
+    });
+
+    // Cerrar haciendo clic fuera del contenido
+    window.addEventListener("click", function (e) {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  </script>
+
+ <!-- Hero -->
+  <header class="hero" role="banner">
+    <img src="img/banneranuarioestadistico.jpg" alt="Banner principal" class="banner-img">
+    <div class="wave"></div>
+  </header>
+
+  <!-- Navbar azul institucional -->
+  <nav class="navbar" aria-label="Secciones del anuario">
+    <ul class="menu-items" id="menu">
+      <li><a href="index.html" class="active">Presentación</a></li>
+      <li><a href="demografia.html">Demografía</a></li>
+      <li><a href="pobreza.html">Pobreza</a></li>
+      <li><a href="turismo.html">Turismo</a></li>
+      <li><a href="vivienda.html">Vivienda</a></li>
+      <li><a href="seguridad.html">Seguridad</a></li>
+      <li><a href="economia.html">Economía</a></li>
+      <li><a href="educacion.html">Educación</a></li>
+      <li><a href="mercadolaboral.html">Mercado Laboral</a></li>
+      <li><a href="censo.html">Censo</a></li>
+      <li><a href="movilidad.html">Movilidad</a></li>
+      <li><a href="salud.html">Salud</a></li>
+    
+
+    </ul>
+    <button id="menuToggle" aria-label="Abrir menú" class="hamburger">☰</button>
+  </nav>
+
+
+
+  <main class="container">
+  <section class="mercado-laboral">
+    <!-- Título principal -->
+     <header>
+<h2>Mercado Laboral</h2>
+     </header>
+    
+
+    <!-- Tarjeta de introducción -->
+    <section class="vivienda-introduccion-tarjeta">
+      <div class="vivienda-introduccion">
+        <p>
+          Esta sección presenta los principales indicadores del <strong>mercado laboral de Cartagena de Indias</strong> durante el
+          periodo <strong>2020-2024</strong>. Los datos provienen de la 
+          <strong>Gran Encuesta Integrada de Hogares (GEIH)</strong>, realizada por el DANE de manera mensual.
+        </p>
+        <p>
+          Los indicadores se desagregan por sexo (hombres, mujeres y total) y se presentan con periodicidad de
+          trimestre móvil. Para comparaciones con el nivel nacional, los cálculos se basan en el promedio anual correspondiente.
+        </p>
+        <p>
+          La comprensión del mercado laboral requiere analizar la 
+          <strong>Población en Edad de Trabajar (PET)</strong>, la 
+          <strong>Fuerza de Trabajo (FT)</strong> y la 
+          <strong>Población Fuera de la Fuerza de Trabajo (FFT)</strong>.
+        </p>
+        <p>
+          Estos análisis facilitan la identificación de brechas de género, oportunidades de empleo y la necesidad de políticas
+          que fortalezcan la inserción laboral, la capacitación y la equidad en el mercado de trabajo local.
+        </p>
+      </div>
+    </section>
+  </section>
+
+
+    <section class="mercado-laboral-estructura">
+      <!-- 1. Título -->
+      <h3>Estructura del Mercado Laboral - 2024</h3>
+
+      <!-- 2. Gráfico -->
+      <div class="grafico">
+        <div class='tableauPlaceholder' id='vizMercadoLaboral' style='position: relative'>
+          <noscript>
+            <a href='#'>
+              <img alt='Hombres y mujeres'
+                src='https://public.tableau.com/static/images/In/Indicadoresnuevo/Hombresymujeres/1_rss.png'
+                style='border: none' />
+            </a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='Indicadoresnuevo/Hombresymujeres' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image'
+              value='https://public.tableau.com/static/images/In/Indicadoresnuevo/Hombresymujeres/1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='es-ES' />
+            <param name='filter' value='publish=yes' />
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('vizMercadoLaboral');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          if (divElement.offsetWidth > 800) { vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; }
+          else if (divElement.offsetWidth > 500) { vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; }
+          else { vizElement.style.width = '100%'; vizElement.style.height = '3127px'; }
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+      </div>
+
+      <!-- 3. Descripción en tarjetas -->
+      <div class="tarjetas-descripcion">
+        <div class="tarjeta">
+          <h4>Población en Edad de Trabajar (PET)</h4>
+          <p>Conjunto de personas mayores de 15 años, dividida en Población Fuera de la Fuerza de Trabajo (FFT) y Fuerza
+            de Trabajo (FT).</p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Población Fuera de la Fuerza de Trabajo (FFT)</h4>
+          <p>Personas que decidieron no participar en el mercado laboral, dedicándose a estudiar, realizar oficios del
+            hogar u otras actividades.</p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Fuerza de Trabajo (FT)</h4>
+          <p>Integrada por los <strong>Ocupados</strong> (personas con empleo) y los <strong>Desocupados</strong>
+            (personas que buscan activamente empleo).</p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Nota metodológica</h4>
+          <p>Antes del marco metodológico del 2018 de la GEIH, la edad mínima para ser considerada en la PET no era
+            igual en todas las zonas: área rural ≥10 años, área urbana ≥12 años.</p>
+        </div>
+      </div>
+
+      <!-- 4. Fuente -->
+      <p class="fuente">
+        Fuente: Gran Encuesta Integrada de Hogares (GEIH) - DANE
+      </p>
+    </section>
+
+    <section class="mercado-laboral-pet-ft">
+      <!-- 1. Título -->
+      <h3>Población en edad  y de Fuerza de Trabajo Cartagena Vs Nacional 
+        (Total, Hombres, Mujeres)
+       2021-2024</h3>
+
+      <!-- 2. Gráfico -->
+      <div class="grafico">
+        <div class='tableauPlaceholder' id='vizPET_FT' style='position: relative'>
+          <noscript>
+            <a href='#'>
+              <img alt='Población en edad de trabajar y fuerza de trabajo'
+                src='https://public.tableau.com/static/images/In/Indicadoresnuevo/poblacionenedadyfuerzadetrabajo/1_rss.png'
+                style='border: none' />
+            </a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='Indicadoresnuevo/poblacionenedadyfuerzadetrabajo' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image'
+              value='https://public.tableau.com/static/images/In/Indicadoresnuevo/poblacionenedadyfuerzadetrabajo/1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='es-ES' />
+            <param name='filter' value='publish=yes' />
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('vizPET_FT');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          if (divElement.offsetWidth > 800) { vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; }
+          else if (divElement.offsetWidth > 500) { vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; }
+          else { vizElement.style.width = '100%'; vizElement.style.height = '877px'; }
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+      </div>
+
+      <!-- 3. Descripción en tarjetas -->
+      <div class="tarjetas-descripcion">
+        <div class="tarjeta">
+          <h4>Crecimiento de la Población en Edad de Trabajar</h4>
+          <p>Se observa un aumento sostenido de la población , lo que indica un crecimiento de la potencial oferta
+            laboral en Cartagena.</p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Fuerza de Trabajo</h4>
+          <p>Incluye todas las personas activas en el mercado laboral, ya sea ocupadas o en búsqueda de empleo.</p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Comparación Trimestral 2021-2024</h4>
+          <p>Entre el primer trimestre de 2021 (enero-marzo) y el último de 2024, (enero-marzo) la fuerza de trabajo de
+            Cartagena muestra una reducción aproximada de 50 mil personas.</p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Desagregación por Sexo</h4>
+          <p>El indicador se presenta para total, hombres y mujeres, permitiendo un análisis más detallado de la
+            participación laboral.</p>
+        </div>
+      </div>
+
+      <!-- 4. Fuente -->
+      <p class="fuente">
+        Fuente: Gran Encuesta Integrada de Hogares (GEIH) - DANE
+      </p>
+    </section>
+
+
+    <section class="mercado-laboral-ocupacion">
+      <!-- 1. Título -->
+      <h3>Tasa de Ocupación en Cartagena. Hombres, Mujeres y Total.(2021-2024) </h3>
+
+      <!-- 2. Gráfico -->
+      <div class="grafico">
+        <div class='tableauPlaceholder' id='vizTasaOcupacion' style='position: relative'>
+          <noscript>
+            <a href='#'>
+              <img alt='Tasa de Ocupación'
+                src='https://public.tableau.com/static/images/In/Indicadoresnuevo/TotalOcupados/1_rss.png'
+                style='border: none' />
+            </a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='Indicadoresnuevo/TotalOcupados' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image'
+              value='https://public.tableau.com/static/images/In/Indicadoresnuevo/TotalOcupados/1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='es-ES' />
+            <param name='filter' value='publish=yes' />
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('vizTasaOcupacion');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          if (divElement.offsetWidth > 800) { vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; }
+          else if (divElement.offsetWidth > 500) { vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; }
+          else { vizElement.style.width = '100%'; vizElement.style.height = '877px'; }
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+      </div>
+
+      <!-- 3. Descripción en tarjetas -->
+      <div class="tarjetas-descripcion">
+        <div class="tarjeta">
+          <h4>Hombres</h4>
+          <p>La tasa de ocupación masculina en Cartagena se ubicó en 69,0 % en 2024, con una disminución de 1,5 puntos
+            porcentuales frente al año anterior.</p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Mujeres</h4>
+          <p>La tasa de ocupación femenina alcanzó el 45,0 %, con una disminución de 2,8 puntos porcentuales respecto a
+            2023.</p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Total</h4>
+          <p>Por primera vez, la tasa de ocupación de Cartagena se ubicó por debajo del nivel nacional, con 2,1 puntos
+            porcentuales menos que la media del país.</p>
+        </div>
+      </div>
+
+      <!-- 4. Fuente -->
+      <p class="fuente">
+        Fuente: Gran Encuesta Integrada de Hogares (GEIH) – DANE
+      </p>
+    </section>
+
+    
+<section class="seccion-formales-informales">
+  <div class="container">
+    <!-- Título de la sección -->
+    <h3 class="titulo-seccion">Formales e Informales Cartagena -  2024 </h3>
+
+    <!-- 🌐 Gráfico Tableau: Formales e Informales -->
+    <div class="tableauPlaceholder" id="viz1757531332606" style="position: relative;">
+      <noscript>
+        <a href="#">
+          <img 
+            alt="Formales e Informales" 
+            src="https://public.tableau.com/static/images/In/Indicadoresnuevo/FormaleseInformales/1_rss.png" 
+            style="border: none;"
+          />
+        </a>
+      </noscript>
+
+      <object class="tableauViz" style="display: none;">
+        <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+        <param name="embed_code_version" value="3" />
+        <param name="site_root" value="" />
+        <param name="name" value="Indicadoresnuevo/FormaleseInformales" />
+        <param name="tabs" value="no" />
+        <param name="toolbar" value="yes" />
+        <param name="static_image" value="https://public.tableau.com/static/images/In/Indicadoresnuevo/FormaleseInformales/1.png" />
+        <param name="animate_transition" value="yes" />
+        <param name="display_static_image" value="yes" />
+        <param name="display_spinner" value="yes" />
+        <param name="display_overlay" value="yes" />
+        <param name="display_count" value="yes" />
+        <param name="language" value="es-ES" />
+        <param name="filter" value="publish=yes" />
+      </object>
+    </div>
+
+    <script type="text/javascript">
+      (function() {
+        var divElement = document.getElementById('viz1757531332606');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+
+        // Responsivo según ancho del contenedor
+        if (divElement.offsetWidth > 800) {
+          vizElement.style.width = '100%';
+          vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+        } else if (divElement.offsetWidth > 500) {
+          vizElement.style.width = '100%';
+          vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+        } else {
+          vizElement.style.width = '100%';
+          vizElement.style.height = '877px';
+        }
+
+        // Carga del script de Tableau
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+      })();
+    </script>
+
+  
+ <!-- 🌟 Tarjetas de indicadores -->
+    <div class="tarjetas-descripcion">
+
+      <!-- Tarjeta 1: Mejora en la calidad del empleo -->
+      <div class="tarjeta-descripcion">
+        <h4>Mejora en la calidad del empleo</h4>
+        <p>Se evidencia una mejora significativa reflejada en la reducción del número de ocupados informales y el aumento de ocupados formales.</p>
+      </div>
+
+      <!-- Tarjeta 2: Trabajadores informales -->
+      <div class="tarjeta-descripcion">
+        <h4>Trabajadores informales</h4>
+        <p>En 2021, se registraban aproximadamente  207 mil  trabajadores informales cifra que disminuyó a 196 mil en 2024.
+</p>
+        <p>Reducción significativa de trabajadores informales en el periodo analizado.</p>
+      </div>
+
+      <!-- Tarjeta 3: Ocupados formales -->
+      <div class="tarjeta-descripcion">
+        <h4>Ocupados formales</h4>
+  <p>Refleja un avance significativo hacia una mayor formalización laboral en la ciudad.</p>
+  <p>El número de ocupados formales pasó de 161 mil en 2021  a 209 mil en 2024 , mostrando un crecimiento constante.</p>
+      
+      </div>
+     
+    </div>
+  </div>
+
+
+    
+   
+   <!-- 4. Fuente -->
+      <p class="fuente">
+        Fuente: Gran Encuesta Integrada de Hogares (GEIH) – DANE.
+     </p>
+</section>
+
+
+    <section class="mercado-laboral-desocupacion">
+      <!-- 1. Título -->
+      <h3>Tasa de Desocupación en Cartagena (Hombres, Mujeres y Total) 2021-2024</h3>
+
+      <!-- 2. Gráfico -->
+      <div class="grafico">
+        <div class='tableauPlaceholder' id='vizTasaDesocupacion' style='position: relative'>
+          <noscript>
+            <a href='#'>
+              <img alt='Tasa de Desocupación'
+                src='https://public.tableau.com/static/images/In/Indicadoresnuevo/TasadeDesocupacin/1_rss.png'
+                style='border: none' />
+            </a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='Indicadoresnuevo/TasadeDesocupacin' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image'
+              value='https://public.tableau.com/static/images/In/Indicadoresnuevo/TasadeDesocupacin/1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='es-ES' />
+            <param name='filter' value='publish=yes' />
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('vizTasaDesocupacion');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          if (divElement.offsetWidth > 800) { vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; }
+          else if (divElement.offsetWidth > 500) { vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; }
+          else { vizElement.style.width = '100%'; vizElement.style.height = '727px'; }
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+      </div>
+
+      <!-- 3. Descripción en tarjetas -->
+      <div class="tarjetas-descripcion">
+        <div class="tarjeta">
+          <h4>Hombres</h4>
+          <p>La tasa de desocupación masculina cerró en 6,8 % en 2024, con una disminución de 0,7 puntos porcentuales
+            respecto al año anterior.</p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Mujeres</h4>
+          <p>La tasa de desocupación femenina fue de 16,1 %, con una reducción de 0,4 puntos porcentuales frente a 2023.
+          </p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Total</h4>
+          <p>Se observa que, a pesar de la disminución, la brecha de género en la desocupación sigue siendo
+            significativa en la ciudad.</p>
+        </div>
+      </div>
+
+      <!-- 4. Fuente -->
+      <p class="fuente">
+        Fuente: Gran Encuesta Integrada de Hogares (GEIH) – DANE
+      </p>
+    </section>
+
+   
+   <section class="mercado-laboral-desempleo-comparativo">
+  <!-- 1. Título -->
+  <h3 class="titulo-seccion"> Tasa de Desempleo en Cartagena Vs Nacional y Ciudades Capitales (2021-2024)</h3>
+
+  <!-- 2. Gráfico -->
+  <div class="grafico">
+    <div class="tableauPlaceholder" id="vizTasaDesempleoComparativo" style="position: relative">
+      <noscript>
+        <a href="#">
+          <img alt="Tasa de Desempleo"
+            src="https://public.tableau.com/static/images/In/Indicadoresnuevo/TasadeDesocupacin_1/1_rss.png"
+            style="border: none" />
+        </a>
+      </noscript>
+      <object class="tableauViz" style="display:none;">
+        <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+        <param name="embed_code_version" value="3" />
+        <param name="site_root" value="" />
+        <param name="name" value="Indicadoresnuevo/TasadeDesocupacin_1" />
+        <param name="tabs" value="no" />
+        <param name="toolbar" value="yes" />
+        <param name="static_image"
+          value="https://public.tableau.com/static/images/In/Indicadoresnuevo/TasadeDesocupacin_1/1.png" />
+        <param name="animate_transition" value="yes" />
+        <param name="display_static_image" value="yes" />
+        <param name="display_spinner" value="yes" />
+        <param name="display_overlay" value="yes" />
+        <param name="display_count" value="yes" />
+        <param name="language" value="es-ES" />
+        <param name="filter" value="publish=yes" />
+      </object>
+    </div>
+    <script type="text/javascript">
+      var divElement = document.getElementById('vizTasaDesempleoComparativo');
+      var vizElement = divElement.getElementsByTagName('object')[0];
+      if (divElement.offsetWidth > 800) {
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+      } else if (divElement.offsetWidth > 500) {
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+      } else {
+        vizElement.style.width = '100%';
+        vizElement.style.height = '827px';
+      }
+      var scriptElement = document.createElement('script');
+      scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+      vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+  </div>
+
+  <!-- 3. Descripción General -->
+  <div class="tarjetas-descripcion">
+    <div class="tarjeta tarjeta-descripcion">
+      <h4>📊 Panorama General</h4>
+      <p>
+        Durante el periodo analizado, la tasa de desempleo en Cartagena se ha mantenido por encima de la tasa
+        nacional. Además, para 2024, la ciudad se posiciona como la novena de las ciudades capitales con mayor
+        desempleo del país y la cuarta dentro de la región Caribe, lo que evidencia los retos persistentes en la
+        generación de empleo en el territorio.
+      </p>
+    </div>
+  </div>
+
+  <!-- 4. Notas -->
+  <div class="tarjetas-descripcion">
+    <div class="tarjeta">
+      <h4>Notas – Parte 1</h4>
+      <ul>
+        <li><strong>Medellín A.M.:</strong>  incluye el Valle de Aburrá (Caldas, La Estrella, Sabaneta, Itagüí, Envigado, Bello, 
+          Copacabana, Girardota y Barbosa).</li>
+        <li><strong>Cali A.M.:</strong> incluye a Yumbo.</li>
+      </ul>
+    </div>
+
+    <div class="tarjeta">
+      <h4>Notas – Parte 2</h4>
+      <ul>
+        <li><strong>Bucaramanga A.M.:</strong> incluye Girón, Piedecuesta y Floridablanca.</li>
+        <li><strong>Manizales A.M.:</strong> incluye a Villa María.</li>
+      </ul>
+    </div>
+
+    <div class="tarjeta">
+      <h4>Notas – Parte 3</h4>
+      <ul>
+        <li><strong>Pereira A.M.:</strong> incluye a Dosquebradas y La Virginia.</li>
+        <li><strong>Cúcuta A.M.:</strong> incluye a Villa del Rosario, Los Patios, Puerto Santander y El Zulia.</li>
+        <li><strong>Barranquilla A.M.:</strong> incluye a Soledad.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 5. Fuente -->
+  <p class="fuente">
+    Fuente: Gran Encuesta Integrada de Hogares (GEIH) – DANE.
+  </p>
+</section>
+
+
+    <section class="poblacion-fuera-fuerza-trabajo">
+      <!-- 1. Título -->
+      <h3>Población fuera de la fuerza de trabajo en Cartagena (2021 - 2024)</h3>
+
+      <!-- 2. Gráfico -->
+      <div class="grafico">
+        <div class='tableauPlaceholder' id='vizPoblacionFueraFuerzaTrabajo' style='position: relative'>
+          <noscript>
+            <a href='#'>
+              <img alt='Población fuera de la fuerza de trabajo'
+                src='https://public.tableau.com/static/images/In/Indicadoresnuevo/ocupaciones2/1_rss.png'
+                style='border: none' />
+            </a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='Indicadoresnuevo/ocupaciones2' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image'
+              value='https://public.tableau.com/static/images/In/Indicadoresnuevo/ocupaciones2/1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='es-ES' />
+            <param name='filter' value='publish=yes' />
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('vizPoblacionFueraFuerzaTrabajo');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          if (divElement.offsetWidth > 800) {
+            vizElement.style.width = '100%';
+            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+          } else if (divElement.offsetWidth > 500) {
+            vizElement.style.width = '100%';
+            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+          } else {
+            vizElement.style.width = '100%';
+            vizElement.style.height = '1227px';
+          }
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+      </div>
+
+      <!-- 3. Descripción en tarjetas -->
+      <div class="tarjetas-descripcion">
+        <div class="tarjeta">
+          <h4>Descripción</h4>
+          <p>
+            En 2024, por primera vez en los años analizados, la proporción de población por fuera de la fuerza de
+            trabajo en Cartagena
+            superó la registrada a nivel nacional, con una diferencia de <strong>1 punto porcentual</strong>.
+          </p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Distribución</h4>
+          <p>
+            Dentro de esta población, el <strong>48 %</strong> manifestó dedicarse a oficios del hogar,
+            mientras que un <strong>32 %</strong> indicó estar estudiando como principal motivo
+            para no participar en el mercado laboral.
+          </p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Otros Casos</h4>
+          <p>
+            También se incluyen personas que consideran que no es necesario trabajar,
+            así como rentistas, pensionados y otras personas inactivas por razones
+            distintas a la búsqueda de empleo.
+          </p>
+        </div>
+      </div>
+
+      <!-- 4. Fuente -->
+      <p class="fuente">
+        Fuente: Gran Encuesta Integrada de Hogares (GEIH) – DANE.
+      </p>
+    </section>
+
+
+    <section class="tasa-global-participacion">
+      <!-- 1. Título -->
+      <h3>Tasa Global de Participación en Cartagena. Hombres, Mujeres y Total (2021-2024)</h3>
+
+      <!-- 2. Gráfico -->
+      <div class="grafico">
+        <div class='tableauPlaceholder' id='vizTasaGlobalParticipacion' style='position: relative'>
+          <noscript>
+            <a href='#'>
+              <img alt='Tasa Global de Participación'
+                src='https://public.tableau.com/static/images/In/Indicadoresnuevo/TGP/1_rss.png' style='border: none' />
+            </a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='Indicadoresnuevo/TGP' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https://public.tableau.com/static/images/In/Indicadoresnuevo/TGP/1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='es-ES' />
+            <param name='filter' value='publish=yes' />
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('vizTasaGlobalParticipacion');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          if (divElement.offsetWidth > 800) {
+            vizElement.style.width = '100%';
+            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+          } else if (divElement.offsetWidth > 500) {
+            vizElement.style.width = '100%';
+            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+          } else {
+            vizElement.style.width = '100%';
+            vizElement.style.height = '877px';
+          }
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+      </div>
+
+      <!-- 3. Descripción en tarjetas revisar solo a un  texto  -->
+      <div class="tarjetas-descripcion">
+        <div class="tarjeta">
+          <h4>Definición</h4>
+          <p>
+            Este indicador mide el grado de inserción de la población en edad de trabajar dentro del mercado laboral.
+            Se calcula como la relación porcentual entre la población en edad de trabajar y la fuerza de trabajo.
+          </p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Interpretación</h4>
+          <p>
+            Una mayor TGP refleja una mayor participación de las personas en el mercado laboral,
+            indicando mayor capacidad o disposición para buscar y/o mantener un empleo.
+          </p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Distribución del Empleo</h4>
+          <p>
+            La información se desagrega según actividades económicas y calidad laboral,
+            diferenciando entre trabajo formal e informal.
+          </p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Ingresos y Posición</h4>
+          <p>
+            También se reportan los ingresos promedio según la actividad económica
+            y la distribución del empleo según la posición ocupacional.
+          </p>
+        </div>
+      </div>
+
+      <!-- 4. Fuente -->
+      <p class="fuente">
+        Fuente: Gran Encuesta Integrada de Hogares (GEIH) – DANE.
+      </p>
+    </section>
+
+
+    <section class="empleo-ingresos">
+      <!-- 1. Título -->
+      <h3>Empleo e Ingresos promedios por actividades económicas</h3>
+      <p><strong>(Total de Ocupados, Formales e Informales) 2021-2024</strong></p>
+
+      <!-- 2. Gráfico -->
+      <div class="grafico">
+        <div class='tableauPlaceholder' id='vizEmpleoIngresos' style='position: relative'>
+          <noscript>
+            <a href='#'>
+              <img alt='Ingreso por actividades'
+                src='https://public.tableau.com/static/images/In/Indicadoresnuevo/Ingresoporactividaes/1_rss.png'
+                style='border: none' />
+            </a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='Indicadoresnuevo/Ingresoporactividaes' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image'
+              value='https://public.tableau.com/static/images/In/Indicadoresnuevo/Ingresoporactividaes/1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='es-ES' />
+            <param name='filter' value='publish=yes' />
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('vizEmpleoIngresos');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          if (divElement.offsetWidth > 800) {
+            vizElement.style.width = '100%';
+            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+          } else if (divElement.offsetWidth > 500) {
+            vizElement.style.width = '100%';
+            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+          } else {
+            vizElement.style.width = '100%';
+            vizElement.style.height = '1077px';
+          }
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+      </div>
+
+      <!-- 3. Descripción en tarjetas -->
+      <div class="tarjetas-descripcion">
+        <div class="tarjeta">
+          <h4>Actividades principales</h4>
+          <p>
+            Las actividades con mayor participación de los cartageneros en 2024 fueron
+            <strong>Comercio</strong>, <strong>Transporte y almacenamiento</strong>,
+            y <strong>Alojamiento y servicios de comida</strong>.
+          </p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Empleo total</h4>
+          <p>
+            Estas tres actividades representaron cerca del <strong>85 %</strong>
+            del empleo total en la ciudad, mostrando su relevancia en la economía local.
+          </p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Ingresos promedios</h4>
+          <p>
+            Excepto <strong>transporte y almacenamiento</strong>, las demás
+            registraron ingresos por debajo del <strong>salario mínimo legal vigente</strong>.
+          </p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Interpretación</h4>
+          <p>
+            Esto evidencia la concentración laboral en sectores de baja remuneración,
+            lo que puede impactar el bienestar y la capacidad de consumo de los hogares.
+          </p>
+        </div>
+      </div>
+
+      <!-- 4. Fuente -->
+      <p class="fuente">
+        Fuente: Gran Encuesta Integrada de Hogares (GEIH) – DANE.
+      </p>
+    </section>
+
+    <section class="distribucion-empleo">
+      <!-- 1. Título -->
+      <h3>Distribución del Empleo según actividad económica (2024)</h3>
+
+      <!-- 2. Gráfico -->
+      <div class="grafico">
+        <div class='tableauPlaceholder' id='vizDistribucionEmpleo' style='position: relative'>
+          <noscript>
+            <a href='#'>
+              <img alt='Distribución del empleo por ramas'
+                src='https://public.tableau.com/static/images/In/Indicadoresnuevo/Ramas/1_rss.png'
+                style='border: none' />
+            </a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='Indicadoresnuevo/Ramas' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image'
+              value='https://public.tableau.com/static/images/In/Indicadoresnuevo/Ramas/1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='es-ES' />
+            <param name='filter' value='publish=yes' />
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('vizDistribucionEmpleo');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          if (divElement.offsetWidth > 800) {
+            vizElement.style.width = '100%';
+            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+          } else if (divElement.offsetWidth > 500) {
+            vizElement.style.width = '100%';
+            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+          } else {
+            vizElement.style.width = '100%';
+            vizElement.style.height = '3227px';
+          }
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+      </div>
+
+      <!-- 3. Descripción en tarjetas -->
+      <div class="tarjetas-descripcion">
+        <div class="tarjeta">
+          <h4>Definición</h4>
+          <p>
+            Esta sección muestra cómo se distribuye el empleo en Cartagena
+            según las diferentes ramas de actividad económica.
+          </p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Clasificación</h4>
+          <p>
+            La división de actividades se realiza según la clasificación
+            del <strong>CIU 4</strong> establecida por el DANE.
+          </p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Interpretación</h4>
+          <p>
+            Permite identificar en qué sectores se concentra la mayor parte
+            de los empleos y cómo se distribuyen a lo largo de la economía local.
+          </p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Importancia</h4>
+          <p>
+            Esta información es clave para orientar políticas de empleo,
+            educación y formación para el trabajo en la ciudad.
+          </p>
+        </div>
+      </div>
+
+      <!-- 4. Fuente -->
+      <p class="fuente">
+        Fuente: Gran Encuesta Integrada de Hogares (GEIH) – DANE.
+      </p>
+    </section>
+
+    <section class="distribucion-empleo-ocupacional">
+      <!-- 1. Título -->
+      <h3>Distribución del empleo en Cartagena según posición ocupacional (2024)</h3>
+
+      <!-- 2. Gráfico -->
+      <div class="grafico">
+        <div class='tableauPlaceholder' id='vizDistribucionOcupacional' style='position: relative'>
+          <noscript>
+            <a href='#'>
+              <img alt='Distribución por ocupaciones'
+                src='https://public.tableau.com/static/images/In/Indicadoresnuevo/ocupaciones/1_rss.png'
+                style='border: none' />
+            </a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='Indicadoresnuevo/ocupaciones' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image'
+              value='https://public.tableau.com/static/images/In/Indicadoresnuevo/ocupaciones/1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='es-ES' />
+            <param name='filter' value='publish=yes' />
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('vizDistribucionOcupacional');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          if (divElement.offsetWidth > 800) {
+            vizElement.style.width = '100%';
+            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+          } else if (divElement.offsetWidth > 500) {
+            vizElement.style.width = '100%';
+            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+          } else {
+            vizElement.style.width = '100%';
+            vizElement.style.height = '1527px';
+          }
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+      </div>
+
+      <!-- 3. Descripción en tarjeta -->
+      <div class="tarjetas-descripcion">
+        <div class="tarjeta">
+
+          <p>
+            Muestra cómo se distribuye el empleo en la ciudad según la posición ocupacional
+            de los trabajadores (empleadores, cuenta propia, asalariados, entre otros).
+          </p>
+        </div>
+      </div>
+
+      <!-- 4. Fuente -->
+      <p class="fuente">
+        Fuente: Gran Encuesta Integrada de Hogares (GEIH) – DANE.
+      </p>
+    </section>
+
+    <section class="trabajo-no-remunerado">
+      <!-- 1. Título -->
+      <h3>Trabajo no remunerado en Cartagena (2021 - 2024)</h3>
+
+      <!-- 2. Gráfico -->
+      <div class="grafico">
+        <div class='tableauPlaceholder' id='vizTrabajoNoRemunerado' style='position: relative'>
+          <noscript>
+            <a href='#'>
+              <img alt='Trabajo no remunerado'
+                src='https://public.tableau.com/static/images/In/Indicadoresnuevo/TrabajonoRemunerado/1_rss.png'
+                style='border: none' />
+            </a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='Indicadoresnuevo/TrabajonoRemunerado' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image'
+              value='https://public.tableau.com/static/images/In/Indicadoresnuevo/TrabajonoRemunerado/1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='es-ES' />
+            <param name='filter' value='publish=yes' />
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('vizTrabajoNoRemunerado');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          if (divElement.offsetWidth > 800) {
+            vizElement.style.width = '100%';
+            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+          } else if (divElement.offsetWidth > 500) {
+            vizElement.style.width = '100%';
+            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+          } else {
+            vizElement.style.width = '100%';
+            vizElement.style.height = '727px';
+          }
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+      </div>
+
+      <!-- 3. Descripción en tarjetas -->
+      <div class="tarjetas-descripcion">
+        <div class="tarjeta">
+          <h4>Definición</h4>
+          <p>
+            Se refiere a las personas que trabajan sin recibir remuneración,
+            generalmente en negocios familiares o actividades comunitarias.
+          </p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Situación 2024</h4>
+          <p>
+            En octubre-diciembre 2024 se registraron <strong>4.724 personas</strong>
+            sin remuneración: <strong>3.466 mujeres</strong> y <strong>1.276 hombres</strong>.
+          </p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Tendencia</h4>
+          <p>
+            La cifra representa un <strong>incremento del 25 %</strong> respecto al
+            trimestre septiembre-noviembre de 2024, cuando había 3.378 ocupados.
+          </p>
+        </div>
+
+        <div class="tarjeta">
+          <h4>Importancia</h4>
+          <p>
+            Aunque representa solo el <strong>0,8 %</strong> de los ocupados,
+            es un indicador clave para medir la calidad del empleo en Cartagena.
+          </p>
+        </div>
+      </div>
+
+      <!-- 4. Fuente -->
+      <p class="fuente">
+        Fuente: Gran Encuesta Integrada de Hogares (GEIH) – DANE.
+      </p>
+    </section>
+
+   
+
+      <section class="empleo-jovenes">
+  <h3>Tasa De Ocupación Y Tasa De Desocupación (No De Desocupados )</h3>
+      <!-- 1. Título -->
+               
+
+
+      <!-- 2. Gráfico -->
+      <div class="grafico">
+        <div class='tableauPlaceholder' id='vizEmpleoJovenes' style='position: relative'>
+          <noscript>
+            <a href='#'>
+              <img alt='Empleo y desempleo en jóvenes'
+                src='https://public.tableau.com/static/images/In/Indicadoresnuevo/Jvenes/1_rss.png'
+                style='border: none' />
+            </a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='Indicadoresnuevo/Jvenes' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image'
+              value='https://public.tableau.com/static/images/In/Indicadoresnuevo/Jvenes/1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='es-ES' />
+            <param name='filter' value='publish=yes' />
+          </object>
+        </div>
+      </div>
+
+     <!-- 🆕 Tarjetas con nueva estructura -->
+  <div class="tarjetas-jovenes">
+    <div class="tarjeta-joven">
+      <div class="icono">📊</div>
+      <h4>Contexto</h4>
+      <p>Entre 2021 y 2025 se observa un  deterioro progresivo 
+        de las condiciones laborales de la población joven en Cartagena.
+      </p>
+    </div>
+
+    <div class="tarjeta-joven">
+      <div class="icono">👥</div>
+      <h4>Tasa de Ocupación</h4>
+      <p>La tasa de ocupación juvenil muestra una tendencia descendente
+          Pasó de 46,0 %  en el primer 
+          trimestre del 2021 a 35,3 %  en el último trimestre analizado, siendo este comportamiento
+           más marcado en  mujeres jóvenes, cuya tasa cayó ,  la caída fue mayor
+        38,2 % ➝ 27,1 %.
+      </p>
+    </div>
+
+    <div class="tarjeta-joven">
+      <div class="icono">📈</div>
+      <h4>Tasa de Desocupación</h4>
+      <p>  Paralelamente, aunque la tasa de desocupación juvenil presenta leves fluctuaciones,
+         mantiene niveles elevados, disminuyendo solo  Aunque mantiene niveles altos, ha mostrado ligera mejora:
+        22,8 % ➝ 19,5 %.
+      </p>
+    </div>
+
+    <div class="tarjeta-joven">
+      <div class="icono">💡</div>
+      <h4>Interpretación</h4>
+      <p>La caída en ocupación evidencia
+        mayores barreras de acceso al trabajo para jóvenes, especialmente mujeres,
+        mientras que la baja en desocupación
+        podría reflejar desánimo para buscar empleo.
+      </p>
+    </div>
+  </div>
+
+  <p class="fuente">
+    Fuente: Gran Encuesta Integrada de Hogares (GEIH) – DANE.
+  </p>
+    </section>
+
+    <section class="ocupacion-desempleo-jovenes">
+  <!-- 1. Título -->
+  <h3>Esquema de Mercado Laboral Juvenil.
+  </h3>
+
+  <!-- 2. Gráfico (Tableau) -->
+  <div class="grafico">
+    <div class='tableauPlaceholder' id='vizOcupacionDesempleo' style='position: relative'>
+      <noscript>
+        <a href='#'>
+          <img alt='Ocupación y desempleo en jóvenes'
+            src='https://public.tableau.com/static/images/In/Indicadoresnuevo/Hombresymujeres2/1_rss.png'
+            style='border: none' />
+        </a>
+      </noscript>
+      <object class='tableauViz' style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+        <param name='embed_code_version' value='3' />
+        <param name='site_root' value='' />
+        <param name='name' value='Indicadoresnuevo/Hombresymujeres2' />
+        <param name='tabs' value='no' />
+        <param name='toolbar' value='yes' />
+        <param name='static_image'
+          value='https://public.tableau.com/static/images/In/Indicadoresnuevo/Hombresymujeres2/1.png' />
+        <param name='animate_transition' value='yes' />
+        <param name='display_static_image' value='yes' />
+        <param name='display_spinner' value='yes' />
+        <param name='display_overlay' value='yes' />
+        <param name='display_count' value='yes' />
+        <param name='language' value='es-ES' />
+        <param name='filter' value='publish=yes' />
+      </object>
+    </div>
+    <script type='text/javascript'>
+      var divElement = document.getElementById('vizOcupacionDesempleo');
+      var vizElement = divElement.getElementsByTagName('object')[0];
+      if (divElement.offsetWidth > 800) {
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+      } else if (divElement.offsetWidth > 500) {
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+      } else {
+        vizElement.style.width = '100%';
+        vizElement.style.height = '2177px';
+      }
+      var scriptElement = document.createElement('script');
+      scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+      vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+  </div>
+
+  <!-- 3. Descripción en una sola tarjeta -->
+  <div class="tarjeta-descripcion">
+        <h4></h4>
+    <p>
+      La gráfica compara la <strong>tasa de ocupación</strong> y <strong>desempleo</strong> 
+      de jóvenes (15 a 29 años) en Cartagena, diferenciando por 
+      <strong>hombres</strong> y <strong>mujeres</strong> para el año 2024. 
+      Esta información permite identificar brechas laborales y 
+      analizar los retos de empleabilidad juvenil en la ciudad.
+    </p>
+  </div>
+
+  <!-- 4. Fuente -->
+  <p class="fuente">
+    Fuente: Gran Encuesta Integrada de Hogares (GEIH) – DANE.
+  </p>
+</section>
+
+
+
+<!-- 🌟 Sección: Informalidad (Comparación Nacional) con barras de progreso -->
+<section class="seccion-informalidad-nacional">
+  <div class="container-ml">
+
+    <!-- 1️⃣ Título -->
+    <h3>Informalidad (Comparación Nacional)</h3>
+
+    <!-- 2️⃣ Gráfico Tableau -->
+    <div class="tableauPlaceholder" id="viz1757523984369" style="position: relative;">
+      <noscript>
+        <a href="#">
+          <img 
+            alt="Informalidad (2)" 
+            src="https://public.tableau.com/static/images/In/Indicadoresnuevo/Informalidad2/1_rss.png" 
+            style="border: none;" 
+          />
+        </a>
+      </noscript>
+
+      <object class="tableauViz" style="display: none;">
+        <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+        <param name="embed_code_version" value="3" />
+        <param name="site_root" value="" />
+        <param name="name" value="Indicadoresnuevo/Informalidad2" />
+        <param name="tabs" value="no" />
+        <param name="toolbar" value="yes" />
+        <param name="static_image" value="https://public.tableau.com/static/images/In/Indicadoresnuevo/Informalidad2/1.png" />
+        <param name="animate_transition" value="yes" />
+        <param name="display_static_image" value="yes" />
+        <param name="display_spinner" value="yes" />
+        <param name="display_overlay" value="yes" />
+        <param name="display_count" value="yes" />
+        <param name="language" value="es-ES" />
+        <param name="filter" value="publish=yes" />
+      </object>
+    </div>
+
+    <script type="text/javascript">
+      (function() {
+        var divElement = document.getElementById('viz1757523984369');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+
+        if (divElement.offsetWidth > 800) {
+          vizElement.style.width = '100%';
+          vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+        } else if (divElement.offsetWidth > 500) {
+          vizElement.style.width = '100%';
+          vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+        } else {
+          vizElement.style.width = '100%';
+          vizElement.style.height = '827px';
+        }
+
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+      })();
+    </script>
+
+    <!-- 3️⃣ Tarjetas con barras de progreso -->
+    <div class="tarjetas-descripcion">
+
+      <!-- Tarjeta 1 -->
+      <div class="tarjeta-descripcion">
+        <h4>Posición Nacional</h4>
+        <div class="barra-progreso">
+          <div class="barra-fill" style="width: 84%; background-color: #1565c0;"></div>
+        </div>
+        <p>A nivel nacional, la ciudad se ubicó en el puesto 9° entre las capitales con menor tasa de informalidad.</p>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="tarjeta-descripcion">
+        <h4>Comparación con la tasa nacional</h4>
+        <div class="barra-progreso">
+          <div class="barra-fill" style="width: 92%; background-color: #4caf50;"></div>
+        </div>
+        <p>Completó dos periodos consecutivos con una tasa inferior a la nacional, mostrando consistencia en la formalización laboral.</p>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="tarjeta-descripcion">
+        <h4>Primer año 50%</h4>
+        <div class="barra-progreso">
+          <div class="barra-fill" style="width: 48%; background-color: #ff9800;"></div>
+        </div>
+        <p>En 2024, por primera vez, la tasa de informalidad fue inferior al 50 %, superando la proporción de ocupados informales.</p>
+      </div>
+
+    </div>
+
+    <!-- 4️⃣ Fuente -->
+    <p class="fuente-ml">Fuente: Departamento Administrativo Nacional de Estadística (DANE), 2024.</p>
+
+  </div>
+</section>
+
+  </main>
+
+
+
+ <!-- Footer -->
+  <footer class="gov-footer-cards">
+    <div class="container footer-cards-grid">
+      <div class="footer-card footer-logos">
+        <img src="img/CETLOGOBLANCO.png" alt="Logo centro territoriales ">
+      </div>
+      <div class="footer-card">
+        <strong>Centro de Estudios Territoriales</strong>
+        <p>Dirección: Cartagena, Colombia, Barrio Manga, Calle 26 con Carrera 21 - Casa Arcadia</p>
+      </div>
+      <div class="footer-card">
+        <strong>📞 Contacto</strong>
+        <p>Teléfono: +57 (605) 641 13 70</p>
+        <p>Correo: <a href="centrodeinvestigacion@cartagena.gov.co">centrodeinvestigacion@cartagena.gov.co</a></p>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <a href="https://www.cartagena.gov.co/nuevas-politicas-sitio">Políticas</a> | <a
+        href="https://www.cartagena.gov.co/Atencion-y-Servicio-a-la-Ciudadania/PQRSDF"> Radica tu PQRSDF Aquí</a> | <a
+        href="https://www.cartagena.gov.co/transparencia/archivo-general/documentos-generales/terminos-condiciones-sede-electronica-sitios-web">Términos</a>
+    </div>
+  </footer>
+
+ 
+   <style>
+      
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ================= BOTONES FLOTANTES ================= */
+/* ================= BOTONES FLOTANTES MEJORADOS ================= */
+.botones-azul {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 1000;
+}
+
+.btn-azul {
+    background-color: #1e3a8a;
+    color: white;
+    border: none;
+    border-radius: 12px; /* bordes más suaves */
+    padding: 10px 18px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(30, 58, 138, 0.3);
+    transition: all 0.25s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid #3b82f6;
+    white-space: nowrap;
+}
+
+.btn-azul i {
+    font-size: 16px;
+}
+
+/* Hover más dinámico */
+.btn-azul:hover {
+    background-color: #3b82f6;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 16px rgba(30, 58, 138, 0.4);
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+    .botones-azul {
+        flex-direction: row;
+        bottom: 15px;
+        right: 15px;
+        left: 15px;
+        justify-content: center;
+    }
+
+    .btn-azul {
+        flex: 1;
+        max-width: 140px;
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}
+
+
+/* ================= OVERLAY ================= */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+}
+
+/* ================= POPUP GLOSARIO ================= */
+.glossary-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 95%;
+    max-width: 900px;
+    max-height: 85vh;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1002;
+    opacity: 0;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.glossary-popup.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.glossary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    color: white;
+    border-radius: 12px 12px 0 0;
+}
+
+.glossary-header h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.btn-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: background 0.3s ease;
+}
+
+.btn-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ================= BÚSQUEDA ================= */
+.glossary-search {
+    position: relative;
+    padding: 15px 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.glossary-search input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border 0.3s ease;
+}
+
+.glossary-search input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+}
+
+/* ================= ACORDEONES ================= */
+.glossary-section {
+    margin-bottom: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.accordion {
+    background-color: #f8fafc;
+    color: #1e3a8a;
+    cursor: pointer;
+    padding: 18px 20px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion:after {
+    content: '\002B';
+    font-size: 18px;
+    color: #3b82f6;
+    float: right;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.accordion.active:after {
+    content: '\2212';
+    transform: rotate(180deg);
+}
+
+.accordion:hover {
+    background-color: #e2e8f0;
+}
+
+.accordion.active {
+    background-color: #dbeafe;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.panel {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background-color: white;
+}
+
+.panel.active {
+    padding: 20px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.panel ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.panel li {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    word-wrap: break-word;
+}
+
+.panel li:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.panel strong {
+    color: #1e3a8a;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.glossary-body {
+    padding: 0 25px;
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+.no-results {
+    display: none;
+    text-align: center;
+    padding: 30px;
+    color: #777;
+    font-style: italic;
+}
+
+/* ================= RESPONSIVE MEJORADO ================= */
+@media (max-width: 1024px) {
+    .glossary-popup {
+        width: 97%;
+        max-height: 90vh;
+    }
+    
+    .glossary-body {
+        max-height: 55vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .botones-azul {
+        bottom: 15px;
+        right: 15px;
+        left: 15px;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .btn-azul {
+        padding: 10px 16px;
+        font-size: 13px;
+        flex: 1;
+        max-width: 160px;
+        justify-content: center;
+    }
+    
+    .glossary-popup {
+        width: 98%;
+        max-height: 95vh;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.95);
+    }
+    
+    .glossary-header {
+        padding: 15px 20px;
+    }
+    
+    .glossary-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    .glossary-search {
+        padding: 12px 20px;
+    }
+    
+    .glossary-search input {
+        padding: 10px 12px 10px 40px;
+        font-size: 14px;
+    }
+    
+    .search-icon {
+        left: 35px;
+    }
+    
+    .glossary-body {
+        padding: 0 20px;
+        max-height: 60vh;
+    }
+    
+    .accordion {
+        padding: 14px 16px;
+        font-size: 15px;
+    }
+    
+    .panel {
+        padding: 0 16px;
+    }
+    
+    .panel.active {
+        padding: 16px;
+    }
+    
+    .panel li {
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+        font-size: 14px;
+    }
+    
+    .panel strong {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .botones-azul {
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+        gap: 8px;
+    }
+    
+    .btn-azul {
+        padding: 8px 12px;
+        font-size: 12px;
+        max-width: 140px;
+    }
+    
+    .btn-azul i {
+        font-size: 12px;
+    }
+    
+    .glossary-popup {
+        width: 99%;
+        max-height: 98vh;
+        border-radius: 8px;
+    }
+    
+    .glossary-header {
+        padding: 12px 15px;
+    }
+    
+    .glossary-header h3 {
+        font-size: 1.2rem;
+    }
+    
+    .btn-close {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+    
+    .glossary-search {
+        padding: 10px 15px;
+    }
+    
+    .glossary-search input {
+        padding: 8px 10px 8px 35px;
+        font-size: 13px;
+    }
+    
+    .search-icon {
+        left: 30px;
+        font-size: 14px;
+    }
+    
+    .glossary-body {
+        padding: 0 15px;
+        max-height: 65vh;
+    }
+    
+    .accordion {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+    
+    .panel {
+        padding: 0 14px;
+    }
+    
+    .panel.active {
+        padding: 14px;
+        max-height: 300px;
+    }
+    
+    .panel li {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        font-size: 13px;
+    }
+    
+    .panel strong {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 360px) {
+    .botones-azul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-azul {
+        max-width: 200px;
+        width: 100%;
+    }
+    
+    .glossary-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .accordion {
+        font-size: 13px;
+        padding: 10px 12px;
+    }
+}
+
+/* Soporte para orientación landscape en móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+    .glossary-popup {
+        max-height: 85vh;
+    }
+    
+    .glossary-body {
+        max-height: 45vh;
+    }
+    
+    .panel.active {
+        max-height: 200px;
+    }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .btn-azul,
+    .overlay,
+    .glossary-popup,
+    .accordion,
+    .panel {
+        transition: none;
+    }
+    
+    .btn-azul:hover {
+        transform: none;
+    }
+}
+    </style>
+
+       <!-- ================= BOTONES AZULES FLOTANTES ================= -->
+    <div class="botones-azul">
+        <button class="btn-azul" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+            <i class="fas fa-arrow-up"></i> Volver arriba
+        </button>
+
+        <button class="btn-azul" id="abrirGlosario" onclick="toggleGlossary()">
+            <i class="fas fa-book-open"></i> Abrir glosario
+        </button>
+    </div>
+
+    <!-- ================= OVERLAY Y POPUP ================= -->
+    <div id="overlayGlosario" class="overlay" onclick="toggleGlossary()"></div>
+
+    <div id="glossaryContent" class="glossary-popup" aria-hidden="true">
+        <div class="glossary-header">
+            <h3>📖 Glosario  de  Terminos </h3>
+            <button onclick="toggleGlossary()" class="btn-close">✕</button>
+        </div>
+
+        <div class="glossary-search">
+            <input type="text" id="glossarySearch" placeholder="Buscar término..." onkeyup="filterGlossary()">
+            <span class="search-icon">🔍</span>
+        </div>
+
+        <div class="glossary-body">
+
+            <!-- ========== SECCIÓN: DEMOGRAFÍA ========== -->
+            <div class="glossary-section">
+                <button class="accordion">Demografía</button>
+                <div class="panel">
+                    <ul>
+                        <li><strong>Índice de Friz:</strong> Indicador demográfico que permite clasificar la estructura de una población según su grado de envejecimiento. Se obtiene dividiendo la suma de la población joven (0-14 años) y la población adulta mayor (65 años o más), entre la población en edad productiva (15-64 años), y multiplicando el resultado por 100. Un valor más bajo indica una población más envejecida, mientras que uno más alto sugiere una población más joven.</li>
+                        <li><strong>Tasa de fecundidad:</strong> Indicador que refleja el promedio de hijos que tendría una mujer durante su vida fértil (15-49 años) si se mantuvieran constantes las tasas de fecundidad por edad observadas en un año determinado. Este valor permite analizar la capacidad de reemplazo generacional de una población.</li>
+                        <li><strong>Tasa de fecundidad específica:</strong> Mide el número de nacimientos por cada 1.000 mujeres dentro de un grupo etario específico (por ejemplo, 20-24 años) durante un año. Es útil para observar en qué edades se concentra la mayor proporción de nacimientos y detectar cambios en los patrones reproductivos.</li>
+                        <li><strong>Índice de juventud:</strong> Indicador que representa la proporción de personas jóvenes (menores de 15 años) respecto a la población adulta (15 años o más). Se utiliza para conocer el grado de juventud de una población y sus implicaciones en temas como educación, salud y empleo.</li>
+                        <li><strong>Índice de envejecimiento:</strong> Mide la relación entre la población adulta mayor (65 años o más) y la población joven (menores de 15 años), expresado por cada 100 jóvenes. Un valor elevado indica una estructura poblacional envejecida, lo cual tiene implicaciones importantes para el sistema de pensiones, salud y cuidado.</li>
+                        <li><strong>Población adulta mayor:</strong> Grupo conformado por las personas de 65 años o más, cuyo crecimiento en proporción dentro de la población total suele asociarse al envejecimiento demográfico y plantea retos en términos de seguridad social, salud pública y calidad de vida.</li>
+                        <li><strong>Población joven:</strong> Corresponde a las personas de 0 a 14 años, cuya proporción dentro del total de la población permite evaluar el potencial de crecimiento futuro y la presión sobre servicios educativos y de salud infantil.</li>
+                        <li><strong>Pirámide poblacional:</strong> Representación gráfica de la distribución de la población por edad y sexo, que permite identificar la estructura etaria, tendencias de envejecimiento o juventud, y eventos demográficos como el bono demográfico o el descenso en la fecundidad.</li>
+                        <li><strong>Tasa de reemplazo:</strong> Indicador que refleja la capacidad de una generación para sustituirse a sí misma. Se considera que una tasa de fecundidad total de aproximadamente 2,1 hijos por mujer garantiza el reemplazo generacional en condiciones de mortalidad moderada.</li>
+                        <li><strong>Población activa:</strong> Conjunto de personas en edad de trabajar que tienen empleo o buscan trabajo.</li>
+                        <li><strong>Densidad poblacional:</strong> Número de habitantes por unidad de superficie.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ========== SECCIÓN: POBREZA ========== -->
+            <div class="glossary-section">
+                <button class="accordion">Pobreza</button>
+                <div class="panel">
+                    <ul>
+                        <li><strong>Coeficiente de Gini:</strong> Indicador de desigualdad que mide la concentración de la riqueza en un área geográfica determinada. El coeficiente de Gini mide la distancia entre la curva de Lorenz y la línea de equidistribución, dependiendo la distancia entre estas, el coeficiente de Gini toma valores entre cero y uno, donde cero representa igualdad absoluta y uno desigualdad absoluta.</li>
+                        <li><strong>Ingreso per cápita de la unidad de gasto:</strong> Resultado de dividir el ingreso corriente disponible de la unidad de gasto entre el número de personas que conforman la unidad de gasto. Los datos se presentan deflactados con respecto al IPC del 2018.</li>
+                        <li><strong>Línea de pobreza (LP):</strong> Resultado de combinar dos elementos, a saber: el valor de la canasta básica de alimentos (línea de pobreza extrema) y el coeficiente de Orshansky. Es la multiplicación del valor de la línea de pobreza extrema por el coeficiente de Orshansky.</li>
+                        <li><strong>Línea de indigencia monetaria (LI):</strong> Valor que representa el ingreso mínimo necesario, por persona, para cubrir el costo de una canasta básica de alimentos, que tenga los requerimientos calóricos adecuados.</li>
+                        <li><strong>Pobreza extrema o indigencia monetaria:</strong> Ocurre cuando el ingreso mensual per cápita de un hogar se sitúa por debajo de la línea de indigencia (pobreza extrema) monetaria.</li>
+                        <li><strong>Pobreza monetaria:</strong> Ocurre cuando el ingreso mensual per cápita de un hogar se sitúa por debajo de la línea de pobreza monetaria.</li>
+                        <li><strong>Pobreza multidimensional (IPM):</strong> Se considera pobres a aquellos hogares que tengan índice de pobreza multidimensional ponderado, igual o superior al 33% de las privaciones.</li>
+                        <li><strong>Privación por acceso a servicios para el cuidado de la primera infancia:</strong> Una persona se considera privada, si pertenece a un hogar que tiene, al menos, un niño de 0 a 5 años sin acceso a todos los servicios de cuidado integral (salud, nutrición y cuidado).</li>
+                        <li><strong>Privación por analfabetismo:</strong> Una persona se considera privada, si pertenece a un hogar en el que hay, al menos, una persona de 15 años y más que no sabe leer y escribir.</li>
+                        <li><strong>Privación por barreras de acceso a salud dada una necesidad:</strong> Una persona se considera privada, si pertenece a un hogar que tiene, al menos, una persona que en los últimos 30 días tuvo una enfermedad, accidente, problema odontológico o algún otro problema de salud, que no haya implicado hospitalización y que para tratar este problema no acudió a un médico general, especialista, odontólogo, terapista o institución de salud.</li>
+                        <li><strong>Privación por acceso a fuente de agua mejorada:</strong> Una persona se considera privada, si pertenece a un hogar que no cuenta con servicio de acueducto. En el caso de los hogares rurales, una persona se considera privada si el agua la obtienen de pozo sin bomba, agua lluvia, río, manantial, carrotanque, aguatero u otra fuente.</li>
+                        <li><strong>Privación por desempleo de larga duración:</strong> Una persona se considera privada, si pertenece a un hogar que tiene, al menos, una persona de la Población Económicamente Activa (PEA) desempleada por más de 12 meses.</li>
+                        <li><strong>Privación por empleo formal:</strong> Una persona se considera privada, si pertenece a un hogar que tiene, al menos, un ocupado sin afiliación a pensiones.</li>
+                        <li><strong>Privación por falta de aseguramiento en salud:</strong> Una persona se considera privada, si pertenece a un hogar que tiene, al menos, una persona mayor de 5 años que no se encuentra asegurada en salud.</li>
+                        <li><strong>Privación por hacinamiento crítico:</strong> Una persona se considera privada, si pertenece a un hogar donde hay tres o más personas por cuarto. Un hogar rural se considera en privación, si hay más de tres personas por cuarto.</li>
+                        <li><strong>Privación por inadecuada eliminación de excretas:</strong> Una persona se considera privada, si pertenece a un hogar que no cuenta con servicio público de alcantarillado. En el caso de los hogares rurales, cuentan con inodoro sin conexión, bajamar o no tienen servicio sanitario.</li>
+                        <li><strong>Privación por inasistencia escolar:</strong> Una persona se considera privada, si pertenece a un hogar que tiene, al menos, un niño entre 6 y 16 años que no asiste a una institución educativa.</li>
+                        <li><strong>Privación por logro educativo:</strong> Una persona se considera privada, si pertenece a un hogar donde la educación promedio de las personas mayores de 15 años es menor a 9 años de educación.</li>
+                        <li><strong>Privación por material inadecuado de pisos:</strong> Una persona se considera privada, si pertenece a un hogar, cuya vivienda cuenta con pisos de tierra.</li>
+                        <li><strong>Privación por material inadecuado de paredes exteriores:</strong> Una persona se considera privada, si pertenece a un hogar cuya vivienda cuenta con paredes de madera burda, tabla, tablón, guadua u otro vegetal, zinc, tela, cartón, desechos o no tiene paredes. Un hogar rural se considera en privación, si su vivienda cuenta con paredes de guadua u otro vegetal, zinc, tela, cartón, deshechos o no tiene paredes.</li>
+                        <li><strong>Privación por rezago escolar:</strong> Una persona se considera privada, si pertenece a un hogar que tiene, al menos, un niño entre 7 y 17 años con rezago escolar (número de años aprobados inferior a la norma nacional).</li>
+                        <li><strong>Privación por trabajo infantil:</strong> Una persona se considera privada, si pertenece a un hogar que tiene, al menos, un niño entre 12 y 17 años trabajando.</li>
+                        <li><strong>Unidad de gasto:</strong> Equivale a los miembros del hogar diferentes al servicio doméstico y sus familiares, pensionistas y otros trabajadores dedicados al hogar.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ========== SECCIÓN: TURISMO ========== -->
+            <div class="glossary-section">
+                <button class="accordion">Turismo</button>
+                <div class="panel">
+                    <ul>
+                        <li><strong>Llegadas de extranjeros:</strong> Es el proceso formal de ingreso al país colombiano que pasa por controles migratorios en la ciudad de Cartagena de Indias establecidos por la Unidad Administrativa Especial Migración Colombia, de acuerdo con lo regulado por las leyes y normativas migratorias, que busca garantizar la seguridad y el control de las fronteras colombianas.</li>
+                        <li><strong>Visitantes por nacionalidad:</strong> Corresponde al registro y conteo de personas que pasa por controles migratorios en la ciudad de Cartagena de Indias provenientes de otros países, clasificadas según su país de origen (nacionalidad).</li>
+                        <li><strong>Sexo:</strong> Categorización del sexo biológico de la persona, ya sea hombre o mujer.</li>
+                        <li><strong>Motivo de viaje:</strong> Corresponde al registro y control migratorio de personas que ingresan pasa por controles migratorios en la ciudad de Cartagena de Indias con fines vacaciones, ocio y recreo; Trabajo y negocios; salud y atención médica, entre otros.</li>
+                        <li><strong>Ocupación hotelera:</strong> Corresponde al porcentaje de habitaciones ocupadas en los establecimientos de hospedaje registrados, comparado con el total de habitaciones disponibles.</li>
+                        <li><strong>Viviendas turísticas:</strong> Son propiedades, como apartamentos o casas, que sus dueños alquilan a corto plazo a viajeros a través de la plataforma Airbnb, Booking, Vrbo, entre otras.</li>
+                        <li><strong>Turismo sostenible:</strong> Actividad turística que respeta el medio ambiente y las comunidades locales.</li>
+                        <li><strong>Patrimonio cultural:</strong> Conjunto de bienes materiales e inmateriales que forman parte de la identidad de un pueblo.</li>
+                        <li><strong>Destino turístico:</strong> Lugar que atrae visitantes por sus atractivos naturales, culturales o históricos.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ========== SECCIÓN: VIVIENDA ========== -->
+            <div class="glossary-section">
+                <button class="accordion">Vivienda</button>
+                <div class="panel">
+                    <ul>
+                        <li><strong>Licencia de construcción:</strong> De acuerdo con el Decreto único reglamentario 1077 de 2015 se define como "la autorización previa para desarrollar edificaciones, áreas de circulación y zonas comunales en uno o varios predios, de conformidad con lo previsto en el Plan de Ordenamiento Territorial - POT, los instrumentos que lo desarrollen y complementen, los Planes Especiales de Manejo y Protección de Bienes de Interés Cultural, y demás normatividad que regule la materia. En las licencias de construcción se concretarán de manera específica los usos, edificabilidad, volumetría, accesibilidad y demás aspectos técnicos aprobados para la respectiva edificación".</li>
+                        <li><strong>Destino:</strong> Se considera el tipo de edificación según su destino: vivienda, industria, oficina, bodega, comercio, hotel, educación, hospital-asistencial, administración pública, social-recreacional, otro no residencial.</li>
+                        <li><strong>Vivienda de Interés Social - VIS:</strong> La clasificación de vivienda de interés social está definida de acuerdo a la Ley 388 de 1997 que dicta que en cada Plan Nacional de Desarrollo, el Gobierno Nacional establecerá el tipo y precio máximo de las soluciones destinadas a este tipo de vivienda. De acuerdo con lo anterior, la Vivienda de Interés Social (VIS) está definida como la vivienda que cumple con los estándares de calidad en diseño urbanístico, arquitectónico y de construcción y cuyo valor no excede ciento treinta y cinco salarios mínimos mensuales legales vigentes (135 SMLMV). Excepcionalmente, para aglomeraciones urbanas definidas por el CONPES 3819 de 2014 y cuya población supere un millón (1'000.000) de habitantes, el Gobierno nacional podrá establecer como precio máximo de la vivienda de interés social, la suma de ciento cincuenta salarios mínimos mensuales legales vigentes (150 SMMLV) (Art. 85, Ley 1955 de 2019).</li>
+                        <li><strong>Vivienda de Interés Prioritario – VIP:</strong> Es una subcategoría de la Vivienda de Interés Social (VIS) y se define como la vivienda cuyo valor no excede los 90 salarios mínimos legales vigentes SMLMV. Al igual que para la Vivienda de Interés Social VIS, el tipo y precio máximo de estas soluciones se establecen en cada Plan Nacional de Desarrollo. Para la licencia de construcción, el solicitante reporta cómo se clasificará la vivienda, y acorde a esto, la fuente diligencia los datos de áreas y unidades aprobadas para vivienda de interés prioritaria, social y diferente de interés social.</li>
+                        <li><strong>Unidades Iniciadas por tipo de vivienda:</strong> Corresponde al número de unidades totales iniciadas en el periodo de estudio. Es decir, corresponde a las obras que iniciaron actividad constructora durante el período intercensal por tipo de vivienda (VIS; NO VIS; VIP).</li>
+                        <li><strong>Área Iniciada por tipo de vivienda (M2):</strong> Corresponde al área total de obras iniciadas en el periodo de estudio. Es decir, corresponde al área total de las obras que iniciaron actividad constructora durante el período intercensal por tipo de vivienda (VIS; NO VIS; VIP).</li>
+                        <li><strong>Obras en proceso:</strong> Son todas aquellas obras que al momento del censo están generando algún proceso constructivo. Estas pueden tener los siguientes estados: Obras nuevas, es decir, las que iniciaron actividad constructora durante el período intercensal. Este indicador permite evaluar la coyuntura del sector en área, unidades y evolución de precios.</li>
+                        <li><strong>Obras que continúan en proceso:</strong> Son aquellas que en el censo anterior se encontraban en proceso constructivo y que en el actual censo continúan en el mismo estado. Permite identificar características principales del marco en términos de duración de las obras, evolución de precios y velocidad del proceso constructivo. Incluye obras que ingresan por ampliación de cobertura (actividades preliminares que ahora iniciaron excavación y cimentación).</li>
+                        <li><strong>Obras que reinician:</strong> Corresponden a las obras que, estando paralizadas en el censo anterior, presentan nuevamente actividad constructora para el censo actual.</li>
+                        <li><strong>Obras paralizadas:</strong> Son todas aquellas edificaciones que al momento del censo no están generando ninguna actividad constructora.</li>
+                        <li><strong>Obras paralizadas nuevas:</strong> Corresponde a edificaciones que al momento del censo ingresan al grupo de paralizadas, bien sea que estuvieran activas en el censo anterior y paralizaron su actividad, o son encontradas por primera vez. Incluye obras de constructores formales y de autoconstrucción en todos los estratos, incluyendo las de estratos 1 y 2 con área mayor o igual a 500 m².</li>
+                        <li><strong>Obras que continúan paralizadas:</strong> Son aquellas edificaciones que en el censo anterior se encontraron paralizadas y que en el actual continúan en el mismo estado.</li>
+                        <li><strong>Obras culminadas:</strong> Son todas aquellas obras que estando en seguimiento en censos anteriores, culminan actividad en el censo actual.</li>
+                        <li><strong>Unidades de viviendas aprobadas según estrato:</strong> Número de viviendas con licencia de construcción aprobada, clasificadas según el estrato socioeconómico (bajo, medio, alto).</li>
+                        <li><strong>Unidades aprobadas de viviendas según clase del suelo:</strong> Cantidad de viviendas con licencia aprobada, diferenciadas por el tipo de suelo donde se construirán, como suelo urbano, rural o sub-urbano según el Plan de Ordenamiento Territorial (POT).</li>
+                        <li><strong>Unidades de viviendas aprobadas según tipo de vivienda:</strong> Total de viviendas aprobadas clasificadas por su tipo (VIS, NO VIS, VIP).</li>
+                        <li><strong>Déficit habitacional:</strong> Falta de viviendas adecuadas para satisfacer las necesidades de la población.</li>
+                        <li><strong>Urbanización:</strong> Proceso de desarrollo y expansión de las áreas urbanas.</li>
+                        <li><strong>Tenencia de la vivienda:</strong> Condición legal bajo la cual las personas ocupan su vivienda (propia, arrendada, etc.).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ========== SECCIÓN: SEGURIDAD ========== -->
+            <div class="glossary-section">
+                <button class="accordion">Seguridad</button>
+                <div class="panel">
+                    <ul>
+                        <li><strong>Hurtos:</strong> El delito de hurto consiste en apoderarse de una cosa mueble (joyas, dinero, carro, celular, televisor, computador, etc.) sin consentimiento o voluntad de su propietario, para obtener provecho. Si los elementos fueron entregados por el propietario de manera voluntaria mediante artificios o engaños, el delito no es hurto sino estafa.</li>
+                        <li><strong>Hurtos a Personas:</strong> Se refiere al apoderamiento de cosas o bienes que pertenecen a una persona.</li>
+                        <li><strong>Hurtos de Motos:</strong> Acción de tomar una motocicleta que no es de la propiedad de quien la sustrae, sin el consentimiento del dueño y con la intención de obtener un beneficio.</li>
+                        <li><strong>Hurtos de automotores:</strong> Al delito de apoderamiento ilegítimo de un vehículo automotor, con el fin de obtener un beneficio económico o de otra índole, sin el consentimiento del propietario o legítimo poseedor.</li>
+                        <li><strong>Hurtos a Residencias:</strong> Se refiere al apoderamiento de cosas o bienes, que pertenecen a una o varias personas que se encuentran al interior de una casa, apartamento, finca, etc.</li>
+                        <li><strong>Hurtos a Entidades Financieras:</strong> Todas aquellas acciones delincuenciales mediante las cuales, ejerciendo violencia sobre las personas o las cosas, con penetración o permanencia arbitraria, engañosa o clandestina y violando o superando seguridades electrónicas o de otro tipo, proceden a apoderarse del dinero de una entidad financiera.</li>
+                        <li><strong>Hurtos a Comercios:</strong> Modalidad en la que el victimario utiliza diferentes medios con el fin de ingresar a un establecimiento comercial o industrial para apoderarse de los elementos de valor que posea el comercio o el producto de su actividad social.</li>
+                        <li><strong>Lesiones Fatales:</strong> Son aquellas que causan la muerte, ya sea de forma inmediata o diferida, pero siempre existiendo una relación de causalidad entre la lesión y el fallecimiento.</li>
+                        <li><strong>Homicidios:</strong> Supresión por conducta del agente (agresor), de una vida humana (tipicidad), sin justificación jurídicamente atendible (antijuridicidad), en forma intencional o dolosa, o con culpa o preterintencional (culpabilidad).</li>
+                        <li><strong>Suicidios:</strong> El suicidio es definido por la Organización Mundial de la Salud (OMS) como el acto deliberado de quitarse la vida.</li>
+                        <li><strong>Muertes accidentales:</strong> Se refieren a fallecimientos no intencionales causados por eventos externos inesperados y repentinos, que pueden ser clasificados en diversas categorías como accidentes de tráfico, ahogamientos, intoxicaciones accidentales, entre otros.</li>
+                        <li><strong>Muertes por eventos de transporte:</strong> Se refieren al fallecimiento de personas como resultado de sucesos que involucran vehículos en movimiento o infraestructuras de transporte.</li>
+                        <li><strong>Lesiones No Fatales:</strong> Son aquellas que causan daño físico a una persona pero no resultan en su muerte, ya sea de forma inmediata o diferida.</li>
+                        <li><strong>Lesiones accidentales:</strong> Lesiones causadas por acontecimientos o circunstancias imprevistos, no planificados, inesperados y no premeditados.</li>
+                        <li><strong>Lesiones por eventos de transporte:</strong> Lesiones físicas o psicológicas que resultan de accidentes de transporte, como choques de vehículos, atropellos, o incidentes.</li>
+                        <li><strong>Presunto delito sexual:</strong> Un delito sexual se define como cualquier acto de naturaleza sexual realizado sin el consentimiento de la persona afectada, o que involucre el uso de fuerza, coerción, engaño o abuso de poder para obtener la participación en actos sexuales.</li>
+                        <li><strong>Violencia contra adulto mayor:</strong> Según las OMS la violencia hacia al adulto mayor es: Cualquiera que sea el tipo de maltrato, es indudable que el anciano será víctima de sufrimientos innecesarios, de lesiones o dolor, pérdida o violación de sus Derechos Humanos y deterioro de su calidad de vida.</li>
+                        <li><strong>Violencias contra niños, niñas y adolescentes:</strong> Se refieren a cualquier daño físico o psicológico que no causa la muerte, pero que afecta su integridad y bienestar. Estas lesiones pueden ser producto de violencia, accidentes o negligencia, y son objeto de estudio y evaluación por parte de los servicios de medicina legal para determinar su origen, gravedad y consecuencias.</li>
+                        <li><strong>Violencia de pareja:</strong> Esta se define como cualquier comportamiento que se da dentro de una relación íntima que causa daño físico, psíquico o sexual a los miembros de la pareja; específicamente, la Organización Mundial de la Salud (OMS) la delimita a aquella perpetrada por la pareja o expareja y que se presenta a partir de los 15 años de edad.</li>
+                        <li><strong>Violencia entre otros familiares:</strong> Estas lesiones son causadas por la acción deliberada de otra persona, como en casos de violencia doméstica, agresiones físicas entre familiares o incluso lesiones en el contexto de disputas familiares.</li>
+                        <li><strong>Violencia interpersonal:</strong> Las lesiones no fatales interpersonales se refieren a daños corporales causados por agresiones o conflictos entre personas, donde las lesiones resultantes no causan la muerte.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ========== SECCIÓN: ECONOMÍA ========== -->
+            <div class="glossary-section">
+                <button class="accordion">Economía</button>
+                <div class="panel">
+                    <ul>
+                        <li><strong>Actividades primarias:</strong> Sectores relacionados con la extracción de recursos naturales (agricultura, pesca, minería). Suelen ser sensibles a factores externos como precios internacionales y clima.</li>
+                        <li><strong>Actividades secundarias:</strong> Sectores industriales y manufactureros que transforman materias primas en bienes. Representan un motor clave de productividad y empleo.</li>
+                        <li><strong>Actividades terciarias:</strong> Servicios como comercio, transporte, educación y salud, que han ganado participación en el PIB en economías urbanas.</li>
+                        <li><strong>Inflación:</strong> Aumento sostenido y generalizado de los precios en una economía. Afecta el poder adquisitivo de los hogares y la estabilidad macroeconómica.</li>
+                        <li><strong>Sector manufacturero:</strong> Conjunto de industrias dedicadas a la transformación de bienes intermedios en productos terminados. Su desempeño impacta directamente en empleo y exportaciones.</li>
+                        <li><strong>Valor agregado:</strong> Medida de la contribución de cada sector económico a la producción total, descontando los insumos intermedios. Es un indicador central del crecimiento económico.</li>
+                        <li><strong>PIB (Producto Interno Bruto):</strong> Valor total de los bienes y servicios producidos en un país en un periodo determinado.</li>
+                        <li><strong>Desempleo:</strong> Situación en la que personas en edad laboral no encuentran trabajo.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ========== SECCIÓN: EDUCACIÓN ========== -->
+            <div class="glossary-section">
+                <button class="accordion">Educación</button>
+                <div class="panel">
+                    <ul>
+                        <li><strong>Accesibilidad educativa:</strong> Grado en que la infraestructura escolar, transporte y distribución territorial permiten el acceso equitativo de la población a la educación.</li>
+                        <li><strong>Cobertura educativa:</strong> Medida que compara la matrícula escolar con la población en edad de estudiar, permitiendo evaluar el acceso al sistema educativo.</li>
+                        <li><strong>Deserción escolar:</strong> Proceso mediante el cual un estudiante abandona el sistema educativo antes de completar el ciclo académico. Se relaciona con factores socioeconómicos y contextuales.</li>
+                        <li><strong>ICFES (Pruebas Saber 11):</strong> Evaluación estandarizada nacional aplicada a estudiantes de último grado de secundaria en Colombia, que mide competencias en áreas como Lectura Crítica, Matemáticas, Ciencias Naturales, Sociales e Inglés.</li>
+                        <li><strong>Matrícula escolar:</strong> Número de estudiantes inscritos en instituciones educativas en un periodo determinado. Es un indicador esencial para analizar la cobertura educativa.</li>
+                        <li><strong>Tasa de aprobación:</strong> Porcentaje de estudiantes que culminan con éxito el grado escolar en el que están matriculados. Se asocia con la calidad educativa y el acceso a recursos pedagógicos.</li>
+                        <li><strong>Educación:</strong> Proceso de formación y aprendizaje que promueve el desarrollo de las capacidades humanas.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ========== SECCIÓN: MERCADO LABORAL ========== -->
+            <div class="glossary-section">
+                <button class="accordion">Mercado Laboral</button>
+                <div class="panel">
+                    <ul>
+                        <li><strong>PET:</strong> Población en edad de trabajar, corresponde a la población encuestada mayor de 15 años.</li>
+                        <li><strong>FT:</strong> Fuerza de Trabajo, corresponde a la población que se encuentra activa en mercado laboral, es decir se encuentra ocupado o en busca activa de un empleo.</li>
+                        <li><strong>FFT:</strong> Fuera de la Fuerza de Trabajo, comprende a todas las personas en edad de trabajar de 15 años y más, que en la semana de referencia no participaron en la producción de bienes y servicios porque no lo necesitaban, no podían o no estaban interesadas en tener actividad remunerada.</li>
+                        <li><strong>DSI:</strong> Desocupados, Corresponde a aquellas personas que se encontraban desempleadas y se encuentra en busca activa de empleo "actualmente disponible para trabajar".</li>
+                        <li><strong>OCI:</strong> Ocupados, Corresponde aquellas personas que durante el período de referencia: trabajaron por lo menos una hora remunerada en la semana de referencia; no trabajaron la semana de referencia, pero tenían un trabajo o negocio, y trabajaron en la semana de referencia por lo menos una hora sin remuneración.</li>
+                        <li><strong>Informales:</strong> Son todos los asalariados o empleados domésticos que no cuentan con cotizaciones de salud ni a pensión por concepto de su vínculo laboral con el empleador que los contrató. De igual forma, comprende a los trabajadores por cuenta propia y patrones o empleadores que hayan quedado clasificados en el sector informal, todos los trabajadores familiares sin remuneración y demás personas sobre las que no se dispone de suficiente información sobre su situación en la ocupación para ser clasificadas en las categorías anteriores. Se excluyen los obreros y empleados del Gobierno.</li>
+                        <li><strong>TO:</strong> Tasa Ocupación, es la relación porcentual de número de ocupados y la población en edad de trabajar.</li>
+                        <li><strong>TD:</strong> Tasa de Desocupación, es la relación porcentual de número desocupados y fuerza de trabajo.</li>
+                        <li><strong>TGP:</strong> Tasa Global de Participación, Es relación porcentual entre la fuerza de trabajo y la población en edad de trabajar.</li>
+                        <li><strong>Trabajo no Remunerado:</strong> Corresponde aquellas personas que reportaron haber trabajado pero no recibir remuneración por la actividad hecha, estos por definición son considerados informales.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ========== SECCIÓN: CENSO ========== -->
+            <div class="glossary-section">
+                <button class="accordion">Censo</button>
+                <div class="panel">
+                    <ul>
+                        <li><strong>Déficit Cualitativo:</strong> El Déficit Cualitativo identifica a los hogares que habitan en viviendas que requieren mejoramientos o ajustes para cumplir con condiciones de habitabilidad adecuadas. Este concepto reconoce que las deficiencias que tienen las viviendas en las que habitan estos hogares son susceptibles de ser corregidas mediante mejoramientos de vivienda.</li>
+                        <li><strong>Déficit Cuantitativo:</strong> El indicador de Déficit Cuantitativo identifica a los hogares que habitan en viviendas con deficiencias estructurales y de espacio, esto es, para los cuales es necesario adicionar nuevas viviendas al stock total de viviendas del país de tal forma que exista una relación uno a uno entre la cantidad de viviendas adecuadas y los hogares que requieren alojamiento.</li>
+                        <li><strong>Tipo de vivienda:</strong> Se consideran en déficit los hogares que habitan en viviendas tipo "otro" (contenedor, carpa, embarcación, vagón, cueva, refugio natural).</li>
+                        <li><strong>Material de Paredes:</strong> Se consideran en déficit los hogares que habitan en viviendas en las que el material predominante de las paredes exteriores sea madera burda, tabla o tablón; caña, esterilla, u otros vegetales; materiales de desecho, y los hogares que habitan en viviendas sin paredes.</li>
+                        <li><strong>Cohabitación:</strong> Se consideran en déficit los hogares que habitan en una vivienda en la que hay tres o más hogares. Además, en las cabeceras y centros poblados se consideran en déficit los hogares secundarios que habitan en la misma vivienda con otro hogar y en el caso en el que hay más de 6 personas en total en la vivienda. En los dos casos, los hogares principales de cualquier tamaño y los hogares unipersonales no se consideran en déficit por este componente.</li>
+                        <li><strong>Hacinamiento mitigable:</strong> En las cabeceras municipales y en los centros poblados se consideran en déficit los hogares con más de dos y hasta cuatro personas por cuarto para dormir. En el rural disperso se consideran en déficit los hogares con más de dos personas por cuarto para dormir.</li>
+                        <li><strong>Hacinamiento no mitigable:</strong> Aplica solo para las cabeceras municipales y sus centros poblados, se consideran en déficit los hogares con más de cuatro personas por cuarto para dormir.</li>
+                        <li><strong>Hacinamiento mitigable jerarquizado:</strong> En las cabeceras municipales y en los centros poblados se consideran en déficit los hogares con más de dos y hasta cuatro personas por cuarto para dormir. En el rural disperso se consideran en déficit los hogares con más de dos personas por cuarto para dormir.</li>
+                        <li><strong>Material de Pisos:</strong> Se consideran en déficit los hogares que habitan en viviendas en las que el material de los pisos es tierra, arena o barro.</li>
+                        <li><strong>Material de Pisos jerarquizado:</strong> Se consideran en déficit los hogares que habitan en viviendas en las que el material de los pisos es tierra, arena o barro.</li>
+                        <li><strong>Cocina:</strong> En las cabeceras municipales se consideran en déficit los hogares que cocinan sus alimentos en un cuarto usado también para dormir; en una sala-comedor sin lavaplatos, o en un patio, corredor, enramada o al aire libre.</li>
+                        <li><strong>Cocina jerarquizado:</strong> En las cabeceras municipales se consideran en déficit los hogares que cocinan sus alimentos en un cuarto usado también para dormir; en una sala-comedor sin lavaplatos, o en un patio, corredor, enramada o al aire libre.</li>
+                        <li><strong>Agua para cocinar:</strong> En las cabeceras municipales se consideran en déficit los hogares que habitan en viviendas sin conexión a acueducto. En los centros poblados y rural disperso se consideran en déficit los hogares que, independientemente de si habitan en viviendas con o sin conexión a acueducto, obtienen el agua para cocinar de un pozo sin bomba, aljibe, jaguey o barreno; agua lluvia; río, quebrada, manantial o nacimiento; carrotanque; aguatero; o agua embotellada o en bolsa.</li>
+                        <li><strong>Agua para cocinar jerarquizado:</strong> En las cabeceras municipales se consideran en déficit los hogares que habitan en viviendas sin conexión a acueducto. En los centros poblados y rural disperso se consideran en déficit los hogares que, independientemente de si habitan en viviendas con o sin conexión a acueducto, obtienen el agua para cocinar de un pozo sin bomba, aljibe, jaguey o barreno; agua lluvia; río, quebrada, manantial o nacimiento; carrotanque; aguatero; o agua embotellada o en bolsa.</li>
+                        <li><strong>Alcantarillado:</strong> En las cabeceras municipales, se consideran en déficit los hogares que habitan viviendas sin alcantarillado, o con alcantarillado pero con servicio de sanitario conectado a pozo séptico o sin conexión; letrina; con descarga directa a fuentes de agua (bajamar); o si no tiene servicio de sanitario. En los centros poblados y rural disperso, se consideran en déficit los hogares que habitan en viviendas en las que el servicio de sanitario no tiene conexión; letrina, descarga directa a fuentes de agua (bajamar); o si no tiene servicio sanitario.</li>
+                        <li><strong>Alcantarillado jerarquizado:</strong> En las cabeceras municipales, se consideran en déficit los hogares que habitan viviendas sin alcantarillado, o con alcantarillado pero con servicio de sanitario conectado a pozo séptico o sin conexión; letrina; con descarga directa a fuentes de agua (bajamar); o si no tiene servicio de sanitario. En los centros poblados y rural disperso, se consideran en déficit los hogares que habitan en viviendas en las que el el servicio de sanitario no tiene conexión; letrina, descarga directa a fuentes de agua (bajamar); o si no tiene servicio sanitario.</li>
+                        <li><strong>Energía:</strong> Se consideran en déficit los hogares que habitan en viviendas sin servicio de energía eléctrica.</li>
+                        <li><strong>Energía jerarquizado:</strong> Se consideran en déficit los hogares que habitan en viviendas sin servicio de energía eléctrica.</li>
+                        <li><strong>Recolección de basuras:</strong> Aplica para las cabeceras y los centros poblados, se consideran en déficit los hogares que no cuentan con servicio de recolección de basuras.</li>
+                        <li><strong>Recolección de basuras jerarquizado:</strong> Aplica para las cabeceras y los centros poblados, se consideran en déficit los hogares que no cuentan con servicio de recolección de basuras.</li>
+                    </ul>
+                </div>
+            </div>
+
+          
+
+        </div>
+
+        <div id="noResults" class="no-results">
+            <p>No se encontraron términos que coincidan con tu búsqueda.</p>
+        </div>
+    </div>
+
+    <script>
+        // ======== ABRIR / CERRAR GLOSARIO ========
+        function toggleGlossary() {
+            const overlay = document.getElementById("overlayGlosario");
+            const glossary = document.getElementById("glossaryContent");
+            const isHidden = glossary.getAttribute("aria-hidden") === "true";
+
+            if (isHidden) {
+                overlay.style.display = "block";
+                glossary.style.display = "block";
+                setTimeout(() => {
+                    overlay.classList.add("active");
+                    glossary.classList.add("active");
+                }, 10);
+                glossary.setAttribute("aria-hidden", "false");
+            } else {
+                overlay.classList.remove("active");
+                glossary.classList.remove("active");
+                setTimeout(() => {
+                    overlay.style.display = "none";
+                    glossary.style.display = "none";
+                }, 300);
+                glossary.setAttribute("aria-hidden", "true");
+            }
+        }
+
+        // ======== FILTRO DE BÚSQUEDA ========
+        function filterGlossary() {
+            const input = document.getElementById("glossarySearch");
+            const filter = input.value.toLowerCase();
+            const listItems = document.querySelectorAll(".glossary-body li");
+            const noResults = document.getElementById("noResults");
+            let hasResults = false;
+
+            listItems.forEach(li => {
+                const text = li.textContent.toLowerCase();
+                const visible = text.includes(filter);
+                li.style.display = visible ? "" : "none";
+                if (visible) hasResults = true;
+            });
+
+            noResults.style.display = hasResults ? "none" : "block";
+        }
+
+        // ======== FUNCIONALIDAD DE ACORDEONES ========
+        document.addEventListener("DOMContentLoaded", () => {
+            const accordions = document.querySelectorAll(".accordion");
+
+            accordions.forEach(acc => {
+                acc.addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    const panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            });
+        });
+
+        // ======== CERRAR CON TECLA ESC ========
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") {
+                const glossary = document.getElementById("glossaryContent");
+                if (glossary.getAttribute("aria-hidden") === "false") toggleGlossary();
+            }
+        });
+    </script>
+
+
+
+  <script src="js/main.js"></script>
+
+
+
+</body>
+
+</html>

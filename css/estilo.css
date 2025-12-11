@@ -1,0 +1,8166 @@
+/* =========================================================
+   🎨 VARIABLES GLOBALES
+========================================================= */
+:root {
+  /* Paleta institucional */
+  --verde: #072e6a;
+  --amarillo: #fec915;
+  --rojo: #e21018;
+  --azul-institucional: #2f5597;
+  --azul-hover: #072e6a;
+  --azul: #004aad;
+  --azul-oscuro: #072e6a;
+  --cian: #00b6e4;
+
+  /* Colores de texto y fondo */
+  --gris-texto: #333;
+  --gris-secundario: #4a4a4a;
+  --gris: #6b7280;
+  --fondo: #f7f9fb;
+  --blanco: #ffffff;
+
+  /* Layout y espaciados */
+  --maxw: 1100px;
+  --padding-base: 24px;
+  --gap-base: 16px;
+
+  /* Bordes y radios */
+  --radius-sm: 5px;
+  --radius: 18px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Sombras y transiciones */
+  --sombra: 0 6px 24px rgba(7, 46, 106, 0.08);
+  --sombra-light: 0 2px 6px rgba(0, 0, 0, 0.15);
+  --transition: all 0.3s ease;
+}
+
+/* =========================================================
+🧩 ESTILOS BASE
+========================================================= */
+body {
+  font-family: var(--fuente, 'Poppins', );
+  background: var(--fondo);
+  color: var(--gris);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* 📦 CONTENEDOR GENERAL DE SECCIONES */
+section {
+  background: var(--blanco);
+  padding: 40px 20px;
+  margin: 40px auto;
+  border-radius: var(--radius);
+  box-shadow: var(--sombra);
+  max-width: var(--maxw);
+}
+
+/* 📌 ENCABEZADOS CON BORDE LATERAL */
+section h2,
+section h3 {
+  color: var(--azul-oscuro);
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-left: 14px;
+  border-left: 4px solid #3b82f6; /* Azul claro */
+}
+
+section h2 {
+  font-size: 1.8rem;
+}
+
+/* 📝 PÁRRAFOS CON BORDE DECORATIVO */
+section p {
+  color: #1f2937;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin: 18px 0;
+  padding-left: 12px;
+  border-left: 3px solid #93c5fd;
+  background: rgba(147, 197, 253, 0.05);
+  border-radius: 4px;
+}
+
+/* =========================================================
+📊 CONTENEDORES DE GRÁFICOS (TABLEAU)
+========================================================= */
+.tableauPlaceholder {
+  background: var(--blanco);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  margin: 8px 0;
+  padding: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tableauPlaceholder:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.tableauPlaceholder object,
+.tableauPlaceholder iframe,
+.tableauPlaceholder img {
+  width: 100% !important;
+  height: 550px;
+  border-radius: var(--radius);
+  display: block;
+}
+
+/* =========================================================
+💻 RESPONSIVIDAD
+========================================================= */
+@media (max-width: 768px) {
+  section {
+    padding: 12px 10px;
+  }
+
+  section h2 {
+    font-size: 1.3rem;
+  }
+
+  section h3 {
+    font-size: 1.1rem;
+  }
+
+  section p {
+    font-size: 0.95rem;
+  }
+
+  .tableauPlaceholder object,
+  .tableauPlaceholder iframe,
+  .tableauPlaceholder img {
+    height: 420px;
+  }
+
+  .fuente {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 8px 6px;
+  }
+
+  section h2 {
+    font-size: 1.1rem;
+  }
+
+  section h3 {
+    font-size: 0.95rem;
+    color: #1565c0;
+    text-align: left;
+  }
+
+  section p {
+    font-size: 0.85rem;
+  }
+
+  .tableauPlaceholder object,
+  .tableauPlaceholder iframe,
+  .tableauPlaceholder img {
+    height: 320px;
+  }
+}
+
+
+
+/* =========================================================
+   🔄 RESET Y BASE
+========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  background: var(--fondo);
+  color: var(--gris-texto);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--rojo);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding: var(--padding-base);
+}
+
+/* =========================================================
+   🔝 TOPBAR
+========================================================= */
+.topbar {
+  background: var(--verde);
+  color: var(--blanco);
+  font-size: 0.95rem;
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+.topbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--gap-base);
+  padding: 0 var(--padding-base);
+}
+
+.topbar .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar .brand strong {
+  color: var(--blanco);
+}
+
+.topbar .year-pill {
+  color: var(--blanco);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.85rem;
+  box-shadow: var(--sombra-light);
+}
+
+.topbar .btn-link {
+  color: var(--blanco);
+  font-size: 0.85rem;
+  padding: 0.2rem 0.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.1);
+  transition: background 0.2s;
+}
+
+.topbar .btn-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+
+
+/* =========================================================
+   🍔 BOTONES DE MENÚ FIJO
+========================================================= */
+.menu-toggle {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 10000;
+  background: var(--verde);
+  color: var(--blanco);
+  border: none;
+  padding: 0.5rem 0.8rem;
+  font-size: 1.4rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: var(--transition);
+}
+
+.menu-toggle:hover {
+  background: var(--azul-hover);
+}
+
+/* Ocultar botón cuando se abre el sidebar */
+.menu-toggle.hide {
+  display: none;
+}
+
+/* Botón de cerrar sidebar */
+.menu-close {
+  background: var(--verde);
+  color: var(--blanco);
+  border: none;
+  padding: 0.5rem 0.8rem;
+  font-size: 1.2rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.menu-close:hover {
+  background: var(--azul-hover);
+}
+
+
+/* =========================================================
+   SECCIÓN DE TARJETAS DE PRESENTACIÓN SECCION  PRPRSENTACION 
+========================================================= */
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--blanco);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  box-shadow: var(--sombra);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 28px rgba(7, 46, 106, 0.15);
+}
+
+.card h3 {
+  color: var(--azul-institucional);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.card p {
+  margin-bottom: 1.5rem;
+  color: var(--gris-secundario);
+  font-size: 0.95rem;
+}
+
+/* Botón de acción dentro de tarjetas */
+.btn {
+  display: inline-block;
+  background: var(--azul-institucional);
+  color: var(--verde);
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background: #90b6eb; /* ligero cambio de azul */
+  transform: scale(1.05);
+}
+
+
+
+/* =========================================================
+💎 NAVBAR INSTITUCIONAL ELEGANTE - COMPLETA Y RESPONSIVA
+========================================================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  padding: 0 20px;
+
+  /* Fondo con transparencia y degradado */
+  background: linear-gradient(180deg, rgba(7, 46, 106, 0.94) 0%, rgba(7, 46, 106, 0.86) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  border-radius: 0 0 14px 14px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+
+  /* efecto blur con fallback */
+  -webkit-backdrop-filter: blur(10px); /* Safari */
+  backdrop-filter: blur(10px);
+  background-color: rgba(7, 46, 106, 0.9); /* fallback si no hay soporte */
+}
+
+
+/* =====================
+   📋 Lista de ítems
+===================== */
+.menu-items {
+  list-style: none;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-items li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* ✨ Hover y activo */
+.menu-items li a:hover,
+.menu-items li a.active {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+/* Línea inferior dorada */
+.menu-items li a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  width: 0;
+  height: 2px;
+  background: #fec915;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.menu-items li a:hover::after,
+.menu-items li a.active::after {
+  width: 60%;
+}
+
+/* =====================
+   🍔 Botón hamburguesa
+===================== */
+.hamburger {
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+  padding: 0.5rem;
+}
+
+.hamburger:hover {
+  color: #fec915;
+}
+
+.hamburger.active {
+  transform: rotate(90deg);
+}
+
+/* =====================
+   📱 MODO MÓVIL
+===================== */
+@media (max-width: 900px) {
+  .menu-items {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    background: rgba(7, 46, 106, 0.96);
+    padding: 1.2rem 0;
+    gap: 12px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .menu-items.show {
+    display: flex;
+    max-height: 500px;
+  }
+
+  .menu-items li a {
+    width: 90%;
+    text-align: center;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    right: 25px;
+  }
+}
+
+
+/* ================================
+🧩 TARJETAS / GRILLAS
+================================ */
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+  padding: 0 16px;
+}
+
+.info-cards .card {
+  background: var(--blanco, #fff);
+  padding: 24px;
+  border-left: 4px solid var(--azul-institucional, #072e6a);
+  border-radius: 14px;
+  box-shadow: var(--sombra-base, 0 6px 16px rgba(0, 0, 0, 0.08));
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info-cards .card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-hover, 0 12px 24px rgba(0, 0, 0, 0.15));
+  border-left-color: var(--azul-hover, #2f5597);
+}
+
+.info-cards h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--azul-institucional, #072e6a);
+  line-height: 1.3;
+  position: relative;
+}
+
+.info-cards h3::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--azul-institucional, #072e6a);
+  border-radius: 2px;
+  margin-top: 6px;
+}
+
+.info-cards p {
+  margin: 0;
+  color: var(--gris-secundario, #6c757d);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Botón opcional dentro de las tarjetas */
+.info-cards .card .btn {
+  margin-top: 16px;
+  align-self: center;
+  background: var(--azul-institucional, #072e6a);
+  color: var(--blanco, #fff);
+  padding: 0.8rem 1.6rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.info-cards .card .btn:hover {
+  transform: scale(1.05);
+  background: var(--azul-hover, #2f5597);
+}
+
+/* ================================
+   RESPONSIVIDAD
+================================ */
+@media (max-width: 768px) {
+  .info-cards {
+    gap: 18px;
+    margin-top: 30px;
+  }
+
+  .info-cards .card {
+    padding: 20px;
+  }
+
+  .info-cards h3 {
+    font-size: 1.2rem;
+  }
+
+  .info-cards p {
+    font-size: 0.95rem;
+  }
+
+  .info-cards .card .btn {
+    font-size: 0.95rem;
+    padding: 0.7rem 1.4rem;
+  }
+}
+
+/* ================================
+🎨 CTA BAND (Call-to-Action)
+================================ */
+.cta-band {
+background: linear-gradient(90deg, rgba(10, 74, 166, 0.08), rgba(0, 182, 228, 0.1));
+border-top: 1px solid #e6eef9;
+border-bottom: 1px solid #e6eef9;
+padding: 24px 0;
+}
+
+.cta-band .inner {
+max-width: var(--maxw);
+margin-inline: auto;
+padding: 0 24px;
+display: flex;
+gap: 20px;
+align-items: center;
+justify-content: space-between;
+flex-wrap: wrap;
+}
+
+.cta-band p {
+margin: 0;
+font-weight: 600;
+font-size: clamp(1rem, 1.2vw + 0.6rem, 1.3rem);
+color: var(--azul-oscuro);
+text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* ================================
+🎨 BOTONES CTA
+================================ */
+.cta-actions {
+display: flex;
+flex-wrap: wrap;
+gap: 12px;
+justify-content: center;
+}
+
+.cta-actions .btn {
+padding: var(--padding-btn, 0.6rem 1.2rem);
+border-radius: var(--radius);
+font-weight: 600;
+font-size: 0.95rem;
+border: none;
+cursor: pointer;
+color: var(--blanco);
+box-shadow: var(--sombra-base, 0 4px 12px rgba(0, 0, 0, 0.15));
+transition: transform 0.25s ease, box-shadow 0.3s ease;
+}
+
+.cta-actions .btn:focus-visible {
+outline: 2px solid var(--cian);
+outline-offset: 2px;
+}
+
+/* Variantes */
+.btn.azul { background: linear-gradient(135deg, var(--azul), var(--azul-oscuro)); }
+.btn.cian { background: linear-gradient(135deg, var(--cian), #00e0ff); }
+.btn.mix { background: linear-gradient(135deg, var(--azul-oscuro), var(--cian)); }
+
+/* Hover universal */
+.btn:hover {
+transform: scale(1.05);
+box-shadow: var(--sombra-hover, 0 6px 18px rgba(0, 0, 0, 0.25));
+}
+
+/* ================================
+📱 RESPONSIVIDAD
+================================ */
+@media (max-width: 768px) {
+.cta-band .inner {
+flex-direction: column;
+text-align: center;
+gap: 16px;
+padding: 0 16px;
+}
+.cta-band p {
+font-size: 1rem;
+text-shadow: 1.5px 1.5px 4px rgba(0, 0, 0, 0.25);
+}
+}
+
+/* =======================================================================
+   🦶 FOOTER CON TARJETAS
+   -----------------------------------------------------------------------
+   Sección de pie de página con tarjetas informativas, enlaces, logos 
+   institucionales y bloque legal. Todo el texto se mantiene en blanco 
+   para resaltar sobre los fondos azules.
+======================================================================= */
+
+/* Contenedor principal del footer con fondo claro y texto blanco */
+.gov-footer-cards {
+  background: var(--fondo); /* Fondo definido en variables globales */
+  padding: 50px 20px; /* Espaciado interno generoso */
+  font-family: system-ui, sans-serif;
+  color: #fff; /* Todo el texto en blanco */
+}
+
+/* =============================
+   GRID DE TARJETAS
+   -----------------------------
+   Distribuye las tarjetas en columnas responsivas.
+============================= */
+.footer-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(260px, 1fr)
+  ); /* Ajusta columnas dinámicamente */
+  gap: 20px; /* Espacio entre tarjetas */
+  margin-bottom: 30px; /* Espacio inferior antes del bloque legal */
+}
+
+/* =============================
+   TARJETAS DEL FOOTER
+   -----------------------------
+   Cada tarjeta tiene fondo azul institucional, borde lateral 
+   en cian y efecto hover de elevación.
+============================= */
+.footer-card {
+  text-align: left;
+  background: #0a4aa6; /* Azul institucional */
+  color: #fff; /* Texto blanco */
+  padding: 20px 20px 20px 16px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-left: 4px solid #00b6e4; /* Línea lateral de acento */
+}
+
+.footer-card:hover {
+  transform: translateY(-4px); /* Eleva la tarjeta */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Logos dentro de las tarjetas (alineados y con sombra ligera) */
+.footer-logos img {
+  max-height: 50px;
+  display: block;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Opcional: si quieres que el texto no se pegue demasiado al borde */
+.footer-card p,
+.footer-card strong {
+  margin-left: 0; /* Elimina márgenes extra */
+  margin-right: 0;
+}
+/* =============================
+   LOGO MÁS GRANDE Y CENTRADO
+============================= */
+.footer-card.footer-logos img {
+  max-height: 120px;
+  margin: 0 auto 16px;
+  display: block;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.25));
+  transition: transform 0.3s ease;
+}
+
+.footer-card.footer-logos img:hover {
+  transform: scale(1.05);
+}
+
+/* =============================
+   TIPOGRAFÍA EN TARJETAS
+============================= */
+.footer-card strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  color: #fff; /* Encabezados blancos */
+}
+
+.footer-card p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #fff; /* Párrafos blancos */
+}
+
+/* =============================
+   ENLACES EN TARJETAS
+============================= */
+.footer-card a {
+  color: #fff; /* Enlaces blancos por defecto */
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.footer-card a:hover {
+  color: #fdd835; /* Amarillo suave en hover */
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+}
+
+/* =============================
+   BLOQUE LEGAL DEL FOOTER
+   -----------------------------
+   Incluye derechos reservados y enlaces legales.
+============================= */
+.footer-legal {
+  background: #072e6a; /* Azul oscuro institucional */
+  text-align: center;
+  padding: 16px 12px;
+  font-size: 0.85rem;
+  color: #fff;
+  border-radius: var(--radius);
+  border-top: 1px solid rgba(255, 255, 255, 0.2); /* Línea sutil */
+}
+
+.footer-legal a {
+  color: #fff;
+  margin: 0 6px;
+  font-weight: 600;
+}
+
+.footer-legal a:hover {
+  color: #fdd835; /* Amarillo suave en hover */
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+}
+
+/* =============================
+   RESPONSIVIDAD
+   -----------------------------
+   En móviles, las tarjetas se apilan y se centran los logos.
+============================= */
+@media (max-width: 768px) {
+  .footer-cards-grid {
+    grid-template-columns: 1fr; /* Todas las tarjetas en una sola columna */
+    text-align: center;
+  }
+  .footer-logos img {
+    margin-inline: auto; /* Centrado horizontal */
+  }
+}
+
+/* ==========================================================================
+   BOTONES FLOTANTES AZULES
+   ========================================================================== */
+.botones-azul {
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+}
+
+.btn-azul {
+  background-color: #004aad;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.btn-azul i {
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.btn-azul:hover {
+  background-color: #0066d1;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.btn-azul:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   PANEL GLOSARIO
+   ========================================================================== */
+.panel-glosario {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 360px;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  transition: right 0.4s ease;
+  z-index: 9998;
+  font-family: 'Poppins', sans-serif;
+  padding-bottom: 2rem;
+}
+
+.panel-glosario.active {
+  right: 0;
+}
+
+/* Encabezado del glosario */
+.glosario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #004aad;
+  color: white;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.cerrar-glosario {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.buscador-glosario {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.buscador-glosario input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+}
+
+.buscador-glosario i {
+  color: #004aad;
+  font-size: 16px;
+}
+
+/* Contenido del glosario */
+.contenido-glosario {
+  padding: 1rem;
+}
+
+.categoria {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.categoria h4 {
+  margin-bottom: 8px;
+  color: #004aad;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.categoria p {
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.categoria strong {
+  color: #333;
+}
+
+/* Resaltado de búsqueda */
+mark {
+  background-color: #fff3a3;
+  color: #000;
+  font-weight: 600;
+  padding: 0 2px;
+}
+
+/* Adaptabilidad */
+@media (max-width: 768px) {
+  .panel-glosario {
+    width: 100%;
+  }
+
+  .btn-azul {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}
+
+
+
+/* ==========================================================================
+   BOTÓN "VER MÁS" Y SIDEBAR FLOTANTE
+   --------------------------------------------------------------------------
+   Incluye:
+   1. Estilo del botón "Ver más"
+   2. Sidebar flotante de índice de contenidos
+   3. Botón flotante para abrir el sidebar
+   4. Acordeón para secciones colapsables
+   ========================================================================== */
+
+/* ===== Botón "Ver más" - estilo con borde lateral ===== */
+.btn-link {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.6rem 1.4rem;
+  background: #e6f0fc; /* azul muy suave */
+  color: #072e6a; /* azul oscuro para contraste */
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border-left: 4px solid #6aa0e6; /* borde lateral azul más intenso */
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Hover: ligera elevación y tono más oscuro */
+.btn-link:hover {
+  background: #d0e4fb; /* azul más oscuro en hover */
+  color: #072e6a;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* ==========================================================================
+   SIDEBAR FLOTANTE DE ÍNDICE
+   ========================================================================== */
+
+/* Sidebar oculto por defecto, aparece al agregar .active */
+.sidebar-innovador {
+  position: fixed;
+  top: 0;
+  left: -280px; /* oculto inicialmente */
+  width: 260px;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: 3px 0 16px rgba(0, 0, 0, 0.18);
+  overflow-y: auto;
+  transition: left 0.35s ease-in-out;
+  z-index: 1000;
+  padding: 1rem 1.2rem;
+  border-right: 3px solid #0a4aa6; /* borde azul institucional */
+  border-radius: 0 12px 12px 0;
+}
+
+/* Sidebar visible (clase .active) */
+.sidebar-innovador.active {
+  left: 0;
+}
+
+/* Título del sidebar */
+.sidebar-innovador h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #0a4aa6;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid #d1e4fb;
+  padding-bottom: 8px;
+}
+
+/* Lista de elementos del índice */
+.sidebar-innovador ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.sidebar-innovador li {
+  margin-bottom: 12px;
+}
+
+.sidebar-innovador a {
+  text-decoration: none;
+  color: #072e6a;
+  font-weight: 500;
+  transition: color 0.25s, transform 0.25s;
+}
+
+.sidebar-innovador a:hover {
+  color: #0a74d1;
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   BOTÓN FLOTANTE PARA ABRIR EL ÍNDICE
+   ========================================================================== */
+
+.floating-index {
+  position: fixed;
+  bottom: 20px; /* lo mandamos abajo */
+  left: 20px;   /* mismo lado del sidebar */
+  background: #0a4aa6;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 1100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: background 0.3s, transform 0.25s;
+  border: none;
+}
+
+.floating-index:hover {
+  background: #072e6a;
+  transform: translateY(-2px);
+}
+
+
+/* ==============================
+   SECCIÓN: Demografía
+============================== */
+
+
+/* ======= Contenedor principal ======= */
+.demografia {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+}
+.titulo-seccion {
+   font-size: 1.9rem;
+  color: #072e6a;
+   /* negro limpio */
+  text-align: left;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+
+/* ======= Tarjeta de introducción ======= */
+.demografia-introduccion-tarjeta {
+  background-color: #f8fbff;
+  border-radius: 15px;
+  padding: 1.5rem 2rem;
+  border: 1px solid #e3eaf2;
+}
+
+.tarjeta-introduccion p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.7;
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+.tarjeta-introduccion strong {
+  font-style: italic;
+  color: #004aad;
+}
+
+/* ======= Sutil hover ======= */
+.demografia-introduccion-tarjeta:hover {
+  background-color: #f1f7ff;
+  transition: background-color 0.3s ease;
+}
+
+/* ==============================
+   SECCIÓN: Demografía - Estructura poblacional
+============================== */
+
+.demografia {
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+  padding: 2.5rem 2rem;
+  font-family: 'Arial', sans-serif;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* ======= h3 más pequeño para la sección ======= */
+.demografia h3.subtitulo {
+  font-size: 1.3rem;         /* tamaño reducido */
+  font-weight: 700;
+  color: #1565c0;
+  margin-bottom: 1.2rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.2;
+}
+
+/* Responsive para h3 */
+@media (max-width: 992px) {
+  .demografia h3.subtitulo {
+    font-size: 1.2rem;
+    padding-left: 10px;
+    border-left-width: 5px;
+  }
+}
+
+@media (max-width: 600px) {
+  .demografia h3.subtitulo {
+    font-size: 1.1rem;
+    padding-left: 8px;
+    border-left-width: 4px;
+  }
+}
+
+/* ==============================
+   Contenedor del gráfico Tableau
+============================== */
+.demografia .tableau-container {
+  width: 100%;
+  min-height: 550px;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.demografia .tableauPlaceholder {
+  width: 100%;
+  min-height: 550px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ==============================
+   Descripción introductoria
+============================== */
+.demografia .descripcion-intro p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+.demografia .descripcion-intro strong {
+  font-style: italic;
+  color: #004aad;
+}
+
+/* ==============================
+   Paneles de indicadores
+============================== */
+.demografia .paneles-indicadores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.demografia .panel-indicador {
+  flex: 1 1 200px;
+  text-align: left;
+}
+
+.demografia .panel-indicador h4 {
+  font-size: 1rem;
+  color: #004aad;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.demografia .panel-indicador .numero {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a3d7c;
+  margin-bottom: 0.2rem;
+}
+
+.demografia .panel-indicador .detalle {
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* ==============================
+   Fuente
+============================== */
+.demografia .fuente {
+  font-size: 0.9rem;
+  color: black;
+  margin-top: 1.5rem;
+  text-align: left;
+  font-style: italic;
+}
+
+/* ==============================
+   Responsive - Solo sección Demografía
+============================== */
+@media (max-width: 992px) {
+  .demografia {
+    padding: 2rem 1.5rem;
+  }
+  .demografia .paneles-indicadores {
+    gap: 1.5rem;
+  }
+  .demografia .panel-indicador {
+    flex: 1 1 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .demografia {
+    padding: 1.5rem 1rem;
+  }
+  .demografia .descripcion-intro p {
+    font-size: 0.9rem;
+  }
+  .demografia .paneles-indicadores {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .demografia .panel-indicador {
+    flex: 1 1 100%;
+  }
+  .demografia .panel-indicador h4 {
+    font-size: 0.95rem;
+  }
+  .demografia .panel-indicador .numero {
+    font-size: 1.1rem;
+  }
+  .demografia .fuente {
+    font-size: 0.85rem;
+  }
+}
+
+
+/* ==============================
+   SECCIÓN: Población Étnica
+============================== */
+
+#etnia {
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+  padding: 2.5rem 2rem;
+  font-family: 'Arial', sans-serif;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* ======= h3 para sección Etnia (igual que Demografía) ======= */
+#etnia h3.subtitulo-seccion {
+  font-size: 1.5rem;         /* mismo tamaño que Demografía */
+  font-weight: 700;
+  color: #1565c0;
+  margin-bottom: 1.5rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.2;
+}
+
+/* Contenedor del gráfico Tableau */
+#etnia .tableau-container,
+#etnia .tableauPlaceholder {
+  width: 100%;
+  min-height: 550px;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Descripción / análisis (mismos estilos que Demografía) */
+#etnia .analisis-texto p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+#etnia .analisis-texto strong {
+  font-style: italic;
+  color: #004aad;
+}
+
+/* Fuente (igual que Demografía) */
+#etnia .fuente-etnia {
+  font-size: 0.9rem;
+  color: black;
+  margin-top: 1.5rem;
+  text-align: left;
+  font-style: italic;
+}
+
+/* ==============================
+   Responsive - Sección Etnia
+============================== */
+@media (max-width: 992px) {
+  #etnia {
+    padding: 2rem 1.5rem;
+  }
+  #etnia .analisis-texto p {
+    font-size: 0.95rem; /* mismo tamaño que Demografía */
+  }
+}
+
+@media (max-width: 600px) {
+  #etnia {
+    padding: 1.5rem 1rem;
+  }
+  #etnia .analisis-texto p {
+    font-size: 0.95rem; /* mismo tamaño que Demografía */
+  }
+}
+
+/* =====================================================
+   SECCIÓN: Pirámide Poblacional
+===================================================== */
+#piramide {
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+  padding: 2.5rem 2rem;
+  font-family: 'Arial', sans-serif;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* ======= Encabezado h3 con estilo uniforme ======= */
+#piramide h3 {
+  font-size: 1.3rem;            /* tamaño reducido */
+  font-weight: 700;
+  color: #1565c0;
+  margin-bottom: 1.2rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.2;
+  transition: all 0.3s ease;     /* suaviza cambios de tamaño en responsive */
+}
+
+/* ======= Responsive h3 ======= */
+@media (max-width: 992px) {
+  #piramide h3 {
+    font-size: 1.2rem;
+    padding-left: 10px;
+    border-left-width: 5px;
+  }
+}
+
+@media (max-width: 600px) {
+  #piramide h3 {
+    font-size: 1.1rem;
+    padding-left: 8px;
+    border-left-width: 4px;
+  }
+}
+
+/* =====================================================
+   Contenedor del gráfico Tableau
+===================================================== */
+#piramide .tableau-container,
+#piramide .tableauPlaceholder {
+  width: 100%;
+  min-height: 550px;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+/* =====================================================
+   Descripción y listas (analisis-texto)
+===================================================== */
+#piramide .analisis-texto p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+#piramide .analisis-texto strong {
+  color: #004aad;
+  font-weight: 600;
+}
+
+#piramide .analisis-texto ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+#piramide .analisis-texto li {
+  margin-bottom: 0.5rem;
+}
+
+/* =====================================================
+   Fuente
+===================================================== */
+#piramide .fuente {
+  font-size: 0.9rem;
+  color: #000;
+  font-style: italic;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+/* =====================================================
+   Responsive general para sección Pirámide
+===================================================== */
+@media (max-width: 992px) {
+  #piramide {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  #piramide {
+    padding: 1.5rem 1rem;
+  }
+
+  #piramide .analisis-texto p {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* ==============================
+   SECCIÓN: Pirámide poblacional reciente
+============================== */
+#piramide-reciente {
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+  padding: 2.5rem 2rem;
+  font-family: 'Arial', sans-serif;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* ======= h3 azul, tamaño reducido ======= */
+#piramide-reciente h3.subtitulo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;       /* azul institucional */
+  margin-bottom: 1.2rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.2;
+}
+
+/* Responsive h3 */
+@media (max-width: 992px) {
+  #piramide-reciente h3.subtitulo {
+    font-size: 1.2rem;
+    padding-left: 10px;
+    border-left-width: 5px;
+  }
+}
+@media (max-width: 600px) {
+  #piramide-reciente h3.subtitulo {
+    font-size: 1.1rem;
+    padding-left: 8px;
+    border-left-width: 4px;
+  }
+}
+
+/* Contenedor del gráfico Tableau */
+#piramide-reciente .tableauPlaceholder {
+  width: 100%;
+  min-height: 550px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+/* Descripción / análisis de texto */
+#piramide-reciente .analisis-texto p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+#piramide-reciente .analisis-texto strong {
+  font-style: italic;
+  color: #004aad;
+}
+
+/* Fuente */
+#piramide-reciente .fuente {
+  font-size: 0.9rem;
+  color: black;
+  margin-top: 1.5rem;
+  text-align: left;
+  font-style: italic;
+}
+
+/* ==============================
+   Responsive
+============================== */
+@media (max-width: 992px) {
+  #piramide-reciente {
+    padding: 2rem 1.5rem;
+  }
+}
+@media (max-width: 600px) {
+  #piramide-reciente {
+    padding: 1.5rem 1rem;
+  }
+  #piramide-reciente .analisis-texto p {
+    font-size: 0.9rem;
+  }
+  #piramide-reciente .fuente {
+    font-size: 0.85rem;
+  }
+}
+
+
+
+/* ==============================
+   SECCIÓN: Nacimientos y Defunciones
+============================== */
+#nacimientos-defunciones {
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+  padding: 2.5rem 2rem;
+  font-family: 'Arial', sans-serif;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* ======= h3 azul, tamaño reducido ======= */
+#nacimientos-defunciones h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;       /* azul institucional */
+  margin-bottom: 1.2rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.2;
+}
+
+/* Responsive h3 */
+@media (max-width: 992px) {
+  #nacimientos-defunciones h3 {
+    font-size: 1.2rem;
+    padding-left: 10px;
+    border-left-width: 5px;
+  }
+}
+@media (max-width: 600px) {
+  #nacimientos-defunciones h3 {
+    font-size: 1.1rem;
+    padding-left: 8px;
+    border-left-width: 4px;
+  }
+}
+
+/* Contenedor del gráfico Tableau */
+#nacimientos-defunciones .tableauPlaceholder {
+  width: 100%;
+  min-height: 550px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+/* Texto descriptivo */
+#nacimientos-defunciones .analisis-texto p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+#nacimientos-defunciones .analisis-texto strong {
+  font-style: italic;
+  color: #004aad;
+}
+
+/* Fuente */
+#nacimientos-defunciones .fuente {
+  font-size: 0.9rem;
+  color: black;
+  margin-top: 1.5rem;
+  text-align: left;
+  font-style: italic;
+}
+
+/* ==============================
+   Responsive
+============================== */
+@media (max-width: 992px) {
+  #nacimientos-defunciones {
+    padding: 2rem 1.5rem;
+  }
+}
+@media (max-width: 600px) {
+  #nacimientos-defunciones {
+    padding: 1.5rem 1rem;
+  }
+  #nacimientos-defunciones .analisis-texto p {
+    font-size: 0.9rem;
+  }
+  #nacimientos-defunciones .fuente {
+    font-size: 0.85rem;
+  }
+}
+
+
+
+/* ==============================
+   SECCIÓN: Variaciones porcentuales
+============================== */
+#variaciones {
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+  padding: 2.5rem 2rem;
+  font-family: 'Arial', sans-serif;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* ======= h3 azul y tamaño reducido ======= */
+#variaciones h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;        /* azul institucional */
+  margin-bottom: 1.2rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.2;
+}
+
+/* Responsive h3 */
+@media (max-width: 992px) {
+  #variaciones h3 {
+    font-size: 1.2rem;
+    padding-left: 10px;
+    border-left-width: 5px;
+  }
+}
+@media (max-width: 600px) {
+  #variaciones h3 {
+    font-size: 1.1rem;
+    padding-left: 8px;
+    border-left-width: 4px;
+  }
+}
+
+/* Contenedor del gráfico Tableau */
+#variaciones .tableauPlaceholder {
+  width: 100%;
+  min-height: 550px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+/* Texto descriptivo */
+#variaciones p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+#variaciones strong {
+  font-style: italic;
+  color: #004aad;
+}
+
+/* Fuente */
+#variaciones .fuente {
+  font-size: 0.9rem;
+  color: black;
+  margin-top: 1.5rem;
+  text-align: left;
+  font-style: italic;
+}
+
+/* ==============================
+   Responsive
+============================== */
+@media (max-width: 992px) {
+  #variaciones {
+    padding: 2rem 1.5rem;
+  }
+}
+@media (max-width: 600px) {
+  #variaciones {
+    padding: 1.5rem 1rem;
+  }
+  #variaciones p {
+    font-size: 0.9rem;
+  }
+  #variaciones .fuente {
+    font-size: 0.85rem;
+  }
+}
+
+
+/* ==============================
+   SECCIÓN: Tasas poblacionales y crecimiento
+============================== */
+#tasas-crecimiento {
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+  padding: 2.5rem 2rem;
+  font-family: 'Arial', sans-serif;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* ======= h3 azul, tamaño reducido ======= */
+#tasas-crecimiento h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;       /* azul institucional */
+  margin-bottom: 1.2rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.2;
+}
+
+/* Responsive h3 */
+@media (max-width: 992px) {
+  #tasas-crecimiento h3 {
+    font-size: 1.2rem;
+    padding-left: 10px;
+    border-left-width: 5px;
+  }
+}
+@media (max-width: 600px) {
+  #tasas-crecimiento h3 {
+    font-size: 1.1rem;
+    padding-left: 8px;
+    border-left-width: 4px;
+  }
+}
+
+/* Contenedor del gráfico Tableau */
+#tasas-crecimiento .tableauPlaceholder {
+  width: 100%;
+  min-height: 550px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+/* Texto descriptivo */
+#tasas-crecimiento .analisis-texto p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+#tasas-crecimiento .analisis-texto strong {
+  font-style: italic;
+  color: #004aad;
+}
+
+/* Fuente */
+#tasas-crecimiento .fuente {
+  font-size: 0.9rem;
+  color: black;
+  margin-top: 1.5rem;
+  text-align: left;
+  font-style: italic;
+}
+
+/* ==============================
+   Responsive
+============================== */
+@media (max-width: 992px) {
+  #tasas-crecimiento {
+    padding: 2rem 1.5rem;
+  }
+}
+@media (max-width: 600px) {
+  #tasas-crecimiento {
+    padding: 1.5rem 1rem;
+  }
+  #tasas-crecimiento .analisis-texto p {
+    font-size: 0.9rem;
+  }
+  #tasas-crecimiento .fuente {
+    font-size: 0.85rem;
+  }
+}
+
+
+/* ==============================
+   SECCIÓN: Índices poblacionales
+============================== */
+#indices-poblacionales {
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+  padding: 2.5rem 2rem;
+  font-family: 'Arial', sans-serif;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* ======= h3 azul y tamaño consistente ======= */
+#indices-poblacionales h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;        /* azul institucional */
+  margin-bottom: 1.2rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.2;
+}
+
+/* Responsive h3 */
+@media (max-width: 992px) {
+  #indices-poblacionales h3 {
+    font-size: 1.2rem;
+    padding-left: 10px;
+    border-left-width: 5px;
+  }
+}
+@media (max-width: 600px) {
+  #indices-poblacionales h3 {
+    font-size: 1.1rem;
+    padding-left: 8px;
+    border-left-width: 4px;
+  }
+}
+
+/* Contenedor de Tableau */
+#indices-poblacionales .tableauPlaceholder {
+  width: 100%;
+  min-height: 550px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+/* Texto descriptivo / análisis */
+#indices-poblacionales p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+#indices-poblacionales strong {
+  font-style: italic;
+  color: #004aad;
+}
+
+/* Fuente */
+#indices-poblacionales .fuente {
+  font-size: 0.9rem;
+  color: black;
+  margin-top: 1.5rem;
+  text-align: left;
+  font-style: italic;
+}
+
+/* ==============================
+   Responsive
+============================== */
+@media (max-width: 992px) {
+  #indices-poblacionales {
+    padding: 2rem 1.5rem;
+  }
+}
+@media (max-width: 600px) {
+  #indices-poblacionales {
+    padding: 1.5rem 1rem;
+  }
+  #indices-poblacionales p {
+    font-size: 0.9rem;
+  }
+  #indices-poblacionales .fuente {
+    font-size: 0.85rem;
+  }
+}
+
+/* ==============================
+   TIPO TARJETA
+   SECCIÓN: Proyecciones poblacionales
+============================== */
+.seccion-proyecciones {
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+  padding: 2.5rem 2rem;
+  font-family: 'Arial', sans-serif;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e6eef8;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+/* Efecto hover tipo tarjeta */
+.seccion-proyecciones:hover {
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+/* ======= h3 azul consistente ======= */
+.seccion-proyecciones h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1565c0;
+  margin-bottom: 1.5rem;
+  border-left: 6px solid #007bff;
+  padding-left: 10px;
+  line-height: 1.3;
+}
+
+/* Responsive h3 */
+@media (max-width: 992px) {
+  .seccion-proyecciones h3 {
+    font-size: 1.3rem;
+    padding-left: 12px;
+    border-left-width: 5px;
+  }
+}
+@media (max-width: 600px) {
+  .seccion-proyecciones h3 {
+    font-size: 1.2rem;
+    padding-left: 10px;
+    border-left-width: 4px;
+  }
+}
+
+/* Contenedor Tableau como tarjeta interna */
+.seccion-proyecciones .tableauPlaceholder {
+  width: 100%;
+  min-height: 550px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  background: #f7f9fc;
+  border: 1px solid #dde7f3;
+  box-shadow: inset 0 0 0 rgba(0,0,0,0.02);
+}
+
+/* Texto descriptivo */
+.seccion-proyecciones p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.65;
+  text-align: justify;
+  margin-bottom: 1.1rem;
+}
+
+.seccion-proyecciones strong {
+  font-style: italic;
+  color: #004aad;
+}
+
+/* Bloque de texto */
+.seccion-proyecciones .texto-proyecciones {
+  margin-top: 1.2rem;
+}
+
+/* ==============================
+   Responsive
+============================== */
+@media (max-width: 992px) {
+  .seccion-proyecciones {
+    padding: 2rem 1.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .seccion-proyecciones {
+    padding: 1.5rem 1rem;
+  }
+  .seccion-proyecciones p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ==============================
+   SECCIÓN: Tasa de fecundidad
+============================== */
+#tasa-fecundidad {
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+  padding: 2.5rem 2rem;
+  font-family: 'Arial', sans-serif;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* ======= h3 azul y tamaño consistente ======= */
+#tasa-fecundidad h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;        /* azul institucional */
+  margin-bottom: 1.2rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.2;
+}
+
+/* Responsive h3 */
+@media (max-width: 992px) {
+  #tasa-fecundidad h3 {
+    font-size: 1.2rem;
+    padding-left: 10px;
+    border-left-width: 5px;
+  }
+}
+@media (max-width: 600px) {
+  #tasa-fecundidad h3 {
+    font-size: 1.1rem;
+    padding-left: 8px;
+    border-left-width: 4px;
+  }
+}
+
+/* Contenedor de Tableau */
+#tasa-fecundidad .tableauPlaceholder {
+  width: 100%;
+  min-height: 550px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+/* Texto descriptivo / análisis */
+#tasa-fecundidad p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+#tasa-fecundidad strong {
+  font-style: italic;
+  color: #004aad;
+}
+
+/* Fuente */
+#tasa-fecundidad .fuente {
+  font-size: 0.9rem;
+  color: black;
+  margin-top: 1.5rem;
+  text-align: left;
+  font-style: italic;
+}
+
+/* ==============================
+   Responsive
+============================== */
+@media (max-width: 992px) {
+  #tasa-fecundidad {
+    padding: 2rem 1.5rem;
+  }
+}
+@media (max-width: 600px) {
+  #tasa-fecundidad {
+    padding: 1.5rem 1rem;
+  }
+  #tasa-fecundidad p {
+    font-size: 0.9rem;
+  }
+  #tasa-fecundidad .fuente {
+    font-size: 0.85rem;
+  }
+}
+
+
+
+
+/* ==============================
+   SECCIÓN: POBREZA
+============================== */
+
+/* ----- CONTENEDOR GENERAL ----- */
+.pobreza-introduccion-tarjeta,
+.pobreza-seccion {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+}
+
+/* ----- TÍTULO PRINCIPAL (h2) ----- */
+.pobreza-introduccion-tarjeta h2 {
+  font-size: 1.9rem;
+  color: #072e6a;
+    text-align: left;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+/* ----- SUBTÍTULO (h3) ----- */
+.pobreza-seccion h3 {
+   font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;       /* azul institucional */
+  margin-bottom: 1.2rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.2;
+ text-align: left;
+  
+}
+
+/* ----- GRÁFICO ----- */
+.pobreza-grafico {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.pobreza-grafico .tableauPlaceholder {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ----- DESCRIPCIÓN ----- */
+.pobreza-descripcion {
+  background-color: #ffffff;  padding: 1.5rem;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.7;
+  text-align: justify;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  margin-bottom: 1.5rem;
+}
+
+/* ----- FUENTE ----- */
+.fuente,
+.pobreza-fuente {
+  font-size: 1rem;
+color: #000000 !important;
+  font-style: italic;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .pobreza-introduccion-tarjeta,
+  .pobreza-seccion {
+    padding: 2rem 1.2rem;
+  }
+
+  .pobreza-introduccion-tarjeta h2 {
+    font-size: 1.6rem;
+  }
+
+  .pobreza-seccion h3 {
+    font-size: 1rem;
+  }
+
+  .pobreza-descripcion {
+    font-size: 0.95rem;
+    padding: 1.2rem;
+  }
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+  .pobreza-introduccion-tarjeta,
+  .pobreza-seccion {
+    padding: 1.8rem 1rem;
+  }
+
+  .pobreza-introduccion-tarjeta h2 {
+    font-size: 1.4rem;
+  }
+
+  .pobreza-seccion h3 {
+    font-size: 0.95rem;
+  }
+
+  .pobreza-descripcion {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+}
+
+/* ==============================
+   SECCIÓN: TURISMO (solo introducción)
+============================== */
+
+/* ----- CONTENEDOR GENERAL ----- */
+.turismo-introduccion-tarjeta {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+}
+
+/* ----- TÍTULO PRINCIPAL (h2) ----- */
+.turismo-introduccion-tarjeta h2 {
+  font-size: 1.9rem;
+  color: #072e6a;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+/* ----- CUERPO DEL TEXTO ----- */
+.turismo-introduccion {
+  font-size: 1rem;
+  color: #333333;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* ----- ÉNFASIS EN FUENTE (strong, em) ----- */
+.turismo-introduccion strong {
+  color: #1565c0; /* azul profesional */
+  font-weight: 600;
+}
+
+.turismo-introduccion em {
+  color: #555;
+  font-style: italic;
+}
+
+/* ----- RESPONSIVE DESIGN ----- */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .turismo-introduccion-tarjeta {
+    padding: 2rem 1.2rem;
+  }
+
+  .turismo-introduccion-tarjeta h2 {
+    font-size: 1.6rem;
+  }
+
+  .turismo-introduccion {
+    font-size: 0.95rem;
+  }
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+  .turismo-introduccion-tarjeta {
+    padding: 1.8rem 1rem;
+  }
+
+  .turismo-introduccion-tarjeta h2 {
+    font-size: 1.4rem;
+  }
+
+  .turismo-introduccion {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
+
+
+/* ==============================
+   SECCIÓN: TURISMO
+============================== */
+
+.grafico-turismo {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+}
+
+/* ----- TÍTULOS (h3) ----- */
+.grafico-turismo h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0; /* azul institucional */
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.3;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+/* ----- GRÁFICO (Tableau) ----- */
+.grafico-turismo .tableauPlaceholder {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* ----- DESCRIPCIÓN GENERAL ----- */
+.descripcion-turismo {
+  background-color: #ffffff;
+  /* Eliminada barra azul lateral */
+  padding: 1.5rem;
+  font-size: 1rem;
+  color: #333333;
+  line-height: 1.7;
+  text-align: justify;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  margin-top: 1.5rem;
+}
+
+/* ----- LISTAS ----- */
+.descripcion-turismo ul {
+  margin: 1rem 0 1rem 1.5rem;
+  padding: 0;
+}
+
+.descripcion-turismo li {
+  margin-bottom: 0.5rem;
+}
+
+/* ----- FUENTE ----- */
+.descripcion-turismo .fuente {
+   font-size: 0.9rem;
+color: black;
+  font-style: italic;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+
+/* 💻 Tabletas medianas */
+@media (max-width: 900px) {
+  .grafico-turismo {
+    padding: 2rem 1.2rem;
+  }
+
+  .grafico-turismo h3 {
+    font-size: 1.15rem;
+    border-left: 5px solid #007bff;
+    padding-left: 10px;
+  }
+
+  .descripcion-turismo {
+    font-size: 0.95rem;
+    padding: 1.2rem;
+  }
+}
+
+/* 📱 Móviles (pantallas pequeñas) */
+@media (max-width: 600px) {
+  .grafico-turismo {
+    padding: 1.8rem 1rem;
+  }
+
+  .grafico-turismo h3 {
+    font-size: 1.1rem;
+    border-left: 4px solid #007bff;
+    padding-left: 8px;
+  }
+
+  .descripcion-turismo {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+}
+
+/* ==============================
+   SECCIÓN: OCUPACIÓN HOTELERA Y MOTIVO DE VIAJE
+============================== */
+
+.ocupacion-motivo {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+}
+
+/* ----- TÍTULOS (h3) ----- */
+.ocupacion-motivo h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0; /* azul institucional */
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.3;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+/* ----- GRÁFICO (Tableau) ----- */
+.ocupacion-motivo .tableauPlaceholder {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* ----- DESCRIPCIÓN ----- */
+.descripcion-ocupacion {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  font-size: 1rem;
+  color: #333333;
+  line-height: 1.7;
+  text-align: justify;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  margin-top: 1.5rem;
+}
+
+/* ----- LISTAS ----- */
+.descripcion-ocupacion ul {
+  margin: 1rem 0 1rem 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.descripcion-ocupacion li {
+  margin-bottom: 0.5rem;
+}
+
+/* ----- FUENTE (debajo del texto) ----- */
+.descripcion-ocupacion .fuente {
+font-size: 0.9rem;
+  color: black;
+  margin-top: 1.5rem;
+  text-align: left;
+  font-style: italic;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+
+/* 💻 Tabletas medianas */
+@media (max-width: 900px) {
+  .ocupacion-motivo {
+    padding: 2rem 1.2rem;
+  }
+
+  .ocupacion-motivo h3 {
+    font-size: 1.15rem;
+    border-left: 5px solid #007bff;
+    padding-left: 10px;
+  }
+
+  .descripcion-ocupacion {
+    font-size: 0.95rem;
+    padding: 1.2rem;
+  }
+
+  .descripcion-ocupacion .fuente {
+    font-size: 1.15rem;
+  }
+}
+
+/* 📱 Móviles (pantallas pequeñas) */
+@media (max-width: 600px) {
+  .ocupacion-motivo {
+    padding: 1.8rem 1rem;
+  }
+
+  .ocupacion-motivo h3 {
+    font-size: 1.1rem;
+    border-left: 4px solid #007bff;
+    padding-left: 8px;
+  }
+
+  .descripcion-ocupacion {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+
+  .descripcion-ocupacion .fuente {
+    font-size: 1.1rem;
+  }
+}
+
+/* ==============================
+   SECCIÓN: VIVIENDA TURÍSTICA
+============================== */
+
+#vivienda-turistica.section-container ,
+  #turistica-section{
+ background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+}
+
+/* ----- TÍTULO (h3) ----- */
+.vivienda-turistica h3 {
+font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0; /* azul institucional */
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.3;
+  text-align: left;
+  background-color: #ffffff;      /* separación del texto */
+}
+
+/* ----- GRÁFICO (Tableau) ----- */
+#vivienda-turistica .tableau-container {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* ----- DESCRIPCIÓN ----- */
+#vivienda-turistica p {
+  background-color: #ffffff;
+  font-size: 1rem;
+  color: #333333;
+  line-height: 1.7;
+  text-align: justify;
+  margin-bottom: 1.2rem;
+}
+/* ----- FUENTE (debajo del texto) ----- */
+#vivienda-turistica .fuente {
+font-size: 0.9rem;
+  color: black;
+  margin-top: 1.5rem;
+  text-align: left;
+  font-style: italic;
+}
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+
+/* 💻 Tabletas medianas */
+@media (max-width: 900px) {
+  #vivienda-turistica.section-container {
+    padding: 2rem 1.2rem;
+  }
+
+  #vivienda-turistica h3 {
+    font-size: 1.15rem;
+    border-left: 5px solid #007bff;
+    padding-left: 10px;
+  }
+
+  #1565c0
+
+  #vivienda-turistica p {
+    font-size: 0.95rem;
+  }
+
+  #vivienda-turistica .fuente {
+    font-size: 1rem; /* ajustado para mantener proporción */
+  }
+}
+
+/* 📱 Móviles (pantallas pequeñas) */
+@media (max-width: 600px) {
+  #vivienda-turistica.section-container {
+    padding: 1.8rem 1rem;
+  }
+
+  #vivienda-turistica h3 {
+    font-size: 1.1rem;
+    border-left: 4px solid #007bff;
+    padding-left: 8px;
+  }
+
+  #vivienda-turistica p {
+    font-size: 0.9rem;
+  }
+
+  #vivienda-turistica .fuente {
+    font-size: 0.95rem;
+  }
+}
+
+/* ==============================
+   SECCIÓN: PASAJEROS Y VUELOS
+============================== */
+
+#pasajeros-vuelos.section-container {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+}
+
+/* ----- TÍTULO ----- */
+#pasajeros-vuelos h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0; /* azul institucional */
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.3;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+/* ----- GRÁFICO (Tableau) ----- */
+#pasajeros-vuelos .tableau-container {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* ----- DESCRIPCIÓN ----- */
+#pasajeros-vuelos p {
+  background-color: #ffffff;
+  font-size: 1rem;
+  color: #333333;
+  line-height: 1.7;
+  text-align: justify;
+  margin-bottom: 1.2rem;
+}
+
+/* ----- ÉNFASIS ----- */
+#pasajeros-vuelos strong {
+  color: #0d47a1;
+  font-weight: 700;
+}
+
+#pasajeros-vuelos em {
+  font-style: italic;
+  color: #444;
+}
+
+/* ----- FUENTE ----- */
+#pasajeros-vuelos .fuente {
+  font-size: 0.9rem;
+  color: black;
+  margin-top: 1.5rem;
+  text-align: left;
+  font-style: italic;
+  font-weight: normal; /* 🔹 sin negrita */
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+
+/* 💻 Tabletas medianas */
+@media (max-width: 900px) {
+  #pasajeros-vuelos.section-container {
+    padding: 2rem 1.2rem;
+  }
+
+  #pasajeros-vuelos h3 {
+    font-size: 1.15rem;
+    border-left: 5px solid #007bff;
+    padding-left: 10px;
+  }
+
+  #pasajeros-vuelos p {
+    font-size: 0.95rem;
+  }
+
+  #pasajeros-vuelos .fuente {
+    font-size: 0.95rem;
+  }
+}
+
+/* 📱 Móviles (pantallas pequeñas) */
+@media (max-width: 600px) {
+  #pasajeros-vuelos.section-container {
+    padding: 1.8rem 1rem;
+  }
+
+  #pasajeros-vuelos h3 {
+    font-size: 1.1rem;
+    border-left: 4px solid #007bff;
+    padding-left: 8px;
+  }
+
+  #pasajeros-vuelos p {
+    font-size: 0.9rem;
+  }
+
+  #pasajeros-vuelos .fuente {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* ==============================
+   SECCIÓN: VARIACIÓN DE VUELOS
+============================== */
+
+.variacion-vuelos {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+}
+
+/* ----- TÍTULO ----- */
+.variacion-vuelos h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0; /* azul institucional */
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.3;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+/* ----- GRÁFICO (Tableau) ----- */
+.variacion-vuelos .grafica-vuelos {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* ----- DESCRIPCIÓN ----- */
+.variacion-vuelos .descripcion-vuelos {
+  background-color: #ffffff;
+  font-size: 1rem;
+  color: #333333;
+  line-height: 1.7;
+  text-align: justify;
+  margin-bottom: 1.2rem;
+}
+
+.variacion-vuelos strong {
+  color: #0d47a1;
+  font-weight: 700;
+}
+
+.variacion-vuelos em {
+  font-style: italic;
+  color: #444;
+}
+
+/* ----- FUENTE (debajo del texto) ----- */
+.variacion-vuelos .fuente {
+  font-size: 0.9rem;
+  color: black;
+  margin-top: 1.5rem;
+  text-align: left;
+  font-style: italic;
+  font-weight: normal; /* sin negrita */
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+
+/* 💻 Tabletas medianas */
+@media (max-width: 900px) {
+  .variacion-vuelos {
+    padding: 2rem 1.2rem;
+  }
+
+  .variacion-vuelos h3 {
+    font-size: 1.15rem;
+    border-left: 5px solid #007bff;
+    padding-left: 10px;
+  }
+
+  .variacion-vuelos .descripcion-vuelos {
+    font-size: 0.95rem;
+  }
+
+  .variacion-vuelos .fuente {
+    font-size: 0.95rem;
+  }
+}
+
+/* 📱 Móviles (pantallas pequeñas) */
+@media (max-width: 600px) {
+  .variacion-vuelos {
+    padding: 1.8rem 1rem;
+  }
+
+  .variacion-vuelos h3 {
+    font-size: 1.1rem;
+    border-left: 4px solid #007bff;
+    padding-left: 8px;
+  }
+
+  .variacion-vuelos .descripcion-vuelos {
+    font-size: 0.9rem;
+  }
+
+  .variacion-vuelos .fuente {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* ==============================
+   SECCIÓN: Vivienda (introducción)
+============================== */
+
+/* ----- CONTENEDOR GENERAL ----- */
+.vivienda-introduccion-tarjeta {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+}
+
+/* ----- TÍTULO PRINCIPAL (h2) ----- */
+.vivienda-introduccion-tarjeta h2 {
+  font-size: 1.9rem;
+  color: #1a3d7c;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ----- CUERPO DEL TEXTO ----- */
+.vivienda-introduccion {
+  font-size: 1rem;
+  color: #333333;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* ----- ÉNFASIS EN FUENTE (strong, em) ----- */
+.vivienda-introduccion strong {
+  color: #1565c0; /* azul profesional */
+  font-weight: 600;
+}
+
+.vivienda-introduccion em {
+  color: #555555;
+  font-style: italic;
+}
+
+/* ----- SEPARACIÓN ENTRE PÁRRAFOS ----- */
+.vivienda-introduccion p {
+  margin-bottom: 1.2rem;
+}
+
+/* ----- RESPONSIVE DESIGN ----- */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .vivienda-introduccion-tarjeta {
+    padding: 2rem 1.2rem;
+  }
+
+  .vivienda-introduccion-tarjeta h2 {
+    font-size: 1.6rem;
+  }
+
+  .vivienda-introduccion {
+    font-size: 0.95rem;
+  }
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+  .vivienda-introduccion-tarjeta {
+    padding: 1.8rem 1rem;
+    border-left: 4px solid #1a3d7c;
+  }
+
+  .vivienda-introduccion-tarjeta h2 {
+    font-size: 1.4rem;
+  }
+
+  .vivienda-introduccion {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
+
+
+/* ==============================
+   SECCIÓN: ESTADO DE OBRAS
+============================== */
+
+.estado-obras {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+}
+
+/* ----- TÍTULOS (h3) ----- */
+.estado-obras h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0; /* azul institucional */
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border-left: 6px solid #007bff; /* línea azul lateral */
+  padding-left: 12px;
+  line-height: 1.3;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+/* ----- GRÁFICO (Tableau) ----- */
+.estado-obras .grafica-container {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* ----- DESCRIPCIÓN GENERAL ----- */
+.estado-obras .descripcion {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  font-size: 1rem;
+  color: #333333;
+  line-height: 1.7;
+  text-align: justify;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  margin-top: 1.5rem;
+}
+
+/* ----- FUENTE ----- */
+.estado-obras .fuente {
+  font-size: 0.9rem;
+  color: black;
+  font-style: italic;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+
+/* 💻 Tabletas medianas */
+@media (max-width: 900px) {
+  .estado-obras {
+    padding: 2rem 1.2rem;
+  }
+
+  .estado-obras h3 {
+    font-size: 1.15rem;
+    border-left: 5px solid #007bff;
+    padding-left: 10px;
+  }
+
+  .estado-obras .descripcion {
+    font-size: 0.95rem;
+    padding: 1.2rem;
+  }
+}
+
+/* 📱 Móviles (pantallas pequeñas) */
+@media (max-width: 600px) {
+  .estado-obras {
+    padding: 1.8rem 1rem;
+  }
+
+  .estado-obras h3 {
+    font-size: 1.1rem;
+    border-left: 4px solid #007bff;
+    padding-left: 8px;
+  }
+
+  .estado-obras .descripcion {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+}
+
+/* ==============================
+   SECCIÓN: NÚMERO DE UNIDADES APROBADAS
+============================== */
+
+.unidades-aprobadas {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+}
+
+/* ----- TÍTULO ----- */
+.unidades-aprobadas h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0; /* Azul institucional */
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border-left: 6px solid #007bff; /* Barra azul vertical */
+  padding-left: 12px;
+  line-height: 1.3;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+/* ----- GRÁFICO (Tableau) ----- */
+.unidades-aprobadas .grafica-container {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* ----- DESCRIPCIÓN ----- */
+.unidades-aprobadas .descripcion {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  font-size: 1rem;
+  color: #333333; /* texto negro suave */
+  line-height: 1.7;
+  text-align: justify;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  margin-top: 1.5rem;
+}
+
+/* ----- FUENTE ----- */
+.unidades-aprobadas .fuente {
+  font-size: 0.9rem;
+  color: black;
+  font-style: italic;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+
+/* 💻 Tabletas medianas */
+@media (max-width: 900px) {
+  .unidades-aprobadas {
+    padding: 2rem 1.2rem;
+  }
+
+  .unidades-aprobadas h3 {
+    font-size: 1.15rem;
+    border-left: 5px solid #007bff;
+    padding-left: 10px;
+  }
+
+  .unidades-aprobadas .descripcion {
+    font-size: 0.95rem;
+    padding: 1.2rem;
+  }
+}
+
+/* 📱 Móviles */
+@media (max-width: 600px) {
+  .unidades-aprobadas {
+    padding: 1.8rem 1rem;
+  }
+
+  .unidades-aprobadas h3 {
+    font-size: 1.1rem;
+    border-left: 4px solid #007bff;
+    padding-left: 8px;
+  }
+
+  .unidades-aprobadas .descripcion {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+}
+
+
+
+
+/* =========================================================
+🛡️ SECCIÓN SEGURIDAD (idéntico estilo que CENSO)
+========================================================= */
+.seguridad {
+    background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+}
+
+/* ===== Títulos ===== */
+.seguridad h2 {
+ font-size: 1.9rem;
+  color: #1a3d7c; /* negro limpio */
+  text-align: left;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.seguridad h3 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #0b4885;
+}
+
+.seguridad h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #0b4885;
+}
+
+/* ===== Párrafos ===== */
+.seguridad p {
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 1rem;
+}
+
+/* ===== Indicadores ===== */
+.indicadores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+   /* verde #1b8a3b
+
+   rojo #c41e3a */
+}
+
+.indicador {
+  border-radius: 16px;
+  padding: 1rem;
+  text-align: center;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-size: 0.95rem;
+}
+
+.indicador .valor {
+  font-size: 1.8rem;
+  font-weight: bold;
+  display: block;
+}
+
+.indicador.positivo .valor {
+  color: #c41e3a ;
+}
+
+.indicador.negativo .valor {
+  color: #1b8a3b;
+}
+
+.indicador.neutro .valor {
+  color: #0b4885;
+  
+}
+
+/* ===== Grid de categorías ===== */
+.grid-categorias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.card-categoria {
+  background: #f9fafc;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.card-categoria:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Nota metodológica ===== */
+.nota-metodologica {
+  background-color: #f0f4ff;
+  border-left: 4px solid #072e6a;
+  padding: 1rem 1.2rem;
+  margin-top: 2rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+
+
+
+
+
+
+/* =========================================================
+📊 SECCIÓN LESIONES NO FATALES
+========================================================= */
+.lesiones-no-fatales {
+  max-width: 1000px;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+/* Título principal */
+.lesiones-no-fatales h3 {
+ font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0; /* azul institucional */
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.3;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+/* Contenedor de tarjetas */
+.subsecciones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Tarjetas individuales */
+.tarjeta {
+  background: #f5f7fa;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Títulos de las tarjetas */
+.tarjeta h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #1565c0; /* azul institucional */
+}
+
+/* Texto de las tarjetas */
+.tarjeta p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+/* Fuente (debajo del texto) */
+.lesiones-no-fatales .fuente {
+  font-size: 0.9rem;
+  color: black;
+  margin-top: 1.5rem;
+  text-align: left;
+  font-style: italic;
+}
+
+
+
+/* =========================================================
+🚔 SECCIÓN HURTOS Y EXTORSIONES
+========================================================= */
+.hurtos-extorsiones {
+  max-width: 1000px;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+/* Título principal */
+.hurtos-extorsiones h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0; /* azul institucional */
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.3;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+/* Texto descriptivo */
+.hurtos-extorsiones .descripcion {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-top: 1rem;
+  text-align: justify;
+}
+
+/* Fuente (debajo del texto) */
+.hurtos-extorsiones .fuente {
+  font-size: 0.9rem;
+  color: black;
+  margin-top: 1.5rem;
+  text-align: left;
+  font-style: italic;
+}
+
+
+
+/* =========================================================
+⚰️ SECCIÓN LESIONES FATALES / HOMICIDIOS / SUICIDIOS
+========================================================= */
+.lesiones-fatales {
+  max-width: 1000px;
+  background: #f9f9f9;
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+}
+.lesiones-fatales h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.grafica-tableau {
+  width: 100%;
+  min-height: 550px;
+  margin: 0 auto 1.5rem auto;
+}
+.descripcion {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  text-align: justify;
+  margin-bottom: 0.5rem;
+}
+
+
+
+/* =========================================================
+⚰️ SECCIÓN LESIONES FATALES
+========================================================= */
+.lesiones-fatales {
+  max-width: 1000px;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+/* Título */
+.lesiones-fatales h3 {
+ font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0; /* azul institucional */
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.3;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+/* Descripción */
+.lesiones-fatales .descripcion {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-top: 1rem;
+  text-align: justify;
+}
+
+/* Fuente */
+.lesiones-fatales .fuente {
+  font-size: 0.9rem;
+  color: black;
+  margin-top: 1.5rem;
+  text-align: left;
+  font-style: italic;
+}
+
+
+/* =========================================================
+⚰️ SECCIÓN LESIONES FATALES
+========================================================= */
+.lesiones-fatales {
+  max-width: 1000px;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+/* Título */
+.lesiones-fatales h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0; /* azul institucional */
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.3;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+/* Contenedor de la gráfica */
+.lesiones-fatales .grafica-tableau {
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Descripción */
+.lesiones-fatales .descripcion {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-top: 1rem;
+  text-align: justify;
+}
+
+/* Fuente */
+.lesiones-fatales .fuente {
+  font-size: 0.9rem;
+  color: black;
+  margin-top: 1.5rem;
+  text-align: left;
+  font-style: italic;
+}
+
+/* =========================================================
+⚰️ SECCIÓN LESIONES FATALES – DISTRIBUCIÓN POR DÍA Y CICLO DE VIDA
+========================================================= */
+/* =========================================================
+   ⚰️ SECCIÓN LESIONES FATALES – DISTRIBUCIÓN POR DÍA Y CICLO DE VIDA
+========================================================= */
+
+.lesiones-Distribución {
+  max-width: 1000px;
+  width: 100%;                      /* Ocupa todo el ancho disponible */
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  margin: 0 auto 2rem auto;         /* Centrado perfecto */
+  box-sizing: border-box;           /* Evita desbordes por padding */
+}
+
+/* TÍTULO */
+.lesiones-Distribución h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.3;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+/* CONTENEDOR DE LA GRÁFICA */
+.lesiones-Distribución .grafica-tableau {
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+/* TEXTO DESCRIPTIVO */
+.lesiones-Distribución .descripcion {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-top: 1rem;
+  text-align: justify;
+}
+
+/* FUENTE */
+.lesiones-Distribución .fuente {
+  font-size: 0.9rem;
+  color: #000;
+  margin-top: 1.5rem;
+  text-align: left;
+  font-style: italic;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .lesiones-Distribución {
+    padding: 1.5rem;
+  }
+}
+
+
+
+
+
+
+
+/* =========================================================
+📈 SECCIÓN: ECONOMÍA
+========================================================= */
+
+#economia.section-container {
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+  padding: 2.5rem 1.5rem;
+  font-family: "Inter", sans-serif;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Título principal */
+#economia h2 {
+  text-align: left;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #072e6a;
+}
+
+/* Subtítulos de gráficos */
+#economia .grafico-titulo {
+  text-align: left;
+  font-size: 1.3rem;
+  margin: 1.5rem 0;
+  color: #1565c0;
+}
+
+/* Párrafos */
+#economia .economia-contenido p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #110f0f;
+  margin-bottom: 1.5rem;
+}
+
+/* Tarjetas dinámicas */
+#economia .tarjetas-descripcion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+#economia .tarjeta {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#economia .tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Títulos dentro de tarjetas */
+#economia .tarjeta h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #1565c0;
+}
+
+/* Texto dentro de tarjetas */
+#economia .tarjeta p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #030202;
+}
+
+
+
+/* ==============================
+   SECCIÓN: Valor Agregado de Cartagena
+============================== */
+
+.economia-valor-agregado {
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+  padding: 2.5rem 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ----- Título ----- */
+.economia-valor-agregado .grafico-titulo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;   /* azul institucional */
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.3;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+/* ----- Gráfico Tableau ----- */
+.economia-valor-agregado .grafico {
+  margin-bottom: 2rem;
+}
+
+/* ----- Tarjetas descriptivas ----- */
+.economia-valor-agregado .tarjetas-descripcion {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.economia-valor-agregado .tarjeta {
+  background: #f9fafc;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid #e0e6ed;
+}
+
+.economia-valor-agregado .tarjeta h4 {
+  font-size: 1.1rem;
+  color: #1565c0;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.economia-valor-agregado .tarjeta {
+  background: #ffffff;        /* blanco puro */
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: none;               /* sin borde */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);  /* sombra suave */
+}
+
+/* ----- Fuente ----- */
+.economia-valor-agregado .fuente {
+  font-size: 0.9rem;
+  color: black;
+  font-style: italic;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+/* ----- Responsivo ----- */
+@media (max-width: 768px) {
+  .economia-valor-agregado .tarjetas-descripcion {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ==============================
+   SECCIÓN: Número total de empresas
+============================== */
+
+.economia2-grafico2 {
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+  padding: 2.5rem 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ----- Título ----- */
+.economia2-grafico2 .grafico-titulo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;   /* azul institucional */
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.3;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+/* ----- Gráfico Tableau ----- */
+.economia2-grafico2 .grafico {
+  margin-bottom: 2rem;
+}
+
+/* ----- Fuente ----- */
+.economia2-grafico2 .fuente {
+  font-size: 0.9rem;
+  color: black;
+  font-style: italic;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+
+/* ==============================
+   SECCIÓN: Inflación (misma estética que Variación de empleo, producción y ventas)
+============================== */
+
+.economia-manufacturero {
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+  padding: 2.5rem 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ----- Título principal (h3) ----- */
+.economia-manufacturero h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;   /* azul institucional */
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.3;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+/* ----- Gráfico Tableau ----- */
+.economia-manufacturero .grafico {
+  margin-bottom: 2rem;
+}
+
+/* ----- Tarjeta de texto con estilo azul institucional ----- */
+.economia-manufacturero .tarjeta-azul {
+  background: #ffffff;               /* blanco puro */
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);  /* sombra suave */
+  margin-top: 1.5rem;
+}
+
+.economia-manufacturero .tarjeta-azul h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1565c0;    /* azul institucional */
+  margin-bottom: 0.8rem;
+  border-left: 6px solid #007bff;  /* franja azul */
+  padding-left: 12px;
+}
+
+.economia-manufacturero .tarjeta-azul p {
+  font-size: 0.95rem;
+  color: black;
+  line-height: 1.6;
+}
+
+/* ----- Texto descriptivo normal (párrafos fuera de tarjeta) ----- */
+.economia-manufacturero p {
+  font-size: 0.95rem;
+  color: black;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* ----- Fuente ----- */
+.economia-manufacturero .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 1rem;
+  color: black;
+}
+
+/* ----- Responsivo ----- */
+@media (max-width: 768px) {
+  .economia-manufacturero {
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* ==============================
+   SECCIÓN: Actividad empresarial
+============================== */
+
+.economia2-grafico1 {
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+  padding: 2.5rem 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ----- Título ----- */
+.economia2-grafico1 .grafico-titulo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;   /* azul institucional */
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.3;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+/* ----- Gráfico Tableau ----- */
+.economia2-grafico1 .grafico {
+  margin-bottom: 2rem;
+}
+
+/* ----- Tarjeta descriptiva (si agregas contenido) ----- */
+.economia2-grafico1 .tarjetas-descripcion {
+  background: #ffffff;     /* tarjeta blanca */
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);  /* sombra suave */
+  margin-top: 1rem;
+}
+
+/* ----- Fuente ----- */
+.economia2-grafico1 .fuente {
+  font-size: 0.9rem;
+  color: black;
+  font-style: italic;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+
+/* ==============================
+   SECCIÓN: Variación de empleo, producción y ventas
+============================== */
+
+#empleo-produccion-ventas {
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+  padding: 2.5rem 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', sans-serif;
+
+}
+
+/* ----- Título principal (h3) ----- */
+#empleo-produccion-ventas h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;   /* azul institucional */
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.3;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+/* ----- Gráfico Tableau ----- */
+#empleo-produccion-ventas .tableauPlaceholder {
+  margin-bottom: 2rem;
+}
+
+/* ----- Tarjeta de texto con estilo azul institucional ----- */
+#empleo-produccion-ventas .tarjeta-azul {
+  background: #ffffff;               /* blanco puro */
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);  /* sombra suave */
+  margin-top: 1.5rem;
+}
+
+#empleo-produccion-ventas .tarjeta-azul h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1565c0;    /* azul institucional */
+  margin-bottom: 0.8rem;
+  border-left: 6px solid #007bff;  /* franja azul */
+  padding-left: 12px;
+}
+
+#empleo-produccion-ventas .tarjeta-azul p {
+  font-size: 0.95rem;
+  color: black;
+  line-height: 1.6;
+}
+
+/* ----- Texto descriptivo normal (párrafos fuera de tarjeta) ----- */
+#empleo-produccion-ventas p {
+  font-size: 0.95rem;
+  color: black;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ----- Fuente ----- */
+#empleo-produccion-ventas p:last-of-type {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 1rem;
+  color: black;
+    font-family: 'Inter', sans-serif;
+
+}
+
+/* ----- Responsivo ----- */
+@media (max-width: 768px) {
+  #empleo-produccion-ventas {
+    padding: 2rem 1.5rem;
+  }
+}
+
+
+
+/* ==============================
+   CONTENEDOR GENERAL SECCIONES
+============================== */
+.educacion-introduccion-tarjeta,
+.educacion-graficas,
+.educacion-cobertura,
+.educacion-icfes,
+.educacion-clasificacion,
+.educacion-desempeno,
+.educacion-percentil,
+.educacion-accesibilidad,
+.educacion-barrios,
+.Nivel-escolaridad {
+  background-color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 1100px; /* unificado */
+  margin: 0 auto 2rem auto;
+  padding: 2.5rem 2rem; /* unificado */
+}
+
+/* ==============================
+   TÍTULOS H3 UNIFICADOS
+============================== */
+.educacion-introduccion-tarjeta h3,
+.educacion-graficas h3,
+.educacion-cobertura h3,
+.educacion-icfes h3,
+.educacion-clasificacion h3,
+.educacion-desempeno h3,
+.educacion-percentil h3,
+.educacion-accesibilidad h3,
+.educacion-barrios h3,
+.Nivel-escolaridad h3 {
+  color: #1565c0;          /* azul institucional */
+  font-weight: 700;
+  font-size: 1.3rem;        /* tamaño unificado */
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.3;
+  margin-top: 1.5rem;             /* uniforme */
+  margin-bottom: 1rem;     /* uniforme */
+  text-align: left;
+  background-color: #ffffff;
+}
+
+
+/* ==============================
+   TARJETAS DESCRIPTIVAS
+============================== */
+.tarjetas-descripcion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.tarjeta {
+  background-color: #f9fafc;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.tarjeta h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1565c0;
+  margin-bottom: 0.6rem;
+}
+
+.tarjeta p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* ==============================
+   FUENTE DE DATOS
+============================== */
+.fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 1.5rem;
+  color: #555;
+  text-align: left;
+}
+
+/* ==============================
+   GRÁFICOS (Tableau)
+============================== */
+.grafico,
+.Nivel-escolaridad .tableauPlaceholder {
+  margin: 1.5rem 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+}
+
+/* ==============================
+   TEXTO PRINCIPAL INTRODUCCIÓN
+============================== */
+.tarjeta-introduccion p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+  text-align: justify;
+}
+
+.tarjeta-introduccion strong {
+  color: #1565c0;
+  font-weight: 600;
+}
+
+.tarjeta-introduccion em {
+  color: #555;
+  font-style: italic;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+@media (max-width: 992px) {
+  .educacion-introduccion-tarjeta,
+  .educacion-graficas,
+  .educacion-cobertura,
+  .educacion-icfes,
+  .educacion-clasificacion,
+  .educacion-desempeno,
+  .educacion-percentil,
+  .educacion-accesibilidad,
+  .educacion-barrios,
+  .Nivel-escolaridad {
+    padding: 2rem 1.5rem;
+  }
+
+  h2, h3 {
+    font-size: 1.3rem;
+  }
+
+  .tarjeta p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .educacion-introduccion-tarjeta,
+  .educacion-graficas,
+  .educacion-cobertura,
+  .educacion-icfes,
+  .educacion-clasificacion,
+  .educacion-desempeno,
+  .educacion-percentil,
+  .educacion-accesibilidad,
+  .educacion-barrios,
+  .Nivel-escolaridad {
+    padding: 1.8rem 1rem;
+  }
+
+  h2, h3 {
+    font-size: 1.1rem;
+  }
+
+  .tarjeta p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+
+
+/* ==============================
+   SECCIÓN: Mercado Laboral (introducción)
+============================== */
+
+/* ----- CONTENEDOR GENERAL ----- */
+.mercado-laboral-introduccion-tarjeta {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+}
+
+/* ----- TÍTULO PRINCIPAL (h2) ----- */
+.mercado-laboral h2 {
+  font-size: 1.9rem;
+  color: #1a3d7c;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ----- CUERPO DEL TEXTO ----- */
+.mercado-laboral-introduccion {
+  font-size: 1rem;
+  color: #333333;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* ----- ÉNFASIS EN FUENTE (strong, em) ----- */
+.mercado-laboral-introduccion strong {
+  color: #1565c0;
+  font-weight: 600;
+}
+
+.mercado-laboral-introduccion em {
+  color: #555555;
+  font-style: italic;
+}
+
+/* ----- SEPARACIÓN ENTRE PÁRRAFOS ----- */
+.mercado-laboral-introduccion p {
+  margin-bottom: 1.2rem;
+}
+
+/* ----- RESPONSIVE DESIGN ----- */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .mercado-laboral-introduccion-tarjeta {
+    padding: 2rem 1.2rem;
+  }
+
+  .mercado-laboral h2 {
+    font-size: 1.6rem;
+  }
+
+  .mercado-laboral-introduccion {
+    font-size: 0.95rem;
+  }
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+  .mercado-laboral-introduccion-tarjeta {
+    padding: 1.8rem 1rem;
+    border-left: 4px solid #1a3d7c;
+  }
+
+  .mercado-laboral h2 {
+    font-size: 1.4rem;
+  }
+
+  .mercado-laboral-introduccion {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
+
+/* ==============================
+   SECCIÓN: Estructura del Mercado Laboral
+============================== */
+
+.mercado-laboral-estructura {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+}
+
+/* ----- TÍTULO PRINCIPAL (h3) ----- */
+.mercado-laboral-estructura h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;
+  margin-bottom: 1.5rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.3;
+}
+
+/* ----- GRÁFICO (Tableau) ----- */
+.mercado-laboral-estructura .grafico {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* ----- TARJETAS DE DESCRIPCIÓN ----- */
+.mercado-laboral-estructura .tarjetas-descripcion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* ----- TARJETA INDIVIDUAL ----- */
+.mercado-laboral-estructura .tarjeta {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  text-align: justify;
+}
+
+/* ----- TÍTULO TARJETA (h4) ----- */
+.mercado-laboral-estructura .tarjeta h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1565c0; /* azul institucional */
+   margin-bottom: 0.8rem;
+}
+
+/* ----- TEXTO TARJETA (p) ----- */
+.mercado-laboral-estructura .tarjeta p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333333;
+}
+
+/* ----- FUENTE ----- */
+.mercado-laboral-estructura .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #000;
+  margin-top: 1.5rem;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .mercado-laboral-estructura {
+    padding: 2rem 1.2rem;
+  }
+
+  .mercado-laboral-estructura h3 {
+    font-size: 1.15rem;
+    padding-left: 10px;
+    border-left: 5px solid #007bff;
+  }
+
+  .mercado-laboral-estructura .tarjeta {
+    padding: 1.2rem;
+  }
+
+  .mercado-laboral-estructura .tarjeta h4 {
+    font-size: 1rem;
+  }
+
+  .mercado-laboral-estructura .tarjeta p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+  .mercado-laboral-estructura {
+    padding: 1.8rem 1rem;
+  }
+
+  .mercado-laboral-estructura h3 {
+    font-size: 1.05rem;
+    padding-left: 8px;
+    border-left: 4px solid #007bff;
+  }
+
+  .mercado-laboral-estructura .tarjeta {
+    padding: 1rem;
+  }
+
+  .mercado-laboral-estructura .tarjeta h4 {
+    font-size: 0.95rem;
+  }
+
+  .mercado-laboral-estructura .tarjeta p {
+    font-size: 0.85rem;
+  }
+}
+
+
+/* ==============================
+   SECCIÓN: Población en Edad de Trabajar y Fuerza de Trabajo
+============================== */
+
+.mercado-laboral-pet-ft {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+}
+
+/* ----- TÍTULO PRINCIPAL (h3) ----- */
+.mercado-laboral-pet-ft h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;
+  margin-bottom: 1.5rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.3;
+}
+
+/* ----- GRÁFICO (Tableau) ----- */
+.mercado-laboral-pet-ft .grafico {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* ----- TARJETAS DE DESCRIPCIÓN ----- */
+.mercado-laboral-pet-ft .tarjetas-descripcion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* ----- TARJETA INDIVIDUAL ----- */
+.mercado-laboral-pet-ft .tarjeta {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  text-align: justify;
+}
+
+/* ----- TÍTULO TARJETA (h4) ----- */
+.mercado-laboral-pet-ft .tarjeta h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1565c0;
+  margin-bottom: 0.8rem;
+}
+
+/* ----- TEXTO TARJETA (p) ----- */
+.mercado-laboral-pet-ft .tarjeta p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333333;
+}
+
+/* ----- FUENTE ----- */
+.mercado-laboral-pet-ft .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #000;
+  margin-top: 1.5rem;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .mercado-laboral-pet-ft {
+    padding: 2rem 1.2rem;
+  }
+
+  .mercado-laboral-pet-ft h3 {
+    font-size: 1.15rem;
+    padding-left: 10px;
+    border-left: 5px solid #007bff;
+  }
+
+  .mercado-laboral-pet-ft .tarjeta {
+    padding: 1.2rem;
+  }
+
+  .mercado-laboral-pet-ft .tarjeta h4 {
+    font-size: 1rem;
+  }
+
+  .mercado-laboral-pet-ft .tarjeta p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+  .mercado-laboral-pet-ft {
+    padding: 1.8rem 1rem;
+  }
+
+  .mercado-laboral-pet-ft h3 {
+    font-size: 1.05rem;
+    padding-left: 8px;
+    border-left: 4px solid #007bff;
+  }
+
+  .mercado-laboral-pet-ft .tarjeta {
+    padding: 1rem;
+  }
+
+  .mercado-laboral-pet-ft .tarjeta h4 {
+    font-size: 0.95rem;
+  }
+
+  .mercado-laboral-pet-ft .tarjeta p {
+    font-size: 0.85rem;
+  }
+}
+
+
+ 
+/* ==============================
+   SECCIÓN: Tasa de Ocupación
+============================== */
+.mercado-laboral-ocupacion {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+}
+
+.mercado-laboral-ocupacion h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;
+  margin-bottom: 1.5rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+}
+
+.mercado-laboral-ocupacion .grafico {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.mercado-laboral-ocupacion .tarjetas-descripcion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.mercado-laboral-ocupacion .tarjeta {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  text-align: justify;
+}
+
+.mercado-laboral-ocupacion .tarjeta h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1565c0;
+  margin-bottom: 0.8rem;
+}
+
+.mercado-laboral-ocupacion .tarjeta p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333333;
+}
+
+.mercado-laboral-ocupacion .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #000;
+  margin-top: 1.5rem;
+}
+
+
+/* ==============================
+   SECCIÓN: Tasa de Desocupación
+============================== */
+.mercado-laboral-desocupacion {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+}
+
+.mercado-laboral-desocupacion h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;
+  margin-bottom: 1.5rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+}
+
+.mercado-laboral-desocupacion .grafico {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.mercado-laboral-desocupacion .tarjetas-descripcion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.mercado-laboral-desocupacion .tarjeta {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  text-align: justify;
+}
+
+.mercado-laboral-desocupacion .tarjeta h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1565c0;
+  margin-bottom: 0.8rem;
+}
+
+.mercado-laboral-desocupacion .tarjeta p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333333;
+}
+
+.mercado-laboral-desocupacion .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #000;
+  margin-top: 1.5rem;
+}
+
+
+/* ==============================
+   SECCIÓN: Tasa de Desempleo Comparativa
+============================== */
+.mercado-laboral-desempleo-comparativo {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+}
+
+.mercado-laboral-desempleo-comparativo h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;
+  margin-bottom: 1.5rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+}
+
+.mercado-laboral-desempleo-comparativo .grafico {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.mercado-laboral-desempleo-comparativo .tarjetas-descripcion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.mercado-laboral-desempleo-comparativo .tarjeta {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  text-align: justify;
+}
+
+.mercado-laboral-desempleo-comparativo .tarjeta h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1565c0;
+  margin-bottom: 0.8rem;
+}
+
+.mercado-laboral-desempleo-comparativo .tarjeta p,
+.mercado-laboral-desempleo-comparativo .tarjeta ul {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333333;
+}
+
+.mercado-laboral-desempleo-comparativo .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #000;
+  margin-top: 1.5rem;
+}
+
+
+/* ==============================
+   SECCIÓN: Población fuera de la fuerza de trabajo
+============================== */
+.poblacion-fuera-fuerza-trabajo {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+}
+
+.poblacion-fuera-fuerza-trabajo h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;
+  margin-bottom: 1.5rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+}
+
+.poblacion-fuera-fuerza-trabajo .grafico {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.poblacion-fuera-fuerza-trabajo .tarjetas-descripcion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.poblacion-fuera-fuerza-trabajo .tarjeta {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  text-align: justify;
+}
+
+.poblacion-fuera-fuerza-trabajo .tarjeta h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1565c0;
+  margin-bottom: 0.8rem;
+}
+
+.poblacion-fuera-fuerza-trabajo .tarjeta p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333333;
+}
+
+.poblacion-fuera-fuerza-trabajo .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #000;
+  margin-top: 1.5rem;
+}
+
+
+/* ==============================
+   SECCIÓN: Tasa Global de Participación
+============================== */
+.tasa-global-participacion {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+}
+
+.tasa-global-participacion h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;
+  margin-bottom: 1.5rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+}
+
+.tasa-global-participacion .grafico {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.tasa-global-participacion .tarjetas-descripcion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.tasa-global-participacion .tarjeta {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  text-align: justify;
+}
+
+.tasa-global-participacion .tarjeta h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1565c0;
+  margin-bottom: 0.8rem;
+}
+
+.tasa-global-participacion .tarjeta p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333333;
+}
+
+.tasa-global-participacion .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #000;
+  margin-top: 1.5rem;
+}
+
+
+
+/* ==============================
+   SECCIÓN: Empleo e Ingresos por Actividades
+============================== */
+.empleo-ingresos {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 1100px;
+  margin: 0 auto 2rem auto
+}
+
+.empleo-ingresos h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;
+  margin-bottom: 0.5rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+}
+
+.empleo-ingresos p {
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.empleo-ingresos .grafico {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.empleo-ingresos .tarjetas-descripcion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.empleo-ingresos .tarjeta {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  text-align: justify;
+}
+
+.empleo-ingresos .tarjeta h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1565c0;
+  margin-bottom: 0.8rem;
+}
+
+.empleo-ingresos .tarjeta p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333333;
+}
+
+.empleo-ingresos .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #000;
+  margin-top: 1.5rem;
+}
+
+
+/* ==============================
+   SECCIÓN: Distribución del Empleo (Ramas)
+============================== */
+.distribucion-empleo {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+}
+
+.distribucion-empleo h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;
+  margin-bottom: 1.5rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+}
+
+.distribucion-empleo .grafico {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.distribucion-empleo .tarjetas-descripcion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.distribucion-empleo .tarjeta {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  text-align: justify;
+}
+
+.distribucion-empleo .tarjeta h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1565c0;
+  margin-bottom: 0.8rem;
+}
+
+.distribucion-empleo .tarjeta p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333333;
+}
+
+.distribucion-empleo .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #000;
+  margin-top: 1.5rem;
+}
+
+
+/* ==============================
+   SECCIÓN: Distribución Empleo Ocupacional
+============================== */
+.distribucion-empleo-ocupacional {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+}
+
+.distribucion-empleo-ocupacional h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;
+  margin-bottom: 1.5rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+}
+
+.distribucion-empleo-ocupacional .grafico {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.distribucion-empleo-ocupacional .tarjetas-descripcion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.distribucion-empleo-ocupacional .tarjeta {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  text-align: justify;
+}
+
+.distribucion-empleo-ocupacional .tarjeta h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1565c0;
+  margin-bottom: 0.8rem;
+}
+
+.distribucion-empleo-ocupacional .tarjeta p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333333;
+}
+
+.distribucion-empleo-ocupacional .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #000;
+  margin-top: 1.5rem;
+}
+
+/* ==============================
+   SECCIÓN: Trabajo no remunerado
+============================== */
+.trabajo-no-remunerado {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+}
+
+.trabajo-no-remunerado h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;
+  margin-bottom: 1.5rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+}
+
+.trabajo-no-remunerado .grafico {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.trabajo-no-remunerado .tarjetas-descripcion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.trabajo-no-remunerado .tarjeta {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  text-align: justify;
+}
+
+.trabajo-no-remunerado .tarjeta h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1565c0;
+  margin-bottom: 0.8rem;
+}
+
+.trabajo-no-remunerado .tarjeta p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333333;
+}
+
+.trabajo-no-remunerado .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #000;
+  margin-top: 1.5rem;
+}
+
+/* ==============================
+   SECCIÓN: Empleo Jóvenes
+============================== */
+.empleo-jovenes {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+}
+
+.empleo-jovenes h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;
+  margin-bottom: 1.5rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+}
+
+.empleo-jovenes .grafico {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.tarjetas-jovenes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.tarjeta-joven {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  text-align: justify;
+}
+
+.tarjeta-joven .icono {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.tarjeta-joven h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1565c0;
+  margin-bottom: 0.8rem;
+}
+
+.tarjeta-joven p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333333;
+}
+
+.tarjeta-joven .positivo {
+  color: #2e7d32; /* verde para mejora */
+  font-weight: 600;
+}
+
+.tarjeta-joven .negativo {
+  color: #c62828; /* rojo para deterioro */
+  font-weight: 600;
+}
+
+.empleo-jovenes .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #000;
+  margin-top: 1.5rem;
+}
+
+/* ==============================
+   SECCIÓN: Ocupación y Desempleo Jóvenes
+============================== */
+.ocupacion-desempleo-jovenes {
+  /* Fondo blanco y tipografía base */
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+
+  /* Espaciado interno y bordes redondeados */
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+
+  /* Sombra ligera para dar profundidad */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+  /* Limitar ancho y centrar sección */
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+}
+
+/* ==============================
+   Título principal de la sección
+============================== */
+.ocupacion-desempleo-jovenes h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;
+
+  /* Espaciado inferior */
+  margin-bottom: 1.5rem;
+
+  /* Barra azul al lado izquierdo */
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+}
+
+/* ==============================
+   Contenedor del gráfico
+============================== */
+.ocupacion-desempleo-jovenes .grafico {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+
+  /* Sombra ligera para el gráfico */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+/* ==============================
+   Tarjeta de descripción
+============================== */
+.ocupacion-desempleo-jovenes .tarjeta-descripcion {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+
+  /* Sombra muy ligera para destacar */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+
+  /* Texto justificado para mejor legibilidad */
+  text-align: justify;
+}
+
+/* ==============================
+   Párrafo dentro de la tarjeta
+============================== */
+.ocupacion-desempleo-jovenes .tarjeta-descripcion p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333333;
+}
+
+/* ==============================
+   Fuente o referencia
+============================== */
+.ocupacion-desempleo-jovenes .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #000;
+  margin-top: 1.5rem;
+}
+
+
+/* ==============================
+   SECCIÓN: Formales e Informales
+============================== */
+.seccion-formales-informales {
+  /* Fondo blanco y tipografía base */
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+
+  /* Espaciado interno y bordes redondeados */
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+
+  /* Sombra ligera para dar profundidad */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+  /* Limitar ancho y centrar sección */
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+}
+
+/* ==============================
+   Título principal de la sección
+============================== */
+.seccion-formales-informales .titulo-seccion {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;
+
+  /* Espaciado inferior */
+  margin-bottom: 1.5rem;
+
+  /* Barra azul al lado izquierdo */
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+}
+
+/* ==============================
+   Contenedor del gráfico Tableau
+============================== */
+.seccion-formales-informales .tableauPlaceholder {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+
+  /* Sombra ligera para el gráfico */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+/* ==============================
+   Tarjetas de indicadores
+============================== */
+.seccion-formales-informales .tarjetas-descripcion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Tarjeta individual */
+.seccion-formales-informales .tarjeta-descripcion {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+
+  /* Sombra ligera para destacar la tarjeta */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+
+  text-align: justify;
+}
+
+/* Título dentro de la tarjeta */
+.seccion-formales-informales .tarjeta-descripcion h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1565c0;
+  margin-bottom: 0.8rem;
+}
+
+/* Párrafo dentro de la tarjeta */
+.seccion-formales-informales .tarjeta-descripcion p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333333;
+}
+
+/* Colores especiales para indicadores positivos y negativos */
+.seccion-formales-informales .positivo {
+  color: #2e7d32; /* verde para aumento o mejora */
+  font-weight: 600;
+}
+
+.seccion-formales-informales .negativo {
+  color: #c62828; /* rojo para disminución o alerta */
+  font-weight: 600;
+}
+
+/* ==============================
+   Fuente o referencia
+============================== */
+.seccion-formales-informales .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #000;
+  margin-top: 1.5rem;
+}
+
+.seccion-informalidad-nacional h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1565c0;
+
+  /* Espaciado inferior */
+  margin-bottom: 1.5rem;
+
+  /* Barra azul al lado izquierdo */
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+}
+
+.seccion-informalidad-nacional .fuente-ml {
+  font-size: 0.9rem;       /* Tamaño ligeramente más pequeño */
+  font-style: italic;      /* Cursiva para diferenciar del contenido principal */
+  color: #333333;          /* Gris oscuro para legibilidad */
+  margin-top: 1rem;        /* Espacio por encima */
+}
+
+/* =========================================================
+📊 SECCIÓN CENSO 
+========================================================= */
+.censo-introduccion-tarjeta {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+   font-family: 'Poppins', sans-serif; /* Igual que Censo */
+}
+
+.censo-introduccion-tarjeta h2 {
+  text-align: left;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #072e6a;
+}
+
+.censo-introduccion-tarjeta .grafico-titulo {
+  text-align: center;
+  font-size: 1.3rem;
+  margin: 1.5rem 0;
+  color: #1565c0;
+}
+
+.censo-introduccion-tarjeta p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #110f0f;
+  margin-bottom: 1.5rem;
+}
+
+/* Tarjetas dinámicas para Censo */
+.censo-introduccion-tarjeta .tarjeta-censo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.censo-introduccion-tarjeta .tarjeta-censo-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.censo-introduccion-tarjeta .tarjeta-censo-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.censo-introduccion-tarjeta .tarjeta-censo-item h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #1565c0;
+}
+
+.censo-introduccion-tarjeta .tarjeta-censo-item p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #030202;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .censo-introduccion-tarjeta .tarjeta-introduccion,
+  .censo-introduccion-tarjeta .tarjeta-censo-item {
+    padding: 1rem;
+  }
+}
+
+/* =========================================================
+📊 SECCIÓN CENSO Y DÉFICIT HABITACIONAL - ESTILO UNIFICADO
+========================================================= */
+.censo-seccion,
+.deficit-habitacional,
+#deficit-vivienda-cualitativo,
+#deficit-vivienda-cuantitativo {
+max-width: 1100px;
+margin: 0 auto;
+padding: 2rem 1rem;
+font-family: 'Arial', sans-serif;
+}
+
+.censo-seccion h2,
+#deficit-vivienda-cualitativo h2,
+#deficit-vivienda-cuantitativo h2 {
+color: #1565c0;
+font-size: 1.6rem;
+margin-bottom: 1.5rem;
+font-weight: bold;
+text-align: left;
+}
+
+.censo-seccion p,
+.deficit-habitacional p,
+#deficit-vivienda-cualitativo p,
+#deficit-vivienda-cuantitativo p {
+font-size: 0.95rem;
+line-height: 1.5;
+color: #030202;
+margin-bottom: 1rem;
+}
+/* =========================================================
+📌 TARJETAS BASE (se aplican en todas las secciones)
+========================================================= */
+.tarjeta-censo,
+.deficit-habitacional .tarjeta,
+.tarjeta-panel,
+.grid-barrios .tarjeta {
+background: #fff;
+border-radius: 12px;
+padding: 1rem;
+box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta-censo:hover,
+.deficit-habitacional .tarjeta:hover,
+.tarjeta-panel:hover,
+.grid-barrios .tarjeta:hover {
+transform: translateY(-5px);
+box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* =========================================================
+🎨 TITULOS Y VALORES EN TARJETAS
+========================================================= */
+.tarjeta-censo h4,
+.deficit-habitacional .tarjeta h4,
+.panel-header h4 {
+font-size: 1.1rem;
+margin-bottom: 0.5rem;
+color: #1565c0;
+}
+
+.panel-valor {
+font-size: 1.6rem;
+font-weight: bold;
+text-align: left;
+margin-bottom: 0.8rem;
+color: #1565c0;
+}
+
+.grid-barrios .tarjeta strong {
+display: block;
+font-size: 0.9rem;
+margin-bottom: 0.3rem;
+color: #1565c0;
+}
+
+/* =========================================================
+📊 BARRAS DE PROGRESO (usables en cualquier tarjeta)
+========================================================= */
+.barra-progreso,
+.porcentaje-bar {
+height: 18px;
+background: #e0e0e0;
+border-radius: 9px;
+overflow: hidden;
+margin-top: 0.5rem;
+}
+
+.barra-fill,
+.porcentaje-bar-fill {
+height: 100%;
+background: linear-gradient(90deg, #1565c0, #42a5f5);
+border-radius: 9px 0 0 9px;
+text-align: right;
+padding-right: 0.5rem;
+color: #fff;
+font-weight: bold;
+line-height: 18px;
+transition: width 1s ease-in-out;
+}
+
+/* =========================================================
+📦 LAYOUT DE TARJETAS (GRID GENERAL)
+========================================================= */
+.tarjetas-censo,
+.deficit-habitacional .tarjetas-descripcion,
+.tarjetas-descripcion-panel,
+.grid-barrios {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 1.5rem;
+margin-top: 2rem;
+}
+
+/* Ajustes más compactos en cuantitativo */
+.grid-barrios {
+grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+gap: 1rem;
+}
+
+/* =========================================================
+📱 RESPONSIVE GENERAL
+========================================================= */
+@media (max-width: 600px) {
+.tarjetas-censo,
+.deficit-habitacional .tarjetas-descripcion,
+.tarjetas-descripcion-panel,
+.grid-barrios {
+grid-template-columns: 1fr;
+}
+
+.panel-valor {
+font-size: 1.4rem;
+}
+}
+
+/* =========================================================
+📖 FUENTE DE DATOS (más pequeña e italic)
+========================================================= */
+.fuente {
+font-size: 0.75rem; /* más pequeña */
+color: black;
+margin-top: 1rem;
+font-style: italic;
+text-align: left;
+}
+
+/* =========================================================
+🎨 H3 UNIFICADOS EN TODAS LAS SECCIONES (NEGRITA)
+========================================================= */
+.censo-seccion h3,
+.deficit-habitacional h3,
+#deficit-vivienda-cualitativo h3,
+#deficit-vivienda-cuantitativo h3 {
+  color: #1565c0;       /* azul unificado */
+  text-align: left;      /* alineación izquierda */
+  font-size: 1.3rem;     /* tamaño consistente */
+  font-weight: 700;      /* negrita */
+  margin-bottom: 0.75rem;
+}
+
+
+/* =========================================================
+🌐 GRID DE TARJETAS CIRCULARES
+========================================================= */
+.grid-barrios-clean {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  justify-items: center; /* centra las tarjetas en cada columna */
+}
+
+/* =========================================================
+📦 TARJETA CLEAN
+========================================================= */
+.tarjeta-clean {
+  background: #fff;
+  border-radius: 16px; /* un poco más redondeado */
+  padding: 1rem 0.5rem;
+  width: 100%;
+  max-width: 150px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-clean:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+}
+
+/* =========================================================
+⭕ CÍRCULO CON PORCENTAJE
+========================================================= */
+.circle-clean {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 0.5rem auto;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1565c0;
+  font-weight: 700;
+  font-size: 1.3rem;
+  box-shadow: inset 0 -3px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+
+.tarjeta-clean:hover .circle-clean {
+  transform: scale(1.1);
+}
+
+/* =========================================================
+🏘️ NOMBRE DEL BARRIO
+========================================================= */
+.barrio-clean {
+  font-size: 0.95rem;
+  color: #333;
+  margin-top: 0.3rem;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* =========================================================
+📱 RESPONSIVE
+========================================================= */
+@media (max-width: 480px) {
+  .grid-barrios-clean {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .tarjeta-clean {
+    max-width: 120px;
+    padding: 0.8rem 0.3rem;
+  }
+
+  .circle-clean {
+    width: 60px;
+    height: 60px;
+    font-size: 1.1rem;
+  }
+
+  .barrio-clean {
+    font-size: 0.85rem;
+  }
+}
+
+/* =========================================================
+🏠 SECCIÓN DÉFICIT HABITACIONAL POR COMPONENTES
+========================================================= */
+
+/* CONTENEDOR GENERAL */
+.deficit-habitacional.por-componentes {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: Arial, sans-serif;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #333;
+  border: 1px solid #e5e7eb;
+}
+
+/* TÍTULOS */
+.deficit-habitacional.por-componentes h2 {
+  color: #1565c0;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.deficit-habitacional.por-componentes h3 {
+  color: #1565c0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 2rem 0 0.75rem;
+}
+
+/* PÁRRAFOS */
+.deficit-habitacional.por-componentes p,
+.deficit-habitacional.por-componentes .intro-tarjetas {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* TARJETA INTRODUCTORIA */
+.tarjeta-intro-horizontal {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .tarjeta-intro-horizontal {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* GRID DE TARJETAS */
+.grid-barrios-clean {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+  justify-items: center;
+}
+
+/* TARJETAS */
+.tarjeta-clean {
+  background: #ffffff;
+  border-radius: 16px;
+  text-align: center;
+  width: 100%;
+  max-width: 160px;
+  padding: 1rem 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-clean:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+}
+
+/* CÍRCULOS */
+.circle-clean {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  color: #1565c0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: inset 0 -3px 6px rgba(0,0,0,0.05);
+}
+
+/* EFECTO HOVER EN CÍRCULOS */
+.tarjeta-clean:hover .circle-clean {
+  transform: scale(1.1);
+}
+
+/* TEXTO DE BARRIOS */
+.barrio-clean {
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: 0.5rem;
+}
+
+/* FUENTE */
+.fuente {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 2rem;
+  font-style: italic;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .grid-barrios-clean {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .tarjeta-clean {
+    max-width: 120px;
+    padding: 0.8rem 0.3rem;
+  }
+
+  .circle-clean {
+    width: 50px;
+    height: 50px;
+    font-size: 0.9rem;
+  }
+
+  .barrio-clean {
+    font-size: 0.85rem;
+  }
+}
+section {
+  border: 1px solid #e5e7eb;
+  margin-bottom: 50px !important;
+}
+
+
+
+/* =========================================================
+🏠 SECCIÓN ÍNDICE DE POBREZA MULTIDIMENSIONAL
+========================================================= */
+.indice-pobreza-multidimensional {
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+  padding: 2rem 1rem;
+  font-family: 'Arial', sans-serif;
+  background: #fff;
+  border-radius: 12px;
+}
+
+/* Título */
+.indice-pobreza-multidimensional h3 {
+  color: #1565c0; /* azul elegante y profesional */
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Párrafos */
+.indice-pobreza-multidimensional p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #111; /* negro suave */
+  margin-bottom: 1rem;
+}
+
+/* Tarjeta del gráfico */
+.indice-pobreza-multidimensional .tarjeta-grafico {
+  background: #f9f9f9; /* gris muy suave */
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06); /* sombra ligera */
+  margin-bottom: 2rem;
+}
+
+/* Tarjeta de texto */
+.indice-pobreza-multidimensional .tarjeta-texto {
+  background: #f7f9fc; /* azul muy suave, casi neutro */
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+/* Tableau */
+.indice-pobreza-multidimensional .tableauPlaceholder {
+  width: 100%;
+  min-height: 550px;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Responsividad para móviles */
+@media (max-width: 600px) {
+  .indice-pobreza-multidimensional {
+    padding: 1rem;
+  }
+  .indice-pobreza-multidimensional .tarjeta-grafico,
+  .indice-pobreza-multidimensional .tarjeta-texto {
+    padding: 0.8rem;
+  }
+}
+
+/* Tarjeta de texto explicativo */
+.indice-pobreza-multidimensional .tarjeta-texto {
+  background: #f7f9fc; /* azul muy suave */
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05); /* sombra ligera */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover sutil */
+.indice-pobreza-multidimensional .tarjeta-texto:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Lista de barrios */
+.indice-pobreza-multidimensional .lista-barrios {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+
+.indice-pobreza-multidimensional .lista-barrios li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  background: #e8f0fb; /* fondo sutil de cada ítem */
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+/* Icono de cada barrio */
+.indice-pobreza-multidimensional .lista-barrios .icono {
+  margin-right: 0.6rem;
+  font-size: 1.1rem;
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+  .indice-pobreza-multidimensional .tarjeta-texto {
+    padding: 1rem;
+  }
+  .indice-pobreza-multidimensional .lista-barrios li {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.6rem;
+  }
+}
+
+/* =========================================================
+🏠 SECCIÓN TASA DE DEPENDENCIA
+========================================================= */
+.tasa-dependencia {
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+  padding: 2rem 1rem;
+  font-family: 'Arial', sans-serif;
+  background: #fff;
+  border-radius: 12px;
+}
+
+/* Título */
+.tasa-dependencia h3 {
+  color: #1565c0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Párrafos */
+.tasa-dependencia p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+/* Tarjeta del gráfico */
+.tasa-dependencia .tarjeta-grafico {
+  background: #fff; /* fondo blanco */
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); /* sombra muy ligera */
+  margin-bottom: 2rem;
+  border: 1px solid #e0e0e0; /* borde suave */
+}
+
+/* Tarjetas de texto */
+.tasa-dependencia .tarjeta-texto {
+  background: #fff; /* fondo blanco */
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06); /* sombra muy ligera */
+  margin-bottom: 1.5rem;
+  border: 1px solid #e0e0e0; /* borde suave */
+}
+
+/* Lista de barrios */
+.tasa-dependencia .tarjeta-texto ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.tasa-dependencia .tarjeta-texto ul li {
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+
+/* Responsividad */
+@media (max-width: 600px) {
+  .tasa-dependencia .tarjeta-texto,
+  .tasa-dependencia .tarjeta-grafico {
+    padding: 0.8rem 1rem;
+  }
+
+  .tasa-dependencia p,
+  .tasa-dependencia .tarjeta-texto ul li {
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================================================
+🏠 SECCIÓN POBLACIÓN
+========================================================= */
+.poblacion {
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+  padding: 2rem 2rem;
+  font-family: 'Arial', sans-serif;
+  background: #fff;
+  border-radius: 12px;
+}
+
+.poblacion h3 {
+  color: #1565c0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.poblacion p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: black;
+  margin-bottom: 1rem;
+}
+
+/* Tarjetas de gráfico y texto */
+.poblacion .tarjeta-grafico,
+.poblacion .tarjeta-texto {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  border: 1px solid #e0e0e0;
+  margin-bottom: 1.5rem;
+
+  /* Efecto de transición para hover */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover: se mueve ligeramente y sombra más marcada */
+.poblacion .tarjeta-grafico:hover,
+.poblacion .tarjeta-texto:hover {
+  transform: translateY(-4px); /* sube 4px */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+
+
+/* =========================================================
+🏠 SECCIÓN POBLACIÓN DISCAPACITADA
+========================================================= */
+.poblacion-discapacitada {
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+  padding: 2rem 1rem;
+  font-family: 'Arial', sans-serif;
+  background: #fff;
+  border-radius: 12px;
+}
+
+.poblacion-discapacitada h3 {
+  color: #1565c0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.poblacion-discapacitada p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+/* Tarjetas de gráfico y texto */
+.poblacion-discapacitada .tarjeta-grafico,
+.poblacion-discapacitada .tarjeta-texto {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  border: 1px solid #e0e0e0;
+  margin-bottom: 1.5rem;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover: movimiento sutil y sombra más marcada */
+.poblacion-discapacitada .tarjeta-grafico:hover,
+.poblacion-discapacitada .tarjeta-texto:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+/* Tableau placeholder */
+.poblacion-discapacitada .tableauPlaceholder {
+  width: 100%;
+  min-height: 550px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* Tarjeta de texto: subtítulos y lista */
+.poblacion-discapacitada .tarjeta-texto h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1565c0;
+  margin-bottom: 0.5rem;
+}
+
+.poblacion-discapacitada .tarjeta-texto ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.poblacion-discapacitada .tarjeta-texto ul li {
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+
+
+
+
+/* =========================================================
+🏠 SECCIÓN GRUPO ÉTNICO
+========================================================= */
+.grupo-etnico {
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+  padding: 2rem 1rem;
+  font-family: 'Arial', sans-serif;
+  background: #fff;
+  border-radius: 12px;
+}
+
+.grupo-etnico h2 {
+  color: #1565c0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.grupo-etnico p,
+.grupo-etnico ul {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+.grupo-etnico li {
+  margin-bottom: 0.5rem;
+}
+
+/* Tarjetas: gráfico y texto */
+.grupo-etnico .tarjeta-grafico,
+.grupo-etnico .tarjeta-texto {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  border: 1px solid #e0e0e0;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover: movimiento sutil y sombra más marcada */
+.grupo-etnico .tarjeta-grafico:hover,
+.grupo-etnico .tarjeta-texto:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+/* Tableau placeholder */
+.grupo-etnico .tableauPlaceholder {
+  width: 100%;
+  min-height: 550px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* Tarjeta de texto: subtítulos y listas */
+.grupo-etnico .tarjeta-texto h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1565c0;
+  margin-bottom: 0.5rem;
+}
+
+.grupo-etnico .tarjeta-texto ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+
+
+/* =========================================================
+🏠 SECCIÓN POBLACIÓN ESCOLARIZADA
+========================================================= */
+.poblacion-escolarizada {
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+  padding: 2rem 1rem;
+  font-family: 'Arial', sans-serif;
+  background: #fff;
+  border-radius: 12px;
+}
+
+.poblacion-escolarizada h2 {
+  color: #1565c0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.poblacion-escolarizada p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+/* Tarjetas: gráfico y texto */
+.poblacion-escolarizada .tarjeta-grafico,
+.poblacion-escolarizada .tarjeta-texto {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  border: 1px solid #e0e0e0;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover: movimiento sutil y sombra más marcada */
+.poblacion-escolarizada .tarjeta-grafico:hover,
+.poblacion-escolarizada .tarjeta-texto:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+/* Tableau placeholder */
+.poblacion-escolarizada .tableauPlaceholder {
+  width: 100%;
+  min-height: 550px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* =========================================================
+🏠 GRUPO ETARIO - Tarjetas elegantes con color #1565c0
+========================================================= */
+
+.grupo-etario {
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+  padding: 2.5rem 2rem;
+  font-family: 'Arial', sans-serif;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.grupo-etario h2 {
+  color: #1565c0; /* color del título */
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+/* Tarjeta del gráfico elegante */
+.grupo-etario .tarjeta-grafico-elegante {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #d8dde5;
+  padding: 1.8rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.grupo-etario .tarjeta-grafico-elegante:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* Tarjeta de texto elegante con borde azul #1565c0 */
+.grupo-etario .tarjeta-texto-elegante {
+  background: #fefefe;
+  border-left: 4px solid #1565c0; /* borde del mismo color que el título */
+  padding: 1.8rem 2rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.grupo-etario .tarjeta-texto-elegante:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.grupo-etario p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333333;
+  margin-bottom: 1rem;
+}
+
+
+/* Tableau placeholder */
+.grupo-etario .tableauPlaceholder {
+  width: 100%;
+  min-height: 550px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+
+/* ===============================
+   SECCIÓN: MERCADO LABORAL
+================================ */
+
+.mercado-laboral {
+  max-width: 1100px;
+  margin: 0 auto 3rem auto;   /* espacio abajo para que no se pegue */
+  padding: 2.5rem 2rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  font-family: 'Arial', sans-serif;
+}
+
+/* Título */
+.mercado-laboral h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1565c0;
+  margin-bottom: 2rem;
+}
+
+/* Contenedor del gráfico */
+.mercado-laboral .tableauPlaceholder {
+  width: 100%;
+  min-height: 550px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+/* Texto descriptivo */
+.mercado-laboral p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 1.2rem;
+  text-align: justify;
+}
+
+/* Fuente */
+.mercado-laboral .fuente {
+  font-size: 0.85rem;
+  color: #666;
+  font-style: italic;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FUERZA MISMO ANCHO PARA TODAS LAS SECCIONES */
+.censo-introduccion-tarjeta,
+.censo-seccion,
+.deficit-habitacional,
+.deficit-habitacional.por-componentes,
+#deficit-vivienda-cualitativo,
+#deficit-vivienda-cuantitativo,
+.indice-pobreza-multidimensional,
+.tasa-dependencia,
+.poblacion,
+.poblacion-discapacitada {
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  padding: 2rem 1.5rem !important;
+}
+
+/* ESPACIADO ENTRE SECCIONES */
+.censo-introduccion-tarjeta,
+.censo-seccion,
+.deficit-habitacional,
+.deficit-habitacional.por-componentes,
+#deficit-vivienda-cualitativo,
+#deficit-vivienda-cuantitativo,
+.indice-pobreza-multidimensional,
+.tasa-dependencia,
+.poblacion,
+.poblacion-discapacitada {
+  margin-bottom: 3rem !important;
+}
+
+
+.grupo-etnico,
+.poblacion-escolarizada,
+.grupo-etario {
+  max-width: 1100px !important;
+  margin: 0 auto 3rem auto !important;
+}
+
+
+
+
+/* ==============================
+   SECCIÓN: Salud Comparativa
+============================== */
+.salud-comparativa {
+  background-color: #ffffff;           /* Fondo blanco para resaltar contenido */
+  font-family: "Inter", sans-serif;   /* Tipografía limpia y moderna */
+  padding: 2.5rem 1.5rem;             /* Espaciado interno */
+  border-radius: 12px;                 /* Bordes redondeados */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Sombra suave */
+  max-width: 1000px;                   /* Ancho máximo para centralizar contenido */
+  margin: 0 auto 2rem auto;            /* Centrado horizontal y margen inferior */
+}
+
+.salud-comparativa h3 {
+  font-size: 1.3rem;                   /* Tamaño de título principal */
+  font-weight: 700;                     /* Negrita */
+  color: #1565c0;                       /* Azul para el título */
+  margin-bottom: 1.5rem;               /* Separación del gráfico */
+  border-left: 6px solid #007bff;      /* Línea azul a la izquierda */
+  padding-left: 12px;                   /* Separación entre línea y texto */
+}
+
+.salud-comparativa .grafico {
+  width: 100%;                          /* Ocupa todo el ancho del contenedor */
+  border-radius: 8px;                    /* Bordes suavizados para el gráfico */
+  overflow: hidden;                      /* Evita desbordes de contenido */
+  margin: 2rem 0;                        /* Espaciado vertical */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04); /* Sombra ligera */
+}
+
+.salud-comparativa .tarjetas-descripcion {
+  display: grid;                        /* Distribuye las tarjetas en grid */
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1.5rem;                           /* Espacio entre tarjetas */
+  margin-top: 2rem;                       /* Separación respecto al gráfico */
+}
+
+.salud-comparativa .tarjeta {
+  background-color: #ffffff;             /* Fondo blanco para cada tarjeta */
+  padding: 1.5rem;                       /* Espaciado interno */
+  border-radius: 12px;                    /* Bordes redondeados */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04); /* Sombra ligera */
+  text-align: justify;                    /* Texto justificado */
+}
+
+.salud-comparativa .tarjeta h4 {
+  font-size: 1.1rem;                      /* Tamaño del subtítulo */
+  font-weight: 600;                        /* Negrita moderada */
+  color: #1565c0;                          /* Azul para subtítulos */
+  margin-bottom: 0.8rem;                  /* Espacio bajo el título */
+}
+
+.salud-comparativa .tarjeta p {
+  font-size: 0.95rem;                     /* Texto legible */
+  line-height: 1.6;                       /* Mejor lectura */
+  color: #333333;                         /* Gris oscuro para el texto */
+}
+
+.salud-comparativa .fuente {
+  font-size: 0.9rem;                      /* Tamaño más pequeño para referencia */
+  font-style: italic;                      /* Cursiva para diferenciar */
+  color: #333333;                          /* Gris oscuro */
+  margin-top: 1rem;                        /* Separación del contenido */
+}
+
+
+/* ==============================
+   SECCIÓN: Defunciones y Morbilidad
+============================== */
+.defunciones-morbilidad {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  max-width: 1000px;
+  margin: 0 auto 3rem auto;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* ======= Título ======= */
+.defunciones-morbilidad h3 {
+  font-size: 1.3rem;                   /* Tamaño de título principal */
+  font-weight: 700;                     /* Negrita */
+  color: #1565c0;                       /* Azul para el título */
+  margin-bottom: 1.5rem;               /* Separación del gráfico */
+  border-left: 6px solid #007bff;      /* Línea azul a la izquierda */
+  padding-left: 12px;            
+}
+
+/* ======= Introducción ======= */
+.defunciones-introduccion-tarjeta {
+  margin-bottom: 2rem;
+}
+
+.defunciones-introduccion p {
+  color: #333333;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* ======= Gráfico ======= */
+.defunciones-morbilidad .grafico {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* ======= Tarjetas Resumen ======= */
+.tarjetas-descripcion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.tarjeta {
+  background-color: #f9fafc;
+  border-radius: 12px;
+  padding: 1.2rem 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+}
+
+.tarjeta h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0d47a1; /* Azul más fuerte para subtítulos */
+  margin-bottom: 0.4rem;
+}
+
+.tarjeta p {
+  font-size: 0.95rem;
+  color: #333333;
+  line-height: 1.5;
+}
+
+/* ======= Fuente ======= */
+.fuente {
+  font-size: 0.9rem;
+  color: #333333;
+  font-style: italic;
+  text-align: left;
+  margin-top: 1.5rem;
+}
+
+
+/* ==============================
+   SECCIÓN: Mapa de Dengue 2024
+============================== */
+.mapa-dengue {
+  background-color: #ffffff;           /* Fondo blanco */
+  font-family: "Inter", sans-serif;   /* Tipografía clara */
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+}
+
+/* Título principal */
+.mapa-dengue h3 {
+  font-size: 1.3rem;                   /* Tamaño de título principal */
+  font-weight: 700;                     /* Negrita */
+  color: #1565c0;                       /* Azul para el título */
+  margin-bottom: 1.5rem;               /* Separación del gráfico */
+  border-left: 6px solid #007bff;      /* Línea azul a la izquierda */
+  padding-left: 12px;       
+}
+
+/* Contenedor de la gráfica */
+.grafica-container {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+/* Descripción */
+.mapa-dengue .descripcion {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333333;
+  text-align: justify;
+  margin-bottom: 1.5rem;
+}
+
+/* Fuente */
+.mapa-dengue .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #333333;
+  text-align: left;
+}
+
+
+/* ==============================
+   SECCIÓN: Prevalencia y casos de Dengue por año
+============================== */
+.prevalencia-dengue {
+  background-color: #ffffff;           /* Fondo blanco */
+  font-family: "Inter", sans-serif;   /* Tipografía clara */
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+}
+
+/* Título principal */
+.prevalencia-dengue h3 {
+  font-size: 1.3rem;                   /* Tamaño de título */
+  font-weight: 700;                     /* Negrita */
+  color: #1565c0;                       /* Azul corporativo */
+  margin-bottom: 1.5rem;               /* Separación del gráfico */
+  border-left: 6px solid #007bff;      /* Línea azul a la izquierda */
+  padding-left: 12px;                  /* Espacio entre línea y texto */
+}
+
+/* Contenedor de la gráfica */
+.prevalencia-dengue .grafica-container {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+/* Descripción */
+.prevalencia-dengue .descripcion {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333333;
+  text-align: justify;
+  margin-bottom: 1.5rem;
+}
+
+/* Fuente */
+.prevalencia-dengue .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #333333;
+  text-align: left;
+}
+
+
+/* ==============================
+   SECCIÓN: Prevalencia y casos de Dengue por año
+============================== */
+.prevalencia-dengue {
+  background-color: #ffffff;           /* Fondo blanco */
+  font-family: "Inter", sans-serif;   /* Tipografía clara */
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+}
+
+/* Título principal */
+.prevalencia-dengue h3 {
+  font-size: 1.3rem;                   /* Tamaño de título */
+  font-weight: 700;                     /* Negrita */
+  color: #1565c0;                       /* Azul corporativo */
+  margin-bottom: 1.5rem;               /* Separación del gráfico */
+  border-left: 6px solid #007bff;      /* Línea azul a la izquierda */
+  padding-left: 12px;                  /* Espacio entre línea y texto */
+}
+
+/* Contenedor de la gráfica */
+.prevalencia-dengue .grafica-container {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+/* Descripción */
+.prevalencia-dengue .descripcion {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333333;
+  text-align: justify;
+  margin-bottom: 1.5rem;
+}
+
+/* Fuente */
+.prevalencia-dengue .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #333333;
+  text-align: left;
+}
+
+
+/* ==============================
+   SECCIÓN: Mapa de Desnutrición en menores de 5 años
+============================== */
+.mapa-desnutricion {
+  background-color: #ffffff;           /* Fondo blanco */
+  font-family: "Inter", sans-serif;   /* Tipografía clara */
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+}
+
+/* Título principal */
+.mapa-desnutricion h3 {
+  font-size: 1.3rem;                   /* Tamaño de título */
+  font-weight: 700;                     /* Negrita */
+  color: #1565c0;                       /* Azul corporativo */
+  margin-bottom: 1.5rem;               /* Separación del gráfico */
+  border-left: 6px solid #007bff;      /* Línea azul a la izquierda */
+  padding-left: 12px;                  /* Espacio entre línea y texto */
+}
+
+/* Contenedor de la gráfica */
+.mapa-desnutricion .grafica-container {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+/* Descripción */
+.mapa-desnutricion .descripcion {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333333;
+  text-align: justify;
+  margin-bottom: 1.5rem;
+}
+
+/* Fuente */
+.mapa-desnutricion .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #333333;
+  text-align: left;
+}
+
+
+
+/* ==============================
+   SECCIÓN: Transporte y Accidentalidad Vial
+============================== */
+
+.transporte-accidentalidad {
+  background-color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  max-width: 1000px;
+  margin: 0 auto 3rem auto;
+}
+
+/* ===== TÍTULO PRINCIPAL ===== */
+.transporte-accidentalidad h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+ color: #072e6a;
+   text-align: left;
+  margin-bottom: 2rem;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+/* ===== INTRODUCCIÓN ===== */
+.transporte-introduccion-tarjeta {
+  margin-bottom: 2.5rem;
+}
+
+.transporte-introduccion-tarjeta .tarjeta-introduccion {
+  background-color: #f5f9ff;        /* Azul claro suave */
+  border-radius: 10px;
+  padding: 1.8rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+
+.transporte-introduccion-tarjeta .tarjeta-introduccion p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* ===== TARJETAS DE INDICADORES ===== */
+.tarjetas-indicadores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Cada tarjeta */
+.tarjeta {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+/* Íconos de las tarjetas */
+.tarjeta .icon {
+  font-size: 1.8rem;
+  color: #1565c0;
+  margin-bottom: 0.8rem;
+}
+
+/* Títulos de las tarjetas */
+.tarjeta h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0d47a1;
+  margin-bottom: 0.8rem;
+}
+
+/* Texto dentro de las tarjetas */
+.tarjeta p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+/* ===== FUENTE ===== */
+.transporte-accidentalidad .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #000;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+
+/* ==============================
+   SECCIÓN: Movilidad y Transporte
+============================== */
+.movilidad-indicadores {
+  background-color: #ffffff;          /* Fondo blanco */
+  font-family: "Inter", sans-serif;  /* Tipografía clara */
+  padding: 2.5rem 2rem;              /* Espaciado interno */
+  border-radius: 12px;               /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Sombra suave */
+  max-width: 1000px;                 /* Ancho máximo */
+  margin: 0 auto 3rem auto;          /* Centrado y margen inferior */
+}
+
+/* Título de la sección */
+.movilidad-indicadores h3 {
+   font-size: 1.3rem;                   /* Tamaño de título */
+  font-weight: 700;                     /* Negrita */
+  color: #1565c0;                       /* Azul corporativo */
+  margin-bottom: 1.5rem;               /* Separación del gráfico */
+  border-left: 6px solid #007bff;      /* Línea azul a la izquierda */
+  padding-left: 12px;           
+}
+
+/* Contenedor del gráfico */
+.movilidad-indicadores .grafica-container {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+/* Tarjetas de indicadores */
+.tarjetas-movilidad {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Estilo de cada tarjeta */
+.tarjeta {
+  background-color: #f5f9ff;
+  border-radius: 12px;
+  padding: 1.8rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.tarjeta h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+color: #1565c0;
+  margin-bottom: 0.8rem;
+}
+
+.tarjeta p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #333333;
+  text-align: justify;
+}
+
+/* Fuente de datos */
+.movilidad-indicadores .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #000;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+
+/* ==============================
+   SECCIÓN: Accidentes de Tránsito
+============================== */
+.accidentes-indicadores {
+  background-color: #ffffff;            /* Fondo blanco */
+  font-family: "Inter", sans-serif;    /* Tipografía legible */
+  padding: 2.5rem 2rem;                /* Espaciado interno */
+  border-radius: 12px;                 /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Sombra ligera */
+  max-width: 1000px;                   /* Ancho máximo */
+  margin: 0 auto 3rem auto;            /* Centrado y margen inferior */
+}
+
+/* Título principal de la sección */
+.accidentes-indicadores h3 {
+font-size: 1.3rem;                   /* Tamaño de título */
+  font-weight: 700;                     /* Negrita */
+  color: #1565c0;                       /* Azul corporativo */
+  margin-bottom: 1.5rem;               /* Separación del gráfico */
+  border-left: 6px solid #007bff;      /* Línea azul a la izquierda */
+  padding-left: 12px;           
+}
+
+/* Contenedor del gráfico */
+.accidentes-indicadores .grafica-container {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+/* Tarjetas resumen de accidentes */
+.tarjetas-accidentes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Estilo de cada tarjeta */
+.tarjetas-accidentes .tarjeta {
+  background-color: #fff3f3;           /* Fondo rojo claro */
+  border-radius: 12px;
+  padding: 1.8rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjetas-accidentes .tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.tarjetas-accidentes .tarjeta h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #b71c1c;                      /* Rojo más intenso */
+  margin-bottom: 0.8rem;
+}
+
+.tarjetas-accidentes .tarjeta p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #333333;
+  text-align: justify;
+}
+
+/* Fuente de los datos */
+.accidentes-indicadores .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #000;
+  margin-top: 2rem;
+  text-align:left;
+}
+
+
+/* ==============================
+   SECCIÓN: Top 3 Sectores con Mayor Accidentalidad
+============================== */
+.accidentes-top3 {
+  background-color: #ffffff;            /* Fondo blanco */
+  font-family: "Inter", sans-serif;    /* Tipografía legible */
+  padding: 2.5rem 2rem;                /* Espaciado interno */
+  border-radius: 12px;                 /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Sombra ligera */
+  max-width: 1000px;                   /* Ancho máximo */
+  margin: 0 auto 3rem auto;            /* Centrado y margen inferior */
+}
+
+/* Título principal de la sección */
+.accidentes-top3 h3 {
+  font-size: 1.3rem;                   /* Tamaño de título */
+  font-weight: 700;                     /* Negrita */
+  color: #1565c0;                       /* Azul corporativo */
+  margin-bottom: 1.5rem;               /* Separación del gráfico */
+  border-left: 6px solid #007bff;      /* Línea azul a la izquierda */
+  padding-left: 12px;        
+}
+
+/* Contenedor del gráfico */
+.accidentes-top3 .grafica-container {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+/* Tarjetas resumen de Top 3 */
+.tarjetas-top3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Estilo de cada tarjeta */
+.tarjetas-top3 .tarjeta {
+  background-color: #fff3f3;           /* Fondo rojo claro */
+  border-radius: 12px;
+  padding: 1.8rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjetas-top3 .tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.tarjetas-top3 .tarjeta h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #b71c1c;                      /* Rojo más intenso */
+  margin-bottom: 0.8rem;
+}
+
+.tarjetas-top3 .tarjeta p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #333333;
+  text-align: justify;
+}
+
+/* Fuente de los datos */
+.accidentes-top3 .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #000;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+
+/* ==============================
+   SECCIÓN: Histórico de Accidentabilidad
+============================== */
+.historico-accidentalidad {
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  max-width: 1000px;
+  margin: 0 auto 3rem auto;
+}
+
+/* Título principal */
+.historico-accidentalidad h3 {
+  font-size: 1.3rem;                   /* Tamaño de título */
+  font-weight: 700;                     /* Negrita */
+  color: #1565c0;                       /* Azul corporativo */
+  margin-bottom: 1.5rem;               /* Separación del gráfico */
+  border-left: 6px solid #007bff;      /* Línea azul a la izquierda */
+  padding-left: 12px;   
+}
+
+/* Contenedor del gráfico */
+.historico-accidentalidad .grafica-container {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+/* Descripción general */
+.historico-accidentalidad .descripcion p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+  text-align: justify;
+  background-color: #f4f8ff; /* Azul muy suave */
+  border-left: 4px solid #1565c0;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+/* Tarjetas informativas */
+.tarjetas-historico {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Estilo de cada tarjeta */
+.tarjetas-historico .tarjeta {
+  background-color: #e3f2fd; /* Fondo azul claro */
+  border-radius: 12px;
+  padding: 1.8rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjetas-historico .tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.tarjetas-historico .tarjeta h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0d47a1; /* Azul más oscuro */
+  margin-bottom: 0.8rem;
+}
+
+.tarjetas-historico .tarjeta p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #333;
+  text-align: justify;
+}
+
+/* Fuente */
+.historico-accidentalidad .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #000;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+
+.sidebar-innovador {
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+  }
+
+  .sidebar-innovador h3 {
+    margin-bottom: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #002c70;
+    border-bottom: 2px solid #ffcb05;
+    padding-bottom: 0.3rem;
+  }
+
+  .seccion-sidebar {
+    background: #f9f9f9;
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+   
+  }
+
+
+
+.cet-seccion {
+  padding: 3rem 1.5rem;
+  background: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  color: #222;
+  text-align: center;
+}
+
+.cet-header h2 {
+  color: #004aad;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.cet-header h3 {
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.cet-header p {
+  max-width: 850px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.cet-equipo h3 {
+  color: #004aad;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.tarjetas-equipo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.tarjeta-cet {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-align: center;
+  border: 1px solid #e6e6e6;
+}
+
+.tarjeta-cet:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta-cet img {
+  width: 165px;
+  height: 165px;
+  object-fit: contain;
+  object-position: center;
+  border: 2px solid #004aad;
+  border-radius: 10px;
+  background-color: #f5f8ff;
+  display: block;
+  margin: 0 auto 0.8rem auto;
+}
+
+.tarjeta-cet .info h4 {
+  font-size: 1rem;
+  color: #004aad;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.tarjeta-cet .info .nombre {
+  font-size: 0.95rem;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+.tarjeta-cet .info .mini-descripcion {
+  font-size: 0.88rem;
+  color: #555;
+  line-height: 1.45;
+  text-align: justify;
+}
+
+.creditos-libro {
+   width: 100%;
+  margin-top: 6rem;          /* ← añade espacio para despegarlo del menú fijo */
+  padding: 4rem 3rem 4rem;
+  font-family: 'Poppins', sans-serif;
+  color: #222;
+  box-sizing: border-box;
+}
+
+.creditos-libro h2 {
+  text-align: left;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  letter-spacing: 1px;
+}
+
+.creditos-libro .bloque {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+}
+
+.creditos-libro .titulo {
+  display: block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.creditos-libro .contenido {
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+
+.card-analisis {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  margin: 1rem 0;
+}
+
+.card-analisis .titulo-card {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.icono-bloque {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  margin-bottom: 1.2rem;
+}
+
+.icono {
+  font-size: 1.8rem;
+}
+
+.card-analisis strong {
+  color: #003366; /* Azul oscuro elegante */
+  font-weight: 700;
+}
+
+
+.card-ocupacion {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  font-family: "Inter", sans-serif;
+  line-height: 1.65;
+  margin: 1.5rem 0;
+}
+
+.titulo-card {
+  font-size: 1.55rem;
+  margin-bottom: 1.5rem;
+}
+
+.bloque-icono {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+}
+
+.icono {
+  font-size: 1.8rem;
+}
+
+.lista-turismo li {
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+}
+
+.lista-turismo strong,
+.card-ocupacion strong {
+  color: #174ea6; /* azul oscuro estilo Google */
+}
+
+
+.descripcion-turismo {
+  font-family: "Inter", sans-serif;
+  color: #333;
+  line-height: 1.7;
+  padding: 1rem 0;
+}
+
+.titulo-descripcion {
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  color: #1a237e;
+}
+
+.card-turismo {
+  background: #f0f4ff;
+  padding: 1.1rem 1.3rem;
+  border-radius: 10px;
+  border-left: 5px solid #3949ab;
+  margin: 1.4rem 0;
+}
+
+.card-turismo h4 {
+  margin-bottom: 0.8rem;
+  font-size: 1.3rem;
+  color: #283593;
+}
+
+.bloque-visitas {
+  background: #eef1ff;
+  padding: 1.2rem 1.3rem;
+  border-radius: 10px;
+  margin-top: 1.4rem;
+  border-left: 5px solid #1e3a8a;
+}
+
+.bloque-visitas h4 {
+  margin-bottom: 0.8rem;
+  font-size: 1.3rem;
+  color: #1e3a8a;
+}
+
+.descripcion-turismo ul {
+  padding-left: 1.3rem;
+}
+
+.fuente {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+
+/* Negrilla en azul oscuro */
+.bloque-vivienda-turistica strong {
+  color: #004aad;        /* Azul oscuro */
+  font-weight: 700;
+}
+
+
+
+.descripcion-visual {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.descripcion-visual .bloque {
+  background: #f8fbff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 5px solid #003366;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.descripcion-visual h4 {
+  margin-bottom: .7rem;
+  color: #003366;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.descripcion-visual p {
+  line-height: 1.55;
+  color: #333;
+  font-size: 1rem;
+}
+
+
+/* ==== TARJETA PRINCIPAL ==== */
+.card-analisis-vivienda {
+  background: #ffffff;
+  padding: 2.2rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+/* ==== TÍTULO PRINCIPAL ==== */
+.card-analisis-vivienda .titulo-card {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #003366; /* azul oscuro elegante */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ==== SUBTÍTULOS DE BLOQUES ==== */
+.bloque-analisis .subtitulo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: #00509e; /* azul más claro */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bloque-analisis {
+  margin-bottom: 1.6rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid #ececec;
+}
+
+/* Último bloque sin borde */
+.bloque-analisis:last-child {
+  border-bottom: none;
+}
+
+/* ==== PÁRRAFOS ==== */
+.card-analisis-vivienda p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 0.8rem;
+}
+
+/* ==== NEGRILLAS EN AZUL OSCURO ==== */
+.card-analisis-vivienda strong {
+  color: #003a70; /* azul fuerte elegante */
+  font-weight: 700;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+  .card-analisis-vivienda {
+    padding: 1.8rem 1.3rem;
+  }
+
+  .card-analisis-vivienda .titulo-card {
+    font-size: 1.5rem;
+  }
+
+  .bloque-analisis .subtitulo {
+    font-size: 1.1rem;
+  }
+}
+
+
+/* ==============================
+   CONTENEDOR GENERAL – SALUD
+============================== */
+
+.salud-introduccion-tarjeta,
+.salud-comparativa,
+.defunciones-morbilidad,
+.defunciones-introduccion-tarjeta,
+.mapa-dengue {
+  background-color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+  padding: 2.5rem 2rem;
+}
+
+/* ==============================
+   TÍTULOS H2 y H3 – SALUD
+============================== */
+
+.salud header h2,
+.salud-comparativa h3,
+.defunciones-morbilidad h3,
+.mapa-dengue h3 {
+  color: #1565c0;
+  font-weight: 700;
+  font-size: 1.3rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  line-height: 1.3;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+/* ==============================
+   TEXTO INTRODUCTORIO – SALUD
+============================== */
+
+.salud-introduccion p,
+.defunciones-introduccion p,
+.mapa-dengue .descripcion {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+  text-align: justify;
+}
+
+.salud-introduccion strong,
+.defunciones-introduccion strong {
+  color: #1565c0;
+  font-weight: 600;
+}
+
+/* ==============================
+   TARJETAS DESCRIPTIVAS – SALUD
+============================== */
+
+.salud .tarjetas-descripcion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.salud .tarjeta {
+  background-color: #f9fafc;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.salud .tarjeta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.salud .tarjeta h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1565c0;
+  margin-bottom: 0.6rem;
+}
+
+.salud .tarjeta p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* ==============================
+   GRÁFICOS (TABLEAU) – SALUD
+============================== */
+
+.salud .grafico,
+.salud .grafica-container {
+  margin: 1.5rem 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+}
+
+/* ==============================
+   FUENTE DE DATOS – SALUD
+============================== */
+
+.salud .fuente {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 1.5rem;
+  color: #555;
+  text-align: left;
+}
+
+/* ==============================
+   RESPONSIVE – SALUD
+============================== */
+
+@media (max-width: 992px) {
+  .salud-introduccion-tarjeta,
+  .salud-comparativa,
+  .defunciones-morbilidad,
+  .defunciones-introduccion-tarjeta,
+  .mapa-dengue {
+    padding: 2rem 1.5rem;
+  }
+
+  .salud header h2,
+  .salud-comparativa h3,
+  .defunciones-morbilidad h3,
+  .mapa-dengue h3 {
+    font-size: 1.3rem;
+  }
+
+  .salud .tarjeta p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .salud-introduccion-tarjeta,
+  .salud-comparativa,
+  .defunciones-morbilidad,
+  .defunciones-introduccion-tarjeta,
+  .mapa-dengue {
+    padding: 1.8rem 1rem;
+  }
+
+  .salud header h2,
+  .salud-comparativa h3,
+  .defunciones-morbilidad h3,
+  .mapa-dengue h3 {
+    font-size: 1.1rem;
+  }
+
+  .salud .tarjeta p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+
+/* ==============================
+   TÍTULO PRINCIPAL – SALUD
+   (estilo igual a Educación)
+============================== */
+
+.salud header h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0a2e7a;           /* azul oscuro como el diseño */
+  border-left: 5px solid #1a73e8;  /* línea azul vertical */
+  padding-left: 20px;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+}
+
+
+/* ==============================
+   MAPAS DE SALUD (estilo igual a las demás secciones)
+============================== */
+
+.mapa-dengue,
+.mapa-desnutricion {
+  background-color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 1100px;
+  margin: 0 auto 2rem auto;
+  padding: 2.5rem 2rem;
+}
+
+.mapa-dengue h3,
+.mapa-desnutricion h3 {
+  color: #1565c0;
+  font-weight: 700;
+  font-size: 1.3rem;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.mapa-dengue .grafica-container,
+.mapa-desnutricion .grafica-container {
+  margin: 1.5rem 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+}
+
+
+/* ===============================
+   BLOQUES PRINCIPALES – MOVILIDAD
+================================ */
+
+.transporte-accidentalidad,
+.movilidad-indicadores,
+.accidentes-indicadores,
+.accidentes-top3,
+.historico-accidentalidad {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  margin: 0 auto 2rem auto;
+  max-width: 1100px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+
+/* GRÁFICAS – ESTILO INTERNO */
+.grafica-container {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.03);
+}
+
+/* TARJETAS */
+.tarjetas-indicadores,
+.tarjetas-movilidad,
+.tarjetas-accidentes,
+.tarjetas-top3,
+.tarjetas-historico {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+.tarjeta {
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.4rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.tarjeta h3 {
+  font-size: 1rem;
+  color: #1565c0;
+  font-weight: 600;
+  margin-bottom: .6rem;
+}
+
+.tarjeta p {
+  font-size: .9rem;
+  line-height: 1.4;
+  color: #444;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .tarjetas-indicadores,
+  .tarjetas-movilidad,
+  .tarjetas-accidentes,
+  .tarjetas-top3,
+  .tarjetas-historico {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .tarjetas-indicadores,
+  .tarjetas-movilidad,
+  .tarjetas-accidentes,
+  .tarjetas-top3,
+  .tarjetas-historico {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ESTILO EXACTO PARA H2 */
+h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #0d2a66;
+  border-left: 6px solid #1a73e8;
+  padding-left: 14px;
+  margin: 3rem 0 2rem 0;
+  line-height: 1.2;
+}
+
+/* ❌ Eliminar rojo de las tarjetas */
+.tarjeta {
+  background-color: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+}
+
+/* Quitar colores rojos de textos dentro de tarjetas */
+.tarjeta h3,
+.tarjeta p {
+  color: #334155 !important;  /* gris oscuro neutro */
+}
+
+
+
+ /* Tarjeta de advertencia limpia */
+  .nota-advertencia {
+    display: flex;
+    align-items: flex-start;
+    background: #ffffff; /* fondo blanco */
+    padding: 1.5rem 2rem;
+    border-left: 4px solid #fbc02d; /* amarillo solo en borde */
+    border-radius: 12px;
+    font-family: Arial, sans-serif;
+    color: #333333; /* texto oscuro neutro */
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 2rem 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* sombra muy ligera */
+  }
+
+  .nota-advertencia .icono {
+    font-size: 1.6rem;
+    margin-right: 1rem;
+    color: #fbc02d; /* icono amarillo */
+    flex-shrink: 0;
+  }
+
+  .nota-advertencia strong {
+    color: #795548; /* texto destacado en marrón suave */
+  }
+
+  /* Tarjeta de información vuelos limpia */
+  .tarjeta-vuelos {
+    background: #ffffff; /* fondo blanco */
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    font-family: Arial, sans-serif;
+    color: #333333; /* texto oscuro neutro */
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 2rem 0;
+    border: 1px solid #e0e0e0; /* borde gris muy suave */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03); /* sombra ligera */
+  }
+
+  .tarjeta-vuelos strong {
+    color: #1565c0; /* resaltar títulos en azul oscuro */
+  }
